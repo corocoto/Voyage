@@ -1,0 +1,10 @@
+F:\Github Projects\Voyage\Voyage\bin\Debug\Voyage.exe.config
+F:\Github Projects\Voyage\Voyage\bin\Debug\Voyage.exe
+F:\Github Projects\Voyage\Voyage\bin\Debug\Voyage.pdb
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.csprojAssemblyReference.cache
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.fAuthorization.resources
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.Properties.Resources.resources
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.csproj.GenerateResource.cache
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.csproj.CoreCompileInputs.cache
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.exe
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.pdb
