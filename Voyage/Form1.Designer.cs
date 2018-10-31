@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAuthorization));
             this.topPanel = new System.Windows.Forms.Panel();
             this.shutdownBtn = new System.Windows.Forms.Button();
@@ -43,7 +42,6 @@
             this.seePassword = new System.Windows.Forms.CheckBox();
             this.signInBtn = new System.Windows.Forms.Button();
             this.lCopyright = new System.Windows.Forms.Label();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSectionLogo)).BeginInit();
@@ -176,6 +174,7 @@
             this.signInBtn.TabIndex = 9;
             this.signInBtn.Text = "Войти";
             this.signInBtn.UseVisualStyleBackColor = true;
+            this.signInBtn.Click += new System.EventHandler(this.signInBtn_Click);
             // 
             // lCopyright
             // 
@@ -186,12 +185,6 @@
             this.lCopyright.Size = new System.Drawing.Size(205, 17);
             this.lCopyright.TabIndex = 10;
             this.lCopyright.Text = "Copyright © Gusev Artem 2018";
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "shutdown.png");
             // 
             // fAuthorization
             // 
@@ -239,7 +232,6 @@
         private System.Windows.Forms.Button signInBtn;
         private System.Windows.Forms.Label lCopyright;
         private System.Windows.Forms.Button shutdownBtn;
-        private System.Windows.Forms.ImageList imageList1;
     }
 }
 

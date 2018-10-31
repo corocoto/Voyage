@@ -24,7 +24,7 @@ namespace Voyage
             seePassword.ForeColor= Color.FromArgb(0, 71, 160);
             lCopyright.ForeColor = Color.FromArgb(0, 71, 160);
             shutdownBtn.BackColor= Color.FromArgb(0, 71, 160);
-            shutdownBtn.Image = imageList1.Images[0];
+            
         }
 
         private void seePassword_CheckedChanged(object sender, EventArgs e)
@@ -36,6 +36,14 @@ namespace Voyage
         private void shutdownBtn_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void signInBtn_Click(object sender, EventArgs e)
+        {
+            using(MainMenu mm= new MainMenu())
+            {
+                mm.ShowDialog();
+            }
         }
     }
 }
