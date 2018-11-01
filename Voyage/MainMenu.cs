@@ -24,6 +24,9 @@ namespace Voyage
             isCollapsed = false;
             panelWidth = pItemsOfMenu.Width;
 
+            usMain mainPage = new usMain();
+            loadNecessaryPage(mainPage);
+
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
@@ -66,10 +69,18 @@ namespace Voyage
             pYourChoice.Height = btn.Height;
 
         }
-
+        /*метод загрузки необходимой страницы в полном размере*/
+        private void loadNecessaryPage(Control page)
+        {
+            page.Dock = DockStyle.Fill;
+            contentPanel.Controls.Clear();
+            contentPanel.Controls.Add(page);
+        }
         private void homeBtn_Click(object sender, EventArgs e)
         {
             moveSidePanel(homeBtn);
+            usMain mainPage=new usMain();
+            loadNecessaryPage(mainPage);
         }
 
         private void clientsBtn_Click(object sender, EventArgs e)

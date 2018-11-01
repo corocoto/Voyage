@@ -51,6 +51,7 @@
             this.lRole = new System.Windows.Forms.Label();
             this.lName = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.contentPanel = new System.Windows.Forms.Panel();
             this.pItemsOfMenu.SuspendLayout();
             this.pBurger.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -339,12 +340,21 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // contentPanel
+            // 
+            this.contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contentPanel.Location = new System.Drawing.Point(283, 138);
+            this.contentPanel.Name = "contentPanel";
+            this.contentPanel.Size = new System.Drawing.Size(662, 523);
+            this.contentPanel.TabIndex = 3;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(945, 661);
+            this.Controls.Add(this.contentPanel);
             this.Controls.Add(this.pSection);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pItemsOfMenu);
@@ -390,5 +400,6 @@
         private System.Windows.Forms.Label lName;
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel contentPanel;
     }
 }
