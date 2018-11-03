@@ -86,6 +86,8 @@ namespace Voyage
         private void clientsBtn_Click(object sender, EventArgs e)
         {
             moveSidePanel(clientsBtn);
+            usClients clients = new usClients();
+            loadNecessaryPage(clients);
         }
 
         private void routesBtn_Click(object sender, EventArgs e)

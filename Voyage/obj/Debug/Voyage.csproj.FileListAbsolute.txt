@@ -10,3 +10,4 @@ F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.exe
 F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.pdb
 F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.MainMenu.resources
 F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.usMain.resources
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.usClients.resources
