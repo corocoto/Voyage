@@ -72,6 +72,12 @@
     <Compile Include="usMain.Designer.cs">
       <DependentUpon>usMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="usRoutes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usRoutes.Designer.cs">
+      <DependentUpon>usRoutes.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
