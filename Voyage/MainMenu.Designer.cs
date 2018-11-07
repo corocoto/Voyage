@@ -74,7 +74,7 @@
             this.pItemsOfMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pItemsOfMenu.Location = new System.Drawing.Point(0, 0);
             this.pItemsOfMenu.Name = "pItemsOfMenu";
-            this.pItemsOfMenu.Size = new System.Drawing.Size(283, 661);
+            this.pItemsOfMenu.Size = new System.Drawing.Size(283, 1024);
             this.pItemsOfMenu.TabIndex = 0;
             // 
             // pYourChoice
@@ -272,7 +272,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(283, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(662, 63);
+            this.panel2.Size = new System.Drawing.Size(997, 63);
             this.panel2.TabIndex = 1;
             // 
             // exitBtn
@@ -285,7 +285,7 @@
             this.exitBtn.ForeColor = System.Drawing.Color.White;
             this.exitBtn.Image = ((System.Drawing.Image)(resources.GetObject("exitBtn.Image")));
             this.exitBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.exitBtn.Location = new System.Drawing.Point(600, 0);
+            this.exitBtn.Location = new System.Drawing.Point(935, 0);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(62, 63);
             this.exitBtn.TabIndex = 2;
@@ -311,7 +311,7 @@
             this.pSection.Dock = System.Windows.Forms.DockStyle.Top;
             this.pSection.Location = new System.Drawing.Point(283, 63);
             this.pSection.Name = "pSection";
-            this.pSection.Size = new System.Drawing.Size(662, 75);
+            this.pSection.Size = new System.Drawing.Size(997, 75);
             this.pSection.TabIndex = 2;
             // 
             // lRole
@@ -345,7 +345,7 @@
             this.contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contentPanel.Location = new System.Drawing.Point(283, 138);
             this.contentPanel.Name = "contentPanel";
-            this.contentPanel.Size = new System.Drawing.Size(662, 523);
+            this.contentPanel.Size = new System.Drawing.Size(997, 886);
             this.contentPanel.TabIndex = 3;
             // 
             // MainMenu
@@ -353,7 +353,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(945, 661);
+            this.ClientSize = new System.Drawing.Size(1280, 1024);
             this.Controls.Add(this.contentPanel);
             this.Controls.Add(this.pSection);
             this.Controls.Add(this.panel2);

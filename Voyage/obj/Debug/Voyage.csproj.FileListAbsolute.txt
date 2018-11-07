@@ -11,3 +11,16 @@ F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.pdb
 F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.MainMenu.resources
 F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.usMain.resources
 F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.usClients.resources
+C:\Users\PC\Desktop\Voyage\Voyage\bin\Debug\Voyage.exe.config
+C:\Users\PC\Desktop\Voyage\Voyage\bin\Debug\Voyage.exe
+C:\Users\PC\Desktop\Voyage\Voyage\bin\Debug\Voyage.pdb
+C:\Users\PC\Desktop\Voyage\Voyage\obj\Debug\Voyage.csprojAssemblyReference.cache
+C:\Users\PC\Desktop\Voyage\Voyage\obj\Debug\Voyage.fAuthorization.resources
+C:\Users\PC\Desktop\Voyage\Voyage\obj\Debug\Voyage.MainMenu.resources
+C:\Users\PC\Desktop\Voyage\Voyage\obj\Debug\Voyage.Properties.Resources.resources
+C:\Users\PC\Desktop\Voyage\Voyage\obj\Debug\Voyage.usClients.resources
+C:\Users\PC\Desktop\Voyage\Voyage\obj\Debug\Voyage.usMain.resources
+C:\Users\PC\Desktop\Voyage\Voyage\obj\Debug\Voyage.csproj.GenerateResource.cache
+C:\Users\PC\Desktop\Voyage\Voyage\obj\Debug\Voyage.csproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\Voyage\Voyage\obj\Debug\Voyage.exe
+C:\Users\PC\Desktop\Voyage\Voyage\obj\Debug\Voyage.pdb
