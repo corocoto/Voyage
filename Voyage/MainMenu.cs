@@ -93,6 +93,8 @@ namespace Voyage
         private void routesBtn_Click(object sender, EventArgs e)
         {
             moveSidePanel(routesBtn);
+            usRoutes routes = new usRoutes();
+            loadNecessaryPage(routes);
         }
 
         private void groupsBtn_Click(object sender, EventArgs e)

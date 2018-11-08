@@ -74,7 +74,7 @@
             this.pItemsOfMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pItemsOfMenu.Location = new System.Drawing.Point(0, 0);
             this.pItemsOfMenu.Name = "pItemsOfMenu";
-            this.pItemsOfMenu.Size = new System.Drawing.Size(283, 1024);
+            this.pItemsOfMenu.Size = new System.Drawing.Size(283, 1005);
             this.pItemsOfMenu.TabIndex = 0;
             // 
             // pYourChoice
@@ -345,7 +345,7 @@
             this.contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contentPanel.Location = new System.Drawing.Point(283, 138);
             this.contentPanel.Name = "contentPanel";
-            this.contentPanel.Size = new System.Drawing.Size(997, 886);
+            this.contentPanel.Size = new System.Drawing.Size(997, 867);
             this.contentPanel.TabIndex = 3;
             // 
             // MainMenu
@@ -353,7 +353,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1280, 1024);
+            this.ClientSize = new System.Drawing.Size(1280, 1005);
             this.Controls.Add(this.contentPanel);
             this.Controls.Add(this.pSection);
             this.Controls.Add(this.panel2);

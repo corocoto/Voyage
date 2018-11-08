@@ -24,3 +24,4 @@ C:\Users\PC\Desktop\Voyage\Voyage\obj\Debug\Voyage.csproj.GenerateResource.cache
 C:\Users\PC\Desktop\Voyage\Voyage\obj\Debug\Voyage.csproj.CoreCompileInputs.cache
 C:\Users\PC\Desktop\Voyage\Voyage\obj\Debug\Voyage.exe
 C:\Users\PC\Desktop\Voyage\Voyage\obj\Debug\Voyage.pdb
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.usRoutes.resources

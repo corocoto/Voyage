@@ -16,5 +16,20 @@ namespace Voyage
         {
             InitializeComponent();
         }
+
+        private void firstStar_MouseEnter(object sender, EventArgs e)
+        {
+            firstStar.BackgroundImage = Image.FromFile(@"img/btn/star_orange.png");
+        }
+
+        private void firstStar_MouseLeave(object sender, EventArgs e)
+        {
+            firstStar.BackgroundImage = Image.FromFile(@"img/btn/star_blue.png");
+        }
+
+        private void secondStar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -66,6 +66,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pForBtn.SuspendLayout();
@@ -116,6 +118,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.textBox6);
+            this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.obnovBtn);
             this.panel1.Controls.Add(this.lCount);
             this.panel1.Controls.Add(this.lCountOfClients);
@@ -147,7 +151,7 @@
             // 
             this.lCount.AutoSize = true;
             this.lCount.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lCount.Location = new System.Drawing.Point(55, 123);
+            this.lCount.Location = new System.Drawing.Point(66, 188);
             this.lCount.Name = "lCount";
             this.lCount.Size = new System.Drawing.Size(147, 23);
             this.lCount.TabIndex = 4;
@@ -156,10 +160,10 @@
             // lCountOfClients
             // 
             this.lCountOfClients.AutoSize = true;
-            this.lCountOfClients.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lCountOfClients.Location = new System.Drawing.Point(-4, 89);
+            this.lCountOfClients.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lCountOfClients.Location = new System.Drawing.Point(16, 157);
             this.lCountOfClients.Name = "lCountOfClients";
-            this.lCountOfClients.Size = new System.Drawing.Size(286, 22);
+            this.lCountOfClients.Size = new System.Drawing.Size(240, 21);
             this.lCountOfClients.TabIndex = 3;
             this.lCountOfClients.Text = "Общее количество клиентов:";
             // 
@@ -471,6 +475,26 @@
             this.checkBox1.Text = "Наличие загрант паспорта";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // textBox6
+            // 
+            this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox6.Location = new System.Drawing.Point(100, 86);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(163, 27);
+            this.textBox6.TabIndex = 34;
+            this.textBox6.Visible = false;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(16, 92);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(59, 21);
+            this.label11.TabIndex = 35;
+            this.label11.Text = "Поиск";
+            this.label11.Visible = false;
+            // 
             // usClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -552,5 +576,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label11;
     }
 }
