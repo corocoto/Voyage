@@ -34,6 +34,8 @@
             this.pBorderLeft = new System.Windows.Forms.Panel();
             this.pBorderRight = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.obnovBtn = new System.Windows.Forms.Button();
             this.lCount = new System.Windows.Forms.Label();
             this.lCountOfClients = new System.Windows.Forms.Label();
@@ -47,7 +49,7 @@
             this.dgvClients = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.photoOfClient = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.saveBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -66,8 +68,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pForBtn.SuspendLayout();
@@ -131,6 +131,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(278, 300);
             this.panel1.TabIndex = 4;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox6.Location = new System.Drawing.Point(100, 86);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(163, 27);
+            this.textBox6.TabIndex = 34;
+            this.textBox6.Visible = false;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(16, 92);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(59, 21);
+            this.label11.TabIndex = 35;
+            this.label11.Text = "Поиск";
+            this.label11.Visible = false;
             // 
             // obnovBtn
             // 
@@ -288,22 +308,22 @@
             this.photoOfClient.TabIndex = 4;
             this.photoOfClient.TabStop = false;
             // 
-            // button1
+            // saveBtn
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(609, 807);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(68, 52);
-            this.button1.TabIndex = 1;
-            this.button1.UseVisualStyleBackColor = false;
+            this.saveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveBtn.BackColor = System.Drawing.Color.Transparent;
+            this.saveBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("saveBtn.BackgroundImage")));
+            this.saveBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.saveBtn.FlatAppearance.BorderSize = 0;
+            this.saveBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.saveBtn.ForeColor = System.Drawing.Color.White;
+            this.saveBtn.Location = new System.Drawing.Point(609, 807);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Size = new System.Drawing.Size(68, 52);
+            this.saveBtn.TabIndex = 1;
+            this.saveBtn.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
@@ -475,26 +495,6 @@
             this.checkBox1.Text = "Наличие загрант паспорта";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // textBox6
-            // 
-            this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox6.Location = new System.Drawing.Point(100, 86);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(163, 27);
-            this.textBox6.TabIndex = 34;
-            this.textBox6.Visible = false;
-            // 
-            // label11
-            // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(16, 92);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(59, 21);
-            this.label11.TabIndex = 35;
-            this.label11.Text = "Поиск";
-            this.label11.Visible = false;
-            // 
             // usClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -518,7 +518,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.photoOfClient);
             this.Controls.Add(this.pForBtn);
             this.Controls.Add(this.textBox1);
@@ -557,7 +557,7 @@
         private System.Windows.Forms.Button obnovBtn;
         private System.Windows.Forms.Label lCount;
         private System.Windows.Forms.PictureBox photoOfClient;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox2;

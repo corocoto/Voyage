@@ -52,6 +52,7 @@
             this.lName = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.contentPanel = new System.Windows.Forms.Panel();
+            this.punctBtn = new System.Windows.Forms.Button();
             this.pItemsOfMenu.SuspendLayout();
             this.pBurger.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -63,6 +64,7 @@
             // 
             this.pItemsOfMenu.BackColor = System.Drawing.Color.Silver;
             this.pItemsOfMenu.Controls.Add(this.pYourChoice);
+            this.pItemsOfMenu.Controls.Add(this.punctBtn);
             this.pItemsOfMenu.Controls.Add(this.workersBtn);
             this.pItemsOfMenu.Controls.Add(this.returnBtn);
             this.pItemsOfMenu.Controls.Add(this.salesBtn);
@@ -348,6 +350,23 @@
             this.contentPanel.Size = new System.Drawing.Size(997, 867);
             this.contentPanel.TabIndex = 3;
             // 
+            // punctBtn
+            // 
+            this.punctBtn.FlatAppearance.BorderSize = 0;
+            this.punctBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.punctBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.punctBtn.ForeColor = System.Drawing.Color.White;
+            this.punctBtn.Image = ((System.Drawing.Image)(resources.GetObject("punctBtn.Image")));
+            this.punctBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.punctBtn.Location = new System.Drawing.Point(7, 562);
+            this.punctBtn.Name = "punctBtn";
+            this.punctBtn.Size = new System.Drawing.Size(276, 55);
+            this.punctBtn.TabIndex = 2;
+            this.punctBtn.Text = "     Пункт маршрута\r\n";
+            this.punctBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.punctBtn.UseVisualStyleBackColor = true;
+            this.punctBtn.Click += new System.EventHandler(this.punctBtn_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -401,5 +420,6 @@
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel contentPanel;
+        private System.Windows.Forms.Button punctBtn;
     }
 }

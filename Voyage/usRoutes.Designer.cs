@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(usRoutes));
             this.label9 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateOfFly = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.tbDays = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -39,11 +39,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.saveBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.nameOfRoute = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.obnovBtn = new System.Windows.Forms.Button();
+            this.refreshBtn = new System.Windows.Forms.Button();
             this.lCount = new System.Windows.Forms.Label();
             this.lCountOfRoutes = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -52,32 +52,24 @@
             this.searchBtn = new System.Windows.Forms.Button();
             this.delBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.pBorderRight = new System.Windows.Forms.Panel();
             this.pBorderLeft = new System.Windows.Forms.Panel();
             this.pForBtn = new System.Windows.Forms.Panel();
             this.dgvRoutes = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.cbCountries = new System.Windows.Forms.ComboBox();
             this.cbWorker = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbSale = new System.Windows.Forms.TextBox();
             this.tbReturn = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.lbExcurse = new System.Windows.Forms.ListBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.firstStar = new System.Windows.Forms.Button();
-            this.secondStar = new System.Windows.Forms.Button();
-            this.thirdStar = new System.Windows.Forms.Button();
-            this.fouthStar = new System.Windows.Forms.Button();
-            this.fifthStar = new System.Windows.Forms.Button();
+            this.pbPlaneLogo = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pForBtn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoutes)).BeginInit();
-            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaneLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // label9
@@ -90,14 +82,14 @@
             this.label9.TabIndex = 37;
             this.label9.Text = "Срок пребывания (в днях)";
             // 
-            // dateTimePicker1
+            // dateOfFly
             // 
-            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(469, 489);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(163, 27);
-            this.dateTimePicker1.TabIndex = 36;
+            this.dateOfFly.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dateOfFly.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateOfFly.Location = new System.Drawing.Point(469, 489);
+            this.dateOfFly.Name = "dateOfFly";
+            this.dateOfFly.Size = new System.Drawing.Size(163, 27);
+            this.dateOfFly.TabIndex = 36;
             // 
             // label8
             // 
@@ -175,22 +167,22 @@
             this.label2.TabIndex = 24;
             this.label2.Text = "Название маршрута";
             // 
-            // button1
+            // saveBtn
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(573, 807);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(68, 52);
-            this.button1.TabIndex = 20;
-            this.button1.UseVisualStyleBackColor = false;
+            this.saveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveBtn.BackColor = System.Drawing.Color.Transparent;
+            this.saveBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("saveBtn.BackgroundImage")));
+            this.saveBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.saveBtn.FlatAppearance.BorderSize = 0;
+            this.saveBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.saveBtn.ForeColor = System.Drawing.Color.White;
+            this.saveBtn.Location = new System.Drawing.Point(573, 807);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Size = new System.Drawing.Size(68, 52);
+            this.saveBtn.TabIndex = 20;
+            this.saveBtn.UseVisualStyleBackColor = false;
             // 
             // addBtn
             // 
@@ -207,17 +199,17 @@
             this.addBtn.Text = "+";
             this.addBtn.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // nameOfRoute
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.Location = new System.Drawing.Point(469, 97);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(163, 27);
-            this.textBox1.TabIndex = 21;
+            this.nameOfRoute.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.nameOfRoute.Location = new System.Drawing.Point(469, 97);
+            this.nameOfRoute.Name = "nameOfRoute";
+            this.nameOfRoute.Size = new System.Drawing.Size(163, 27);
+            this.nameOfRoute.TabIndex = 21;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.obnovBtn);
+            this.panel1.Controls.Add(this.refreshBtn);
             this.panel1.Controls.Add(this.lCount);
             this.panel1.Controls.Add(this.lCountOfRoutes);
             this.panel1.Controls.Add(this.panel4);
@@ -231,20 +223,20 @@
             this.panel1.Size = new System.Drawing.Size(278, 300);
             this.panel1.TabIndex = 4;
             // 
-            // obnovBtn
+            // refreshBtn
             // 
-            this.obnovBtn.BackColor = System.Drawing.Color.SeaGreen;
-            this.obnovBtn.FlatAppearance.BorderSize = 0;
-            this.obnovBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.obnovBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.obnovBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.obnovBtn.ForeColor = System.Drawing.Color.White;
-            this.obnovBtn.Location = new System.Drawing.Point(82, 231);
-            this.obnovBtn.Name = "obnovBtn";
-            this.obnovBtn.Size = new System.Drawing.Size(123, 42);
-            this.obnovBtn.TabIndex = 1;
-            this.obnovBtn.Text = "Обновить";
-            this.obnovBtn.UseVisualStyleBackColor = false;
+            this.refreshBtn.BackColor = System.Drawing.Color.SeaGreen;
+            this.refreshBtn.FlatAppearance.BorderSize = 0;
+            this.refreshBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.refreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.refreshBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.refreshBtn.ForeColor = System.Drawing.Color.White;
+            this.refreshBtn.Location = new System.Drawing.Point(82, 231);
+            this.refreshBtn.Name = "refreshBtn";
+            this.refreshBtn.Size = new System.Drawing.Size(123, 42);
+            this.refreshBtn.TabIndex = 1;
+            this.refreshBtn.Text = "Обновить";
+            this.refreshBtn.UseVisualStyleBackColor = false;
             // 
             // lCount
             // 
@@ -342,6 +334,26 @@
             this.panel2.Size = new System.Drawing.Size(278, 7);
             this.panel2.TabIndex = 0;
             // 
+            // textBox6
+            // 
+            this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox6.Location = new System.Drawing.Point(103, 82);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(163, 27);
+            this.textBox6.TabIndex = 30;
+            this.textBox6.Visible = false;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(16, 88);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(59, 21);
+            this.label11.TabIndex = 33;
+            this.label11.Text = "Поиск";
+            this.label11.Visible = false;
+            // 
             // pBorderRight
             // 
             this.pBorderRight.BackColor = System.Drawing.Color.Blue;
@@ -394,28 +406,9 @@
             this.label1.TabIndex = 19;
             this.label1.Text = "Данные о маршруте";
             // 
-            // textBox6
-            // 
-            this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox6.Location = new System.Drawing.Point(103, 82);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(163, 27);
-            this.textBox6.TabIndex = 30;
-            this.textBox6.Visible = false;
-            // 
-            // label11
-            // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(16, 88);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(59, 21);
-            this.label11.TabIndex = 33;
-            this.label11.Text = "Поиск";
-            this.label11.Visible = false;
-            // 
             // cbCountries
             // 
+            this.cbCountries.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbCountries.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCountries.FormattingEnabled = true;
             this.cbCountries.Items.AddRange(new object[] {
@@ -434,29 +427,21 @@
             // 
             // cbWorker
             // 
+            this.cbWorker.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbWorker.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbWorker.FormattingEnabled = true;
-            this.cbWorker.Items.AddRange(new object[] {
-            "Россия",
-            "Германия",
-            "Чехия",
-            "Греция",
-            "Италия",
-            "Испания",
-            "Нидерланды",
-            "США"});
             this.cbWorker.Location = new System.Drawing.Point(469, 277);
             this.cbWorker.Name = "cbWorker";
             this.cbWorker.Size = new System.Drawing.Size(163, 29);
             this.cbWorker.TabIndex = 41;
             // 
-            // textBox2
+            // tbSale
             // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.Location = new System.Drawing.Point(469, 366);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(163, 27);
-            this.textBox2.TabIndex = 30;
+            this.tbSale.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbSale.Location = new System.Drawing.Point(469, 366);
+            this.tbSale.Name = "tbSale";
+            this.tbSale.Size = new System.Drawing.Size(163, 27);
+            this.tbSale.TabIndex = 30;
             // 
             // tbReturn
             // 
@@ -476,161 +461,44 @@
             this.label5.TabIndex = 33;
             this.label5.Text = "Неустойка";
             // 
-            // lbExcurse
+            // pbPlaneLogo
             // 
-            this.lbExcurse.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbExcurse.FormattingEnabled = true;
-            this.lbExcurse.ItemHeight = 21;
-            this.lbExcurse.Location = new System.Drawing.Point(39, 687);
-            this.lbExcurse.Name = "lbExcurse";
-            this.lbExcurse.Size = new System.Drawing.Size(515, 172);
-            this.lbExcurse.TabIndex = 43;
-            // 
-            // label10
-            // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(35, 642);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(238, 21);
-            this.label10.TabIndex = 42;
-            this.label10.Text = "Экскурсионная программа";
-            // 
-            // label12
-            // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(35, 597);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(146, 21);
-            this.label12.TabIndex = 35;
-            this.label12.Text = "Класс гостиницы";
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.fifthStar);
-            this.panel5.Controls.Add(this.fouthStar);
-            this.panel5.Controls.Add(this.thirdStar);
-            this.panel5.Controls.Add(this.secondStar);
-            this.panel5.Controls.Add(this.firstStar);
-            this.panel5.Location = new System.Drawing.Point(351, 571);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(281, 56);
-            this.panel5.TabIndex = 44;
-            // 
-            // firstStar
-            // 
-            this.firstStar.BackColor = System.Drawing.Color.Transparent;
-            this.firstStar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("firstStar.BackgroundImage")));
-            this.firstStar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.firstStar.FlatAppearance.BorderSize = 0;
-            this.firstStar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.firstStar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.firstStar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.firstStar.ForeColor = System.Drawing.Color.White;
-            this.firstStar.Location = new System.Drawing.Point(4, 8);
-            this.firstStar.Name = "firstStar";
-            this.firstStar.Size = new System.Drawing.Size(50, 42);
-            this.firstStar.TabIndex = 2;
-            this.firstStar.UseVisualStyleBackColor = false;
-            this.firstStar.MouseEnter += new System.EventHandler(this.firstStar_MouseEnter);
-            this.firstStar.MouseLeave += new System.EventHandler(this.firstStar_MouseLeave);
-            // 
-            // secondStar
-            // 
-            this.secondStar.BackColor = System.Drawing.Color.Transparent;
-            this.secondStar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("secondStar.BackgroundImage")));
-            this.secondStar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.secondStar.FlatAppearance.BorderSize = 0;
-            this.secondStar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.secondStar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.secondStar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.secondStar.ForeColor = System.Drawing.Color.White;
-            this.secondStar.Location = new System.Drawing.Point(60, 8);
-            this.secondStar.Name = "secondStar";
-            this.secondStar.Size = new System.Drawing.Size(50, 42);
-            this.secondStar.TabIndex = 2;
-            this.secondStar.UseVisualStyleBackColor = false;
-            this.secondStar.Click += new System.EventHandler(this.secondStar_Click);
-            // 
-            // thirdStar
-            // 
-            this.thirdStar.BackColor = System.Drawing.Color.Transparent;
-            this.thirdStar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("thirdStar.BackgroundImage")));
-            this.thirdStar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.thirdStar.FlatAppearance.BorderSize = 0;
-            this.thirdStar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.thirdStar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.thirdStar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.thirdStar.ForeColor = System.Drawing.Color.White;
-            this.thirdStar.Location = new System.Drawing.Point(116, 8);
-            this.thirdStar.Name = "thirdStar";
-            this.thirdStar.Size = new System.Drawing.Size(50, 42);
-            this.thirdStar.TabIndex = 2;
-            this.thirdStar.UseVisualStyleBackColor = false;
-            // 
-            // fouthStar
-            // 
-            this.fouthStar.BackColor = System.Drawing.Color.Transparent;
-            this.fouthStar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fouthStar.BackgroundImage")));
-            this.fouthStar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.fouthStar.FlatAppearance.BorderSize = 0;
-            this.fouthStar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fouthStar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fouthStar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.fouthStar.ForeColor = System.Drawing.Color.White;
-            this.fouthStar.Location = new System.Drawing.Point(172, 8);
-            this.fouthStar.Name = "fouthStar";
-            this.fouthStar.Size = new System.Drawing.Size(50, 42);
-            this.fouthStar.TabIndex = 2;
-            this.fouthStar.UseVisualStyleBackColor = false;
-            // 
-            // fifthStar
-            // 
-            this.fifthStar.BackColor = System.Drawing.Color.Transparent;
-            this.fifthStar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fifthStar.BackgroundImage")));
-            this.fifthStar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.fifthStar.FlatAppearance.BorderSize = 0;
-            this.fifthStar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fifthStar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fifthStar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.fifthStar.ForeColor = System.Drawing.Color.White;
-            this.fifthStar.Location = new System.Drawing.Point(228, 8);
-            this.fifthStar.Name = "fifthStar";
-            this.fifthStar.Size = new System.Drawing.Size(50, 42);
-            this.fifthStar.TabIndex = 2;
-            this.fifthStar.UseVisualStyleBackColor = false;
+            this.pbPlaneLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbPlaneLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaneLogo.Image")));
+            this.pbPlaneLogo.Location = new System.Drawing.Point(39, 635);
+            this.pbPlaneLogo.Name = "pbPlaneLogo";
+            this.pbPlaneLogo.Size = new System.Drawing.Size(515, 224);
+            this.pbPlaneLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPlaneLogo.TabIndex = 42;
+            this.pbPlaneLogo.TabStop = false;
             // 
             // usRoutes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.lbExcurse);
-            this.Controls.Add(this.label10);
+            this.Controls.Add(this.pbPlaneLogo);
             this.Controls.Add(this.cbWorker);
             this.Controls.Add(this.cbCountries);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.label12);
+            this.Controls.Add(this.dateOfFly);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.tbDays);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.tbReturn);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tbSale);
             this.Controls.Add(this.tbMoney);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.saveBtn);
+            this.Controls.Add(this.nameOfRoute);
             this.Controls.Add(this.pForBtn);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "usRoutes";
             this.Size = new System.Drawing.Size(997, 886);
             this.panel1.ResumeLayout(false);
@@ -638,7 +506,7 @@
             this.panel3.ResumeLayout(false);
             this.pForBtn.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoutes)).EndInit();
-            this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaneLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -646,7 +514,7 @@
 
         #endregion
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateOfFly;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tbDays;
         private System.Windows.Forms.Label label7;
@@ -655,11 +523,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Button addBtn;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox nameOfRoute;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button obnovBtn;
+        private System.Windows.Forms.Button refreshBtn;
         private System.Windows.Forms.Label lCount;
         private System.Windows.Forms.Label lCountOfRoutes;
         private System.Windows.Forms.Panel panel4;
@@ -677,17 +545,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbCountries;
         private System.Windows.Forms.ComboBox cbWorker;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbSale;
         private System.Windows.Forms.TextBox tbReturn;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ListBox lbExcurse;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button fifthStar;
-        private System.Windows.Forms.Button fouthStar;
-        private System.Windows.Forms.Button thirdStar;
-        private System.Windows.Forms.Button secondStar;
-        private System.Windows.Forms.Button firstStar;
+        private System.Windows.Forms.PictureBox pbPlaneLogo;
     }
 }

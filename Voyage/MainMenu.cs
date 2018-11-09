@@ -100,6 +100,8 @@ namespace Voyage
         private void groupsBtn_Click(object sender, EventArgs e)
         {
             moveSidePanel(groupsBtn);
+            usGroups groups = new usGroups();
+            loadNecessaryPage(groups);
         }
 
         private void salesBtn_Click(object sender, EventArgs e)
@@ -115,6 +117,11 @@ namespace Voyage
         private void workersBtn_Click(object sender, EventArgs e)
         {
             moveSidePanel(workersBtn);
+        }
+
+        private void punctBtn_Click(object sender, EventArgs e)
+        {
+            moveSidePanel(punctBtn);
         }
     }
 }

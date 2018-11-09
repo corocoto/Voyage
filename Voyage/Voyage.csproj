@@ -66,6 +66,12 @@
     <Compile Include="usClients.Designer.cs">
       <DependentUpon>usClients.cs</DependentUpon>
     </Compile>
+    <Compile Include="usGroups.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usGroups.Designer.cs">
+      <DependentUpon>usGroups.cs</DependentUpon>
+    </Compile>
     <Compile Include="usMain.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     </Compile>
     <EmbeddedResource Include="usClients.resx">
       <DependentUpon>usClients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usGroups.resx">
+      <DependentUpon>usGroups.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="usMain.resx">
       <DependentUpon>usMain.cs</DependentUpon>
