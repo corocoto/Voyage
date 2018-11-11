@@ -84,6 +84,12 @@
     <Compile Include="usRoutes.Designer.cs">
       <DependentUpon>usRoutes.cs</DependentUpon>
     </Compile>
+    <Compile Include="usSales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usSales.Designer.cs">
+      <DependentUpon>usSales.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="usRoutes.resx">
       <DependentUpon>usRoutes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usSales.resx">
+      <DependentUpon>usSales.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

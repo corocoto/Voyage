@@ -68,6 +68,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.groupBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pForBtn.SuspendLayout();
@@ -315,7 +316,7 @@
             this.saveBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("saveBtn.BackgroundImage")));
             this.saveBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.saveBtn.FlatAppearance.BorderSize = 0;
-            this.saveBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.saveBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.saveBtn.ForeColor = System.Drawing.Color.White;
@@ -495,6 +496,23 @@
             this.checkBox1.Text = "Наличие загрант паспорта";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // groupBtn
+            // 
+            this.groupBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBtn.BackColor = System.Drawing.Color.Transparent;
+            this.groupBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBtn.BackgroundImage")));
+            this.groupBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.groupBtn.FlatAppearance.BorderSize = 0;
+            this.groupBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.groupBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBtn.ForeColor = System.Drawing.Color.White;
+            this.groupBtn.Location = new System.Drawing.Point(485, 791);
+            this.groupBtn.Name = "groupBtn";
+            this.groupBtn.Size = new System.Drawing.Size(118, 85);
+            this.groupBtn.TabIndex = 1;
+            this.groupBtn.UseVisualStyleBackColor = false;
+            // 
             // usClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -518,6 +536,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.groupBtn);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.photoOfClient);
             this.Controls.Add(this.pForBtn);
@@ -578,5 +597,6 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button groupBtn;
     }
 }

@@ -107,6 +107,8 @@ namespace Voyage
         private void salesBtn_Click(object sender, EventArgs e)
         {
             moveSidePanel(salesBtn);
+            usSales sales = new usSales();
+            loadNecessaryPage(sales);
         }
 
         private void returnBtn_Click(object sender, EventArgs e)

@@ -174,7 +174,7 @@
             this.saveBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("saveBtn.BackgroundImage")));
             this.saveBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.saveBtn.FlatAppearance.BorderSize = 0;
-            this.saveBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.saveBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.saveBtn.ForeColor = System.Drawing.Color.White;
