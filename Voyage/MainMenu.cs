@@ -114,6 +114,8 @@ namespace Voyage
         private void returnBtn_Click(object sender, EventArgs e)
         {
             moveSidePanel(returnBtn);
+            usReturn returnPage = new usReturn();
+            loadNecessaryPage(returnPage);
         }
 
         private void workersBtn_Click(object sender, EventArgs e)

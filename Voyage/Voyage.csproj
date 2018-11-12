@@ -78,6 +78,12 @@
     <Compile Include="usMain.Designer.cs">
       <DependentUpon>usMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="usReturn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usReturn.Designer.cs">
+      <DependentUpon>usReturn.cs</DependentUpon>
+    </Compile>
     <Compile Include="usRoutes.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -113,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="usMain.resx">
       <DependentUpon>usMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usReturn.resx">
+      <DependentUpon>usReturn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="usRoutes.resx">
       <DependentUpon>usRoutes.cs</DependentUpon>
