@@ -78,6 +78,12 @@
     <Compile Include="usMain.Designer.cs">
       <DependentUpon>usMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="usPunct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usPunct.Designer.cs">
+      <DependentUpon>usPunct.cs</DependentUpon>
+    </Compile>
     <Compile Include="usReturn.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -125,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="usMain.resx">
       <DependentUpon>usMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usPunct.resx">
+      <DependentUpon>usPunct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="usReturn.resx">
       <DependentUpon>usReturn.cs</DependentUpon>

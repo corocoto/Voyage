@@ -29,3 +29,4 @@ F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.usGroups.resources
 F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.usSales.resources
 F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.usReturn.resources
 F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.usWorkers.resources
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.usPunct.resources

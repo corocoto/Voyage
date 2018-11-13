@@ -128,6 +128,8 @@ namespace Voyage
         private void punctBtn_Click(object sender, EventArgs e)
         {
             moveSidePanel(punctBtn);
+            usPunct punct = new usPunct();
+            loadNecessaryPage(punct);
         }
     }
 }
