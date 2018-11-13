@@ -121,6 +121,8 @@ namespace Voyage
         private void workersBtn_Click(object sender, EventArgs e)
         {
             moveSidePanel(workersBtn);
+            usWorkers workers = new usWorkers();
+            loadNecessaryPage(workers);
         }
 
         private void punctBtn_Click(object sender, EventArgs e)

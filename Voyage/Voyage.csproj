@@ -96,6 +96,12 @@
     <Compile Include="usSales.Designer.cs">
       <DependentUpon>usSales.cs</DependentUpon>
     </Compile>
+    <Compile Include="usWorkers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usWorkers.Designer.cs">
+      <DependentUpon>usWorkers.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -128,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="usSales.resx">
       <DependentUpon>usSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usWorkers.resx">
+      <DependentUpon>usWorkers.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
