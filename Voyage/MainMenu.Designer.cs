@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.pItemsOfMenu = new System.Windows.Forms.Panel();
             this.pYourChoice = new System.Windows.Forms.Panel();
+            this.punctBtn = new System.Windows.Forms.Button();
             this.workersBtn = new System.Windows.Forms.Button();
             this.returnBtn = new System.Windows.Forms.Button();
             this.salesBtn = new System.Windows.Forms.Button();
@@ -52,7 +53,6 @@
             this.lName = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.contentPanel = new System.Windows.Forms.Panel();
-            this.punctBtn = new System.Windows.Forms.Button();
             this.pItemsOfMenu.SuspendLayout();
             this.pBurger.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -86,6 +86,23 @@
             this.pYourChoice.Name = "pYourChoice";
             this.pYourChoice.Size = new System.Drawing.Size(7, 55);
             this.pYourChoice.TabIndex = 0;
+            // 
+            // punctBtn
+            // 
+            this.punctBtn.FlatAppearance.BorderSize = 0;
+            this.punctBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.punctBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.punctBtn.ForeColor = System.Drawing.Color.White;
+            this.punctBtn.Image = ((System.Drawing.Image)(resources.GetObject("punctBtn.Image")));
+            this.punctBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.punctBtn.Location = new System.Drawing.Point(7, 562);
+            this.punctBtn.Name = "punctBtn";
+            this.punctBtn.Size = new System.Drawing.Size(276, 55);
+            this.punctBtn.TabIndex = 2;
+            this.punctBtn.Text = "     Пункт маршрута\r\n";
+            this.punctBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.punctBtn.UseVisualStyleBackColor = true;
+            this.punctBtn.Click += new System.EventHandler(this.punctBtn_Click);
             // 
             // workersBtn
             // 
@@ -323,9 +340,9 @@
             this.lRole.ForeColor = System.Drawing.Color.White;
             this.lRole.Location = new System.Drawing.Point(40, 41);
             this.lRole.Name = "lRole";
-            this.lRole.Size = new System.Drawing.Size(178, 23);
+            this.lRole.Size = new System.Drawing.Size(213, 23);
             this.lRole.TabIndex = 0;
-            this.lRole.Text = "Ваша должность:";
+            this.lRole.Text = "Ваша должность:       ";
             // 
             // lName
             // 
@@ -334,9 +351,9 @@
             this.lName.ForeColor = System.Drawing.Color.White;
             this.lName.Location = new System.Drawing.Point(18, 11);
             this.lName.Name = "lName";
-            this.lName.Size = new System.Drawing.Size(200, 23);
+            this.lName.Size = new System.Drawing.Size(235, 23);
             this.lName.TabIndex = 0;
-            this.lName.Text = "Добро пожаловать:";
+            this.lName.Text = "Добро пожаловать:       ";
             // 
             // timer1
             // 
@@ -349,23 +366,6 @@
             this.contentPanel.Name = "contentPanel";
             this.contentPanel.Size = new System.Drawing.Size(997, 867);
             this.contentPanel.TabIndex = 3;
-            // 
-            // punctBtn
-            // 
-            this.punctBtn.FlatAppearance.BorderSize = 0;
-            this.punctBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.punctBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.punctBtn.ForeColor = System.Drawing.Color.White;
-            this.punctBtn.Image = ((System.Drawing.Image)(resources.GetObject("punctBtn.Image")));
-            this.punctBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.punctBtn.Location = new System.Drawing.Point(7, 562);
-            this.punctBtn.Name = "punctBtn";
-            this.punctBtn.Size = new System.Drawing.Size(276, 55);
-            this.punctBtn.TabIndex = 2;
-            this.punctBtn.Text = "     Пункт маршрута\r\n";
-            this.punctBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.punctBtn.UseVisualStyleBackColor = true;
-            this.punctBtn.Click += new System.EventHandler(this.punctBtn_Click);
             // 
             // MainMenu
             // 

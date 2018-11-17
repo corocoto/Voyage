@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +14,8 @@ namespace Voyage
 {
     public partial class fAuthorization : Form
     {
+        string connectionString = ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString;
+        SqlConnection connection;
         public fAuthorization()
         {
             InitializeComponent();
@@ -40,9 +44,46 @@ namespace Voyage
 
         private void signInBtn_Click(object sender, EventArgs e)
         {
-            using(MainMenu mm= new MainMenu())
+            SqlDataReader reader;
+            string role = "";
+            string username = "";
+            try
             {
-                mm.ShowDialog();
+                using(connection = new SqlConnection(connectionString))
+                {
+                    string command = String.Format("Select sLog, sRole From tUser Where " +
+                        "(sLog='{0}' Collate SQL_Latin1_General_CP1251_CS_AS) and " +
+                        "(sPassword='{1}' Collate SQL_Latin1_General_CP1251_CS_AS)",
+                        tbLog.Text, tbPassword.Text);
+                    SqlCommand Select = new SqlCommand(command, connection);
+                    connection.Open();
+                    reader = Select.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            username = reader[0].ToString().Trim();
+                            role = reader[1].ToString();
+                        }
+                        tbLog.Text = "";
+                        tbPassword.Text = "";
+                        MainMenu mm = new MainMenu(role, username);
+                        mm.Owner = this;
+                        mm.Show();
+                       // this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Неверные логин или пароль",
+                            "Ошибка",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
     }

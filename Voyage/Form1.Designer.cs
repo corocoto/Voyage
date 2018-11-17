@@ -49,6 +49,7 @@
             // 
             // topPanel
             // 
+            this.topPanel.BackColor = System.Drawing.Color.SteelBlue;
             this.topPanel.Controls.Add(this.shutdownBtn);
             this.topPanel.Controls.Add(this.pbLogo);
             this.topPanel.Controls.Add(this.headerLabel);
@@ -164,6 +165,7 @@
             // 
             // signInBtn
             // 
+            this.signInBtn.BackColor = System.Drawing.Color.SteelBlue;
             this.signInBtn.FlatAppearance.BorderSize = 0;
             this.signInBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.signInBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -173,7 +175,7 @@
             this.signInBtn.Size = new System.Drawing.Size(452, 45);
             this.signInBtn.TabIndex = 9;
             this.signInBtn.Text = "Войти";
-            this.signInBtn.UseVisualStyleBackColor = true;
+            this.signInBtn.UseVisualStyleBackColor = false;
             this.signInBtn.Click += new System.EventHandler(this.signInBtn_Click);
             // 
             // lCopyright

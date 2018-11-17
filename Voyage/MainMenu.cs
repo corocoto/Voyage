@@ -12,21 +12,43 @@ namespace Voyage
 {
     public partial class MainMenu : Form
     {
+        /*переменные для отображения личных данных пользователя*/
+        string username = "";
+        string role = "";
+
         int panelWidth;
         /*свернуть/развернуть меню*/
         bool isCollapsed;
         public MainMenu()
         {
             InitializeComponent();
-            pItemsOfMenu.BackColor=Color.FromArgb(0, 71, 160);
+           /* pItemsOfMenu.BackColor=Color.FromArgb(0, 71, 160);
             pSection.BackColor = Color.FromArgb(0, 71, 160);
             lHeaderNameOfComapny.ForeColor= Color.FromArgb(0, 71, 160);
             isCollapsed = false;
             panelWidth = pItemsOfMenu.Width;
 
             usMain mainPage = new usMain();
+            loadNecessaryPage(mainPage);*/
+
+        }
+
+        public MainMenu(string role, string username)
+        {
+            InitializeComponent();
+            pItemsOfMenu.BackColor = Color.FromArgb(0, 71, 160);
+            pSection.BackColor = Color.FromArgb(0, 71, 160);
+            lHeaderNameOfComapny.ForeColor = Color.FromArgb(0, 71, 160);
+            isCollapsed = false;
+            panelWidth = pItemsOfMenu.Width;
+
+            usMain mainPage = new usMain();
             loadNecessaryPage(mainPage);
 
+            this.role = role;
+            this.username = username;
+            lName.Text += this.username;
+            lRole.Text += this.role;
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
