@@ -15,7 +15,7 @@ namespace Voyage
 {
     public partial class usClients : UserControl
     {
-        //SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString);
+        SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString);
         DataTable dt;
         DataSet ds;
         SqlDataAdapter adapter;
@@ -104,10 +104,24 @@ namespace Voyage
             label12.Text = fileName;
         }
 
+        private void ClearText()
+        {
+            photoOfClient.Image = imageList1.Images[0];
+            label12.Text = "";
+            tbName.Text = "";
+            tbSurname.Text = "";
+            tbPatronymic.Text = "";
+            tbSeries.Text = "";
+            tbNumber.Text = "";
+            lbDocIssue.Text = "";
+            AbroadDoc.Checked = false;
+        }
+
         public usClients()
         {
             InitializeComponent();
             LoadDataFromTable();
+            forBtn = false;
             this.ForeColor=Color.FromArgb(0, 71, 160);
             pBorderLeft.BackColor= Color.FromArgb(0, 71, 160);
             pBorderRight.BackColor=Color.FromArgb(0, 71, 160);
@@ -136,11 +150,59 @@ namespace Voyage
 
         private void delBtn_Click(object sender, EventArgs e)
         {
-            foreach(DataGridViewRow row in dgvClients.SelectedRows)
+            if (forBtn)
             {
-                dgvClients.Rows.Remove(row);
+                //отмена
+                forBtn = false;
+                saveBtn.Enabled = true;
+                LoadDataFromTable();
+
             }
-           //
+            else if (bs.Count > 0)
+            {
+                int rowPosition = bs.Position;
+                int delId = Convert.ToInt32(((DataRowView)this.bs.Current).Row["ID_Client"]);
+                try
+                {
+                    DialogResult result = MessageBox.Show(
+                    "Вы действительно хотите удалить данную запись",
+                    "Удаление",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly);
+                    if (result == DialogResult.No)
+                    {
+                        LoadDataFromTable();
+                        return;
+                    }
+                    if (result == DialogResult.Yes)
+                    {
+                        connection.Open();
+                        SqlCommand Delete = new SqlCommand("Delete From dbo.tClients where ID_Client = @ID", connection);
+                        Delete.Parameters.AddWithValue("@ID", delId);
+                        Delete.ExecuteNonQuery();
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    if ((uint)ex.ErrorCode == 0x80004005)
+                        MessageBox.Show(
+                        "В таблицах есть связанные записи",
+                        "Ошибка",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error,
+                        MessageBoxDefaultButton.Button1,
+                        MessageBoxOptions.DefaultDesktopOnly);
+                    else
+                        MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    connection.Close();
+                    LoadDataFromTable();
+                }
+            }
         }
 
         private void photoOfClient_DoubleClick(object sender, EventArgs e)
@@ -189,6 +251,13 @@ namespace Voyage
             {
                 e.Handled = true;
             }
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            ClearText();
+            forBtn = true;
+            saveBtn.Enabled = false;
         }
     }
 }
