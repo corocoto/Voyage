@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace Voyage
 {
@@ -53,6 +54,7 @@ namespace Voyage
                 tbSeries.DataBindings.Clear();
                 tbSeries.DataBindings.Add(new Binding("Text", bs, "Series"));
                 tbNumber.DataBindings.Clear();
+
                 tbNumber.DataBindings.Add(new Binding("Text", bs, "Number"));
                 lbDocIssue.DataBindings.Clear();
                 lbDocIssue.DataBindings.Add(new Binding("Text", bs, "sDocIssue"));
@@ -139,6 +141,54 @@ namespace Voyage
                 dgvClients.Rows.Remove(row);
             }
            //
+        }
+
+        private void photoOfClient_DoubleClick(object sender, EventArgs e)
+        {
+            Stream myStream = null;
+            OpenFileDialog Dialog = new OpenFileDialog();
+            Dialog.InitialDirectory = "c:\\";
+            Dialog.Filter = "jpg files (*.jpg)|*.jpg| png files (*.png)|*.png";
+            Dialog.FilterIndex = 1;
+            Dialog.RestoreDirectory = true;
+            if (Dialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    if ((myStream = Dialog.OpenFile()) != null)
+                    {
+                        using (myStream)
+                        {
+                            photoOfClient.Image = Image.FromFile(Dialog.FileName);
+                            label12.Text = Dialog.SafeFileName.ToString();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка:" + ex.Message);
+                }
+            }
+        }
+
+        private void tbSeries_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //ввод только чисел
+            char number = e.KeyChar;
+            if (!Char.IsDigit(number) && number != 8) 
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //ввод только русских и ангийских символов
+            char word = e.KeyChar;
+            if ((word < 'А' || word > 'Я') && (word < 'A' || word > 'Z') && word != '\b'  && (word < 'a' || word > 'z') && (word < 'а' || word > 'я'))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

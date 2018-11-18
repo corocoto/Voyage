@@ -101,6 +101,7 @@
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(163, 27);
             this.tbName.TabIndex = 2;
+            this.tbName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
             // 
             // pBorderLeft
             // 
@@ -316,6 +317,7 @@
             this.photoOfClient.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.photoOfClient.TabIndex = 4;
             this.photoOfClient.TabStop = false;
+            this.photoOfClient.DoubleClick += new System.EventHandler(this.photoOfClient_DoubleClick);
             // 
             // saveBtn
             // 
@@ -361,6 +363,7 @@
             this.tbSurname.Name = "tbSurname";
             this.tbSurname.Size = new System.Drawing.Size(163, 27);
             this.tbSurname.TabIndex = 7;
+            this.tbSurname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
             // 
             // label4
             // 
@@ -379,6 +382,7 @@
             this.tbPatronymic.Name = "tbPatronymic";
             this.tbPatronymic.Size = new System.Drawing.Size(163, 27);
             this.tbPatronymic.TabIndex = 7;
+            this.tbPatronymic.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
             // 
             // label5
             // 
@@ -421,6 +425,7 @@
             this.tbSeries.Name = "tbSeries";
             this.tbSeries.Size = new System.Drawing.Size(163, 27);
             this.tbSeries.TabIndex = 7;
+            this.tbSeries.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSeries_KeyPress);
             // 
             // tbNumber
             // 
@@ -429,6 +434,7 @@
             this.tbNumber.Name = "tbNumber";
             this.tbNumber.Size = new System.Drawing.Size(163, 27);
             this.tbNumber.TabIndex = 11;
+            this.tbNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSeries_KeyPress);
             // 
             // label7
             // 
