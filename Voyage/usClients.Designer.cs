@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(usClients));
             this.addBtn = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbName = new System.Windows.Forms.TextBox();
             this.pBorderLeft = new System.Windows.Forms.Panel();
             this.pBorderRight = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.tbSearchClient = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.obnovBtn = new System.Windows.Forms.Button();
             this.lCount = new System.Windows.Forms.Label();
@@ -52,23 +53,25 @@
             this.saveBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbSurname = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbPatronymic = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbDoc = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tbSeries = new System.Windows.Forms.TextBox();
+            this.tbNumber = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpDateIssue = new System.Windows.Forms.DateTimePicker();
+            this.dtpBithday = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.lbDocIssue = new System.Windows.Forms.ListBox();
+            this.AbroadDoc = new System.Windows.Forms.CheckBox();
             this.groupBtn = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pForBtn.SuspendLayout();
@@ -91,13 +94,13 @@
             this.addBtn.Text = "+";
             this.addBtn.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // tbName
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.Location = new System.Drawing.Point(229, 106);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(163, 27);
-            this.textBox1.TabIndex = 2;
+            this.tbName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbName.Location = new System.Drawing.Point(229, 106);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(163, 27);
+            this.tbName.TabIndex = 2;
             // 
             // pBorderLeft
             // 
@@ -119,7 +122,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox6);
+            this.panel1.Controls.Add(this.tbSearchClient);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.obnovBtn);
             this.panel1.Controls.Add(this.lCount);
@@ -133,14 +136,14 @@
             this.panel1.Size = new System.Drawing.Size(278, 300);
             this.panel1.TabIndex = 4;
             // 
-            // textBox6
+            // tbSearchClient
             // 
-            this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox6.Location = new System.Drawing.Point(100, 86);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(163, 27);
-            this.textBox6.TabIndex = 34;
-            this.textBox6.Visible = false;
+            this.tbSearchClient.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbSearchClient.Location = new System.Drawing.Point(100, 86);
+            this.tbSearchClient.Name = "tbSearchClient";
+            this.tbSearchClient.Size = new System.Drawing.Size(163, 27);
+            this.tbSearchClient.TabIndex = 34;
+            this.tbSearchClient.Visible = false;
             // 
             // label11
             // 
@@ -172,7 +175,7 @@
             // 
             this.lCount.AutoSize = true;
             this.lCount.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lCount.Location = new System.Drawing.Point(66, 188);
+            this.lCount.Location = new System.Drawing.Point(109, 190);
             this.lCount.Name = "lCount";
             this.lCount.Size = new System.Drawing.Size(147, 23);
             this.lCount.TabIndex = 4;
@@ -239,6 +242,7 @@
             this.searchBtn.Size = new System.Drawing.Size(50, 42);
             this.searchBtn.TabIndex = 1;
             this.searchBtn.UseVisualStyleBackColor = false;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
             // 
             // delBtn
             // 
@@ -254,6 +258,7 @@
             this.delBtn.TabIndex = 1;
             this.delBtn.Text = "-";
             this.delBtn.UseVisualStyleBackColor = false;
+            this.delBtn.Click += new System.EventHandler(this.delBtn_Click);
             // 
             // panel2
             // 
@@ -279,11 +284,15 @@
             // 
             // dgvClients
             // 
+            this.dgvClients.AllowUserToAddRows = false;
+            this.dgvClients.AllowUserToDeleteRows = false;
             this.dgvClients.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClients.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvClients.Location = new System.Drawing.Point(7, 0);
             this.dgvClients.Name = "dgvClients";
+            this.dgvClients.ReadOnly = true;
+            this.dgvClients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClients.Size = new System.Drawing.Size(278, 586);
             this.dgvClients.TabIndex = 5;
             // 
@@ -301,7 +310,6 @@
             // photoOfClient
             // 
             this.photoOfClient.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.photoOfClient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.photoOfClient.Location = new System.Drawing.Point(505, 106);
             this.photoOfClient.Name = "photoOfClient";
             this.photoOfClient.Size = new System.Drawing.Size(163, 141);
@@ -346,13 +354,13 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Фамилия";
             // 
-            // textBox2
+            // tbSurname
             // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.Location = new System.Drawing.Point(229, 144);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(163, 27);
-            this.textBox2.TabIndex = 7;
+            this.tbSurname.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbSurname.Location = new System.Drawing.Point(229, 144);
+            this.tbSurname.Name = "tbSurname";
+            this.tbSurname.Size = new System.Drawing.Size(163, 27);
+            this.tbSurname.TabIndex = 7;
             // 
             // label4
             // 
@@ -364,13 +372,13 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Отчество";
             // 
-            // textBox3
+            // tbPatronymic
             // 
-            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox3.Location = new System.Drawing.Point(229, 182);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(163, 27);
-            this.textBox3.TabIndex = 7;
+            this.tbPatronymic.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbPatronymic.Location = new System.Drawing.Point(229, 182);
+            this.tbPatronymic.Name = "tbPatronymic";
+            this.tbPatronymic.Size = new System.Drawing.Size(163, 27);
+            this.tbPatronymic.TabIndex = 7;
             // 
             // label5
             // 
@@ -382,14 +390,19 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Док., удостоверяющий личность";
             // 
-            // comboBox1
+            // cbDoc
             // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(505, 282);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(163, 29);
-            this.comboBox1.TabIndex = 9;
+            this.cbDoc.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbDoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDoc.FormattingEnabled = true;
+            this.cbDoc.Items.AddRange(new object[] {
+            "паспорт",
+            "загрант паспорт",
+            "свидетельство о рождении"});
+            this.cbDoc.Location = new System.Drawing.Point(505, 282);
+            this.cbDoc.Name = "cbDoc";
+            this.cbDoc.Size = new System.Drawing.Size(163, 29);
+            this.cbDoc.TabIndex = 9;
             // 
             // label6
             // 
@@ -401,21 +414,21 @@
             this.label6.TabIndex = 6;
             this.label6.Text = "Серия";
             // 
-            // textBox4
+            // tbSeries
             // 
-            this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox4.Location = new System.Drawing.Point(229, 331);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(163, 27);
-            this.textBox4.TabIndex = 7;
+            this.tbSeries.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbSeries.Location = new System.Drawing.Point(229, 331);
+            this.tbSeries.Name = "tbSeries";
+            this.tbSeries.Size = new System.Drawing.Size(163, 27);
+            this.tbSeries.TabIndex = 7;
             // 
-            // textBox5
+            // tbNumber
             // 
-            this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox5.Location = new System.Drawing.Point(505, 331);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(163, 27);
-            this.textBox5.TabIndex = 11;
+            this.tbNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbNumber.Location = new System.Drawing.Point(505, 331);
+            this.tbNumber.Name = "tbNumber";
+            this.tbNumber.Size = new System.Drawing.Size(163, 27);
+            this.tbNumber.TabIndex = 11;
             // 
             // label7
             // 
@@ -437,23 +450,23 @@
             this.label8.TabIndex = 12;
             this.label8.Text = "Дата выдачи";
             // 
-            // dateTimePicker1
+            // dtpDateIssue
             // 
-            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(229, 705);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(163, 27);
-            this.dateTimePicker1.TabIndex = 13;
+            this.dtpDateIssue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpDateIssue.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDateIssue.Location = new System.Drawing.Point(229, 705);
+            this.dtpDateIssue.Name = "dtpDateIssue";
+            this.dtpDateIssue.Size = new System.Drawing.Size(163, 27);
+            this.dtpDateIssue.TabIndex = 13;
             // 
-            // dateTimePicker2
+            // dtpBithday
             // 
-            this.dateTimePicker2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(229, 220);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(163, 27);
-            this.dateTimePicker2.TabIndex = 15;
+            this.dtpBithday.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpBithday.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpBithday.Location = new System.Drawing.Point(229, 220);
+            this.dtpBithday.Name = "dtpBithday";
+            this.dtpBithday.Size = new System.Drawing.Size(163, 27);
+            this.dtpBithday.TabIndex = 15;
             // 
             // label9
             // 
@@ -475,26 +488,26 @@
             this.label10.TabIndex = 16;
             this.label10.Text = "Документ выдан...";
             // 
-            // listBox1
+            // lbDocIssue
             // 
-            this.listBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 21;
-            this.listBox1.Location = new System.Drawing.Point(75, 480);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(593, 172);
-            this.listBox1.TabIndex = 17;
+            this.lbDocIssue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbDocIssue.FormattingEnabled = true;
+            this.lbDocIssue.ItemHeight = 21;
+            this.lbDocIssue.Location = new System.Drawing.Point(75, 480);
+            this.lbDocIssue.Name = "lbDocIssue";
+            this.lbDocIssue.Size = new System.Drawing.Size(593, 172);
+            this.lbDocIssue.TabIndex = 17;
             // 
-            // checkBox1
+            // AbroadDoc
             // 
-            this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(422, 707);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(246, 25);
-            this.checkBox1.TabIndex = 18;
-            this.checkBox1.Text = "Наличие загрант паспорта";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.AbroadDoc.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.AbroadDoc.AutoSize = true;
+            this.AbroadDoc.Location = new System.Drawing.Point(422, 707);
+            this.AbroadDoc.Name = "AbroadDoc";
+            this.AbroadDoc.Size = new System.Drawing.Size(246, 25);
+            this.AbroadDoc.TabIndex = 18;
+            this.AbroadDoc.Text = "Наличие загрант паспорта";
+            this.AbroadDoc.UseVisualStyleBackColor = true;
             // 
             // groupBtn
             // 
@@ -513,39 +526,57 @@
             this.groupBtn.TabIndex = 1;
             this.groupBtn.UseVisualStyleBackColor = false;
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "client_default_photo.png");
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(418, 220);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(66, 21);
+            this.label12.TabIndex = 19;
+            this.label12.Text = "label12";
+            this.label12.Visible = false;
+            // 
             // usClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.AbroadDoc);
+            this.Controls.Add(this.lbDocIssue);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dtpBithday);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpDateIssue);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.tbNumber);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbDoc);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.tbSeries);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.tbPatronymic);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tbSurname);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBtn);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.photoOfClient);
             this.Controls.Add(this.pForBtn);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbName);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "usClients";
             this.Size = new System.Drawing.Size(997, 886);
+            this.Load += new System.EventHandler(this.usClients_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -559,7 +590,7 @@
 
         #endregion
         private System.Windows.Forms.Button addBtn;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Panel pBorderLeft;
         private System.Windows.Forms.Panel pBorderRight;
         private System.Windows.Forms.Panel panel1;
@@ -579,24 +610,26 @@
         private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbSurname;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbPatronymic;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbDoc;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tbSeries;
+        private System.Windows.Forms.TextBox tbNumber;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpDateIssue;
+        private System.Windows.Forms.DateTimePicker dtpBithday;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.ListBox lbDocIssue;
+        private System.Windows.Forms.CheckBox AbroadDoc;
+        private System.Windows.Forms.TextBox tbSearchClient;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button groupBtn;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Label label12;
     }
 }
