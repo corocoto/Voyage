@@ -210,6 +210,7 @@
             this.excelBtn.TabIndex = 1;
             this.excelBtn.Text = "Excel";
             this.excelBtn.UseVisualStyleBackColor = false;
+            this.excelBtn.Click += new System.EventHandler(this.excelBtn_Click);
             // 
             // searchBtn
             // 

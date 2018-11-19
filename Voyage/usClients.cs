@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
-
+using Excel = Microsoft.Office.Interop.Excel;
 namespace Voyage
 {
     public partial class usClients : UserControl
@@ -355,6 +355,70 @@ namespace Voyage
                 }
 
             }
+        }
+
+        private void excelBtn_Click(object sender, EventArgs e)
+        {
+            Excel.Application excelApp = new Excel.Application();
+            Excel.Workbook workBook;
+            Excel.Worksheet workSheet;
+            workBook = excelApp.Workbooks.Add();
+            workSheet = (Excel.Worksheet)workBook.Worksheets.get_Item(1);
+            workSheet.Name = "Список клиентов";
+            workSheet.Cells[1, 1] = "Имя";
+            workSheet.Cells[1, 2] = "Фамилия";
+            workSheet.Cells[1, 3] = "Отчество";
+            workSheet.Cells[1, 4] = "День рождения";
+            workSheet.Cells[1, 5] = "Документ, удостоверяющий личность";
+            workSheet.Cells[1, 6] = "Серия";
+            workSheet.Cells[1, 7] = "Номер";
+            workSheet.Cells[1, 8] = "Документ выдан...";
+            workSheet.Cells[1, 9] = "Дата выдачи";
+            workSheet.Cells[1, 10] = "Наличие загрант паспорта";
+            Excel.Range title = workSheet.Range["A1:J1"];
+            title.Cells.Font.Name = "Tahoma";
+            title.Font.Size = "16";
+            title.Cells.Font.Color = ColorTranslator.ToOle(Color.Green);
+            title.Interior.Color = ColorTranslator.ToOle(Color.FromArgb(0xFF, 0xFF, 0xCC));
+            title.Borders.get_Item(Excel.XlBordersIndex.xlEdgeBottom).LineStyle = Excel.XlLineStyle.xlContinuous;
+            title.Borders.get_Item(Excel.XlBordersIndex.xlEdgeRight).LineStyle = Excel.XlLineStyle.xlContinuous;
+            title.Borders.get_Item(Excel.XlBordersIndex.xlInsideHorizontal).LineStyle = Excel.XlLineStyle.xlContinuous;
+            title.Borders.get_Item(Excel.XlBordersIndex.xlInsideVertical).LineStyle = Excel.XlLineStyle.xlContinuous;
+            title.Borders.get_Item(Excel.XlBordersIndex.xlEdgeTop).LineStyle = Excel.XlLineStyle.xlContinuous;
+            title.EntireColumn.AutoFit();
+            title.EntireRow.AutoFit();
+            title.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+            title.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+            for (int i = 0; i < dgvClients.ColumnCount - 1; i++)
+            {
+                for (int j = 0; j < dgvClients.RowCount; j++)
+                {
+                    if (i > 3)
+                    {
+                        workSheet.Cells[j + 2, i] = dgvClients.Rows[j].Cells[i + 1].Value.ToString();
+                        workSheet.Cells[j + 2, i].Font.Name = "Tahoma";
+                        workSheet.Cells[j + 2, i].Font.Size = "14";
+                        workSheet.Cells[j + 2, i].EntireColumn.AutoFit();
+                        workSheet.Cells[j + 2, i].EntireRow.AutoFit();
+                        workSheet.Cells[j + 2, i].VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+                        workSheet.Cells[j + 2, i].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                    }
+                    else
+                    {
+                        workSheet.Cells[j + 2, i + 1] = dgvClients.Rows[j].Cells[i + 1].Value.ToString();
+                        workSheet.Cells[j + 2, i + 1].Font.Name = "Tahoma";
+                        workSheet.Cells[j + 2, i + 1].Font.Size = "14";
+                        workSheet.Cells[j + 2, i + 1].EntireColumn.AutoFit();
+                        workSheet.Cells[j + 2, i + 1].EntireRow.AutoFit();
+                        workSheet.Cells[j + 2, i + 1].VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+                        workSheet.Cells[j + 2, i + 1].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                    }
+                }
+
+            }
+            // Открываем созданный excel-файл
+            excelApp.Visible = true;
+            excelApp.UserControl = true;
         }
     }
 }
