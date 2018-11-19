@@ -37,7 +37,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tbSearchClient = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.obnovBtn = new System.Windows.Forms.Button();
             this.lCount = new System.Windows.Forms.Label();
             this.lCountOfClients = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -50,7 +49,6 @@
             this.dgvClients = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.photoOfClient = new System.Windows.Forms.PictureBox();
-            this.saveBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tbSurname = new System.Windows.Forms.TextBox();
@@ -59,19 +57,19 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cbDoc = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.tbSeries = new System.Windows.Forms.TextBox();
-            this.tbNumber = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.dtpDateIssue = new System.Windows.Forms.DateTimePicker();
             this.dtpBithday = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.lbDocIssue = new System.Windows.Forms.ListBox();
             this.AbroadDoc = new System.Windows.Forms.CheckBox();
-            this.groupBtn = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.label12 = new System.Windows.Forms.Label();
+            this.nameOfPhoto = new System.Windows.Forms.Label();
+            this.saveBtn = new System.Windows.Forms.Button();
+            this.tbSeries = new System.Windows.Forms.MaskedTextBox();
+            this.tbNumber = new System.Windows.Forms.MaskedTextBox();
+            this.lbDocIssue = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pForBtn.SuspendLayout();
@@ -126,7 +124,6 @@
             // 
             this.panel1.Controls.Add(this.tbSearchClient);
             this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.obnovBtn);
             this.panel1.Controls.Add(this.lCount);
             this.panel1.Controls.Add(this.lCountOfClients);
             this.panel1.Controls.Add(this.panel4);
@@ -141,7 +138,7 @@
             // tbSearchClient
             // 
             this.tbSearchClient.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbSearchClient.Location = new System.Drawing.Point(100, 86);
+            this.tbSearchClient.Location = new System.Drawing.Point(95, 119);
             this.tbSearchClient.Name = "tbSearchClient";
             this.tbSearchClient.Size = new System.Drawing.Size(163, 27);
             this.tbSearchClient.TabIndex = 34;
@@ -151,33 +148,18 @@
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(16, 92);
+            this.label11.Location = new System.Drawing.Point(16, 122);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(59, 21);
             this.label11.TabIndex = 35;
             this.label11.Text = "Поиск";
             this.label11.Visible = false;
             // 
-            // obnovBtn
-            // 
-            this.obnovBtn.BackColor = System.Drawing.Color.SeaGreen;
-            this.obnovBtn.FlatAppearance.BorderSize = 0;
-            this.obnovBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.obnovBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.obnovBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.obnovBtn.ForeColor = System.Drawing.Color.White;
-            this.obnovBtn.Location = new System.Drawing.Point(70, 241);
-            this.obnovBtn.Name = "obnovBtn";
-            this.obnovBtn.Size = new System.Drawing.Size(123, 42);
-            this.obnovBtn.TabIndex = 1;
-            this.obnovBtn.Text = "Обновить";
-            this.obnovBtn.UseVisualStyleBackColor = false;
-            // 
             // lCount
             // 
             this.lCount.AutoSize = true;
             this.lCount.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lCount.Location = new System.Drawing.Point(109, 190);
+            this.lCount.Location = new System.Drawing.Point(111, 241);
             this.lCount.Name = "lCount";
             this.lCount.Size = new System.Drawing.Size(147, 23);
             this.lCount.TabIndex = 4;
@@ -187,7 +169,7 @@
             // 
             this.lCountOfClients.AutoSize = true;
             this.lCountOfClients.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lCountOfClients.Location = new System.Drawing.Point(16, 157);
+            this.lCountOfClients.Location = new System.Drawing.Point(16, 205);
             this.lCountOfClients.Name = "lCountOfClients";
             this.lCountOfClients.Size = new System.Drawing.Size(240, 21);
             this.lCountOfClients.TabIndex = 3;
@@ -297,6 +279,7 @@
             this.dgvClients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClients.Size = new System.Drawing.Size(278, 586);
             this.dgvClients.TabIndex = 5;
+            this.dgvClients.SelectionChanged += new System.EventHandler(this.dgvClients_SelectionChanged);
             // 
             // label1
             // 
@@ -319,23 +302,6 @@
             this.photoOfClient.TabIndex = 4;
             this.photoOfClient.TabStop = false;
             this.photoOfClient.DoubleClick += new System.EventHandler(this.photoOfClient_DoubleClick);
-            // 
-            // saveBtn
-            // 
-            this.saveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.saveBtn.BackColor = System.Drawing.Color.Transparent;
-            this.saveBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("saveBtn.BackgroundImage")));
-            this.saveBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.saveBtn.FlatAppearance.BorderSize = 0;
-            this.saveBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.saveBtn.ForeColor = System.Drawing.Color.White;
-            this.saveBtn.Location = new System.Drawing.Point(609, 807);
-            this.saveBtn.Name = "saveBtn";
-            this.saveBtn.Size = new System.Drawing.Size(68, 52);
-            this.saveBtn.TabIndex = 1;
-            this.saveBtn.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
@@ -419,29 +385,11 @@
             this.label6.TabIndex = 6;
             this.label6.Text = "Серия";
             // 
-            // tbSeries
-            // 
-            this.tbSeries.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbSeries.Location = new System.Drawing.Point(229, 331);
-            this.tbSeries.Name = "tbSeries";
-            this.tbSeries.Size = new System.Drawing.Size(163, 27);
-            this.tbSeries.TabIndex = 7;
-            this.tbSeries.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSeries_KeyPress);
-            // 
-            // tbNumber
-            // 
-            this.tbNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbNumber.Location = new System.Drawing.Point(505, 331);
-            this.tbNumber.Name = "tbNumber";
-            this.tbNumber.Size = new System.Drawing.Size(163, 27);
-            this.tbNumber.TabIndex = 11;
-            this.tbNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSeries_KeyPress);
-            // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(418, 337);
+            this.label7.Location = new System.Drawing.Point(418, 340);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(66, 21);
             this.label7.TabIndex = 10;
@@ -495,16 +443,6 @@
             this.label10.TabIndex = 16;
             this.label10.Text = "Документ выдан...";
             // 
-            // lbDocIssue
-            // 
-            this.lbDocIssue.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbDocIssue.FormattingEnabled = true;
-            this.lbDocIssue.ItemHeight = 21;
-            this.lbDocIssue.Location = new System.Drawing.Point(75, 480);
-            this.lbDocIssue.Name = "lbDocIssue";
-            this.lbDocIssue.Size = new System.Drawing.Size(593, 172);
-            this.lbDocIssue.TabIndex = 17;
-            // 
             // AbroadDoc
             // 
             this.AbroadDoc.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -516,65 +454,93 @@
             this.AbroadDoc.Text = "Наличие загрант паспорта";
             this.AbroadDoc.UseVisualStyleBackColor = true;
             // 
-            // groupBtn
-            // 
-            this.groupBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBtn.BackColor = System.Drawing.Color.Transparent;
-            this.groupBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBtn.BackgroundImage")));
-            this.groupBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.groupBtn.FlatAppearance.BorderSize = 0;
-            this.groupBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.groupBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBtn.ForeColor = System.Drawing.Color.White;
-            this.groupBtn.Location = new System.Drawing.Point(485, 791);
-            this.groupBtn.Name = "groupBtn";
-            this.groupBtn.Size = new System.Drawing.Size(118, 85);
-            this.groupBtn.TabIndex = 1;
-            this.groupBtn.UseVisualStyleBackColor = false;
-            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "client_default_photo.png");
             // 
-            // label12
+            // nameOfPhoto
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(418, 220);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(66, 21);
-            this.label12.TabIndex = 19;
-            this.label12.Text = "label12";
-            this.label12.Visible = false;
+            this.nameOfPhoto.AutoSize = true;
+            this.nameOfPhoto.Location = new System.Drawing.Point(418, 220);
+            this.nameOfPhoto.Name = "nameOfPhoto";
+            this.nameOfPhoto.Size = new System.Drawing.Size(66, 21);
+            this.nameOfPhoto.TabIndex = 19;
+            this.nameOfPhoto.Text = "label12";
+            this.nameOfPhoto.Visible = false;
+            // 
+            // saveBtn
+            // 
+            this.saveBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.saveBtn.FlatAppearance.BorderSize = 0;
+            this.saveBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.saveBtn.Image = ((System.Drawing.Image)(resources.GetObject("saveBtn.Image")));
+            this.saveBtn.Location = new System.Drawing.Point(581, 809);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Size = new System.Drawing.Size(87, 60);
+            this.saveBtn.TabIndex = 20;
+            this.saveBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
+            // 
+            // tbSeries
+            // 
+            this.tbSeries.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbSeries.Location = new System.Drawing.Point(229, 331);
+            this.tbSeries.Mask = "0000";
+            this.tbSeries.Name = "tbSeries";
+            this.tbSeries.Size = new System.Drawing.Size(163, 27);
+            this.tbSeries.TabIndex = 21;
+            this.tbSeries.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tbNumber
+            // 
+            this.tbNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbNumber.Location = new System.Drawing.Point(505, 334);
+            this.tbNumber.Mask = "000000";
+            this.tbNumber.Name = "tbNumber";
+            this.tbNumber.Size = new System.Drawing.Size(163, 27);
+            this.tbNumber.TabIndex = 21;
+            this.tbNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lbDocIssue
+            // 
+            this.lbDocIssue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbDocIssue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbDocIssue.Location = new System.Drawing.Point(75, 473);
+            this.lbDocIssue.Multiline = true;
+            this.lbDocIssue.Name = "lbDocIssue";
+            this.lbDocIssue.Size = new System.Drawing.Size(593, 201);
+            this.lbDocIssue.TabIndex = 22;
             // 
             // usClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.AbroadDoc);
             this.Controls.Add(this.lbDocIssue);
+            this.Controls.Add(this.tbNumber);
+            this.Controls.Add(this.tbSeries);
+            this.Controls.Add(this.saveBtn);
+            this.Controls.Add(this.nameOfPhoto);
+            this.Controls.Add(this.AbroadDoc);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.dtpBithday);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dtpDateIssue);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.tbNumber);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cbDoc);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.tbSeries);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.tbPatronymic);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbSurname);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.groupBtn);
-            this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.photoOfClient);
             this.Controls.Add(this.pForBtn);
             this.Controls.Add(this.tbName);
@@ -611,10 +577,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lCountOfClients;
         private System.Windows.Forms.DataGridView dgvClients;
-        private System.Windows.Forms.Button obnovBtn;
         private System.Windows.Forms.Label lCount;
         private System.Windows.Forms.PictureBox photoOfClient;
-        private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbSurname;
@@ -623,20 +587,20 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbDoc;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox tbSeries;
-        private System.Windows.Forms.TextBox tbNumber;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dtpDateIssue;
         private System.Windows.Forms.DateTimePicker dtpBithday;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ListBox lbDocIssue;
         private System.Windows.Forms.CheckBox AbroadDoc;
         private System.Windows.Forms.TextBox tbSearchClient;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button groupBtn;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label nameOfPhoto;
+        private System.Windows.Forms.Button saveBtn;
+        private System.Windows.Forms.MaskedTextBox tbSeries;
+        private System.Windows.Forms.MaskedTextBox tbNumber;
+        private System.Windows.Forms.TextBox lbDocIssue;
     }
 }

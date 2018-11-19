@@ -101,13 +101,13 @@ namespace Voyage
                         fileName = fileName.Replace(c, '_');
                     }
                 }
-            label12.Text = fileName;
+            nameOfPhoto.Text = fileName;
         }
 
         private void ClearText()
         {
             photoOfClient.Image = imageList1.Images[0];
-            label12.Text = "";
+            nameOfPhoto.Text = "";
             tbName.Text = "";
             tbSurname.Text = "";
             tbPatronymic.Text = "";
@@ -122,6 +122,7 @@ namespace Voyage
             InitializeComponent();
             LoadDataFromTable();
             forBtn = false;
+            //saveBtn.Enabled = false;
             this.ForeColor=Color.FromArgb(0, 71, 160);
             pBorderLeft.BackColor= Color.FromArgb(0, 71, 160);
             pBorderRight.BackColor=Color.FromArgb(0, 71, 160);
@@ -154,7 +155,7 @@ namespace Voyage
             {
                 //отмена
                 forBtn = false;
-                saveBtn.Enabled = true;
+                //saveBtn.Enabled = true;
                 LoadDataFromTable();
 
             }
@@ -222,7 +223,7 @@ namespace Voyage
                         using (myStream)
                         {
                             photoOfClient.Image = Image.FromFile(Dialog.FileName);
-                            label12.Text = Dialog.SafeFileName.ToString();
+                            nameOfPhoto.Text = Dialog.SafeFileName.ToString();
                         }
                     }
                 }
@@ -230,16 +231,6 @@ namespace Voyage
                 {
                     MessageBox.Show("Ошибка:" + ex.Message);
                 }
-            }
-        }
-
-        private void tbSeries_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //ввод только чисел
-            char number = e.KeyChar;
-            if (!Char.IsDigit(number) && number != 8) 
-            {
-                e.Handled = true;
             }
         }
 
@@ -257,7 +248,113 @@ namespace Voyage
         {
             ClearText();
             forBtn = true;
-            saveBtn.Enabled = false;
+            //saveBtn.Enabled = false;
+        }
+
+        private void tbName_TextChanged(object sender, EventArgs e)
+        {
+            if (this.Text == "") saveBtn.Enabled = false;
+            else saveBtn.Enabled = true;
+        }
+
+        private void dgvClients_SelectionChanged(object sender, EventArgs e)
+        {
+            if (bs.Count > 0)
+            {
+                photoOfClient.Image = imageList1.Images[0];
+                LoadPhoto();
+            }
+        }
+
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+
+           // string lastString = "";
+            if (forBtn)
+            {
+                try
+                {
+                    connection.Close();
+                    connection.Open();
+                    SqlCommand MaxID = new SqlCommand("Select Max(ID_Client) from tClients", connection);
+                    int max = 0;
+                    if (MaxID.ExecuteScalar() != null) max = Convert.ToInt32(MaxID.ExecuteScalar());
+                    SqlCommand commandInsert = new SqlCommand("INSERT INTO [tClients]" +
+                        " VALUES(@Name, @Surname, @Patronymic, @Photo, @Bithday, @Doc, @Series, @Number,"+
+                        " @DocIssue, @DateIssue, @AbroadDoc)", connection);
+                    //commandInsert.Parameters.AddWithValue("@ID", max + 1);
+                    commandInsert.Parameters.AddWithValue("@Name", tbName.Text);
+                    commandInsert.Parameters.AddWithValue("@Surname", tbSurname.Text);
+                    commandInsert.Parameters.AddWithValue("@Patronymic", tbPatronymic.Text);
+                    commandInsert.Parameters.AddWithValue("@Bithday", dtpBithday.Text);
+                    commandInsert.Parameters.AddWithValue("@Doc", cbDoc.Text);
+                    commandInsert.Parameters.AddWithValue("@Series", tbSeries.Text);
+                    commandInsert.Parameters.AddWithValue("@Number", tbNumber.Text);
+                    commandInsert.Parameters.AddWithValue("@DocIssue", lbDocIssue.Text);
+                    commandInsert.Parameters.AddWithValue("@DateIssue", dtpDateIssue.Text);
+                    commandInsert.Parameters.AddWithValue("@AbroadDoc", AbroadDoc.Checked);
+                    if ((photoOfClient.Image != null) && (!(System.IO.File.Exists(@"img\clients\" + nameOfPhoto.Text)))) {
+                        if(nameOfPhoto.Text!="")
+                        photoOfClient.Image.Save(@"img\clients\" + nameOfPhoto.Text);
+                    }
+                    commandInsert.Parameters.AddWithValue("@Photo", nameOfPhoto.Text);
+                    commandInsert.ExecuteNonQuery();
+                    MessageBox.Show("Запись добавлена");
+                    forBtn = false;
+                    //saveBtn.Enabled = true;
+                    //lastString = tbNumber.Text;
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    connection.Close();
+                    LoadDataFromTable();
+                    //int i = bs.Find("Number", lastString);
+                   // bs.Position = i;
+                }
+
+            } else if (bs.Count > 0)
+            {
+                int i = bs.Position;
+                int ID_SS = Convert.ToInt32(((DataRowView)this.bs.Current).Row["ID_Client"]);
+                try
+                {
+                    connection.Close();
+                    connection.Open();
+                    SqlCommand commandUpdate = new SqlCommand("UPDATE tClients SET " +
+                        "sName=@Name, sSurname=@Surname, sPatronymic=@Patronymic, Photo=@Photo, Bithday=@Bithday, sDoc=@Doc, Series=@Series," +
+                        " Number=@Number, sDocIssue=@DocIssue, DateIssue=@DateIssue, AbroadDoc=@AbroadDoc WHERE ID_Client=@IDSS", connection);
+                    commandUpdate.Parameters.AddWithValue("@Name", tbName.Text);
+                    commandUpdate.Parameters.AddWithValue("@Surname", tbSurname.Text);
+                    commandUpdate.Parameters.AddWithValue("@Patronymic", tbPatronymic.Text);
+                    commandUpdate.Parameters.AddWithValue("@Bithday", dtpBithday.Text);
+                    commandUpdate.Parameters.AddWithValue("@Doc", cbDoc.Text);
+                    commandUpdate.Parameters.AddWithValue("@Series", tbSeries.Text);
+                    commandUpdate.Parameters.AddWithValue("@Number", tbNumber.Text);
+                    commandUpdate.Parameters.AddWithValue("@DocIssue", lbDocIssue.Text);
+                    commandUpdate.Parameters.AddWithValue("@DateIssue", dtpDateIssue.Text);
+                    commandUpdate.Parameters.AddWithValue("@AbroadDoc", AbroadDoc.Checked);
+                    if ((nameOfPhoto.Text != "") && (!(System.IO.File.Exists(@"img\clients\" + nameOfPhoto.Text)))) photoOfClient.Image.Save(@"img\clients\" + nameOfPhoto.Text);
+                    commandUpdate.Parameters.AddWithValue("@Photo", nameOfPhoto.Text);
+                    commandUpdate.Parameters.AddWithValue("@IDSS", ID_SS);
+                    commandUpdate.ExecuteNonQuery();
+                    MessageBox.Show("Запись обновлена");
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    connection.Close();
+                    LoadDataFromTable();
+                    bs.Position = i;
+                }
+
+            }
         }
     }
 }
