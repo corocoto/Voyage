@@ -143,6 +143,7 @@
             this.tbSearchClient.Size = new System.Drawing.Size(163, 27);
             this.tbSearchClient.TabIndex = 34;
             this.tbSearchClient.Visible = false;
+            this.tbSearchClient.TextChanged += new System.EventHandler(this.tbSearchClient_TextChanged);
             // 
             // label11
             // 
@@ -159,7 +160,7 @@
             // 
             this.lCount.AutoSize = true;
             this.lCount.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lCount.Location = new System.Drawing.Point(111, 241);
+            this.lCount.Location = new System.Drawing.Point(71, 241);
             this.lCount.Name = "lCount";
             this.lCount.Size = new System.Drawing.Size(147, 23);
             this.lCount.TabIndex = 4;

@@ -27,7 +27,7 @@ namespace Voyage
             using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString))
             {
                 connection.Open();
-                adapter = new SqlDataAdapter("Select * From tClients Order By sName", connection);
+                adapter = new SqlDataAdapter("Select * From tClients Order By sName, sSurname", connection);
                 ds = new DataSet();
                 //заполняем ds
                 adapter.Fill(ds);
@@ -82,7 +82,7 @@ namespace Voyage
                 dgvClients.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
                 //подсчет клиентов
-                lCount.Text = bs.Count.ToString();
+                lCount.Text = bs.Count.ToString()+" человек";
             }
         }
 
@@ -114,6 +114,9 @@ namespace Voyage
             tbSeries.Text = "";
             tbNumber.Text = "";
             lbDocIssue.Text = "";
+            cbDoc.SelectedIndex = 0;
+            dtpBithday.Text = DateTime.Now.ToString();
+            dtpDateIssue.Text= DateTime.Now.ToString();
             AbroadDoc.Checked = false;
         }
 
@@ -419,6 +422,11 @@ namespace Voyage
             // Открываем созданный excel-файл
             excelApp.Visible = true;
             excelApp.UserControl = true;
+        }
+
+        private void tbSearchClient_TextChanged(object sender, EventArgs e)
+        {
+            bs.Filter = "sName LIKE '%" + tbSearchClient.Text + "%' OR sSurname LIKE '%" + tbSearchClient.Text + "%'";
         }
     }
 }
