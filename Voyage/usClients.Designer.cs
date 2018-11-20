@@ -332,7 +332,7 @@
             this.tbSurname.Name = "tbSurname";
             this.tbSurname.Size = new System.Drawing.Size(163, 27);
             this.tbSurname.TabIndex = 7;
-            this.tbSurname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
+            this.tbSurname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSurname_KeyPress);
             // 
             // label4
             // 
@@ -376,6 +376,7 @@
             this.cbDoc.Name = "cbDoc";
             this.cbDoc.Size = new System.Drawing.Size(163, 29);
             this.cbDoc.TabIndex = 9;
+            this.cbDoc.SelectedIndexChanged += new System.EventHandler(this.cbDoc_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -415,6 +416,7 @@
             this.dtpDateIssue.Name = "dtpDateIssue";
             this.dtpDateIssue.Size = new System.Drawing.Size(163, 27);
             this.dtpDateIssue.TabIndex = 13;
+            this.dtpDateIssue.ValueChanged += new System.EventHandler(this.dtpDateIssue_ValueChanged);
             // 
             // dtpBithday
             // 
@@ -424,6 +426,7 @@
             this.dtpBithday.Name = "dtpBithday";
             this.dtpBithday.Size = new System.Drawing.Size(163, 27);
             this.dtpBithday.TabIndex = 15;
+            this.dtpBithday.ValueChanged += new System.EventHandler(this.dtpBithday_ValueChanged);
             // 
             // label9
             // 
@@ -455,6 +458,7 @@
             this.AbroadDoc.TabIndex = 18;
             this.AbroadDoc.Text = "Наличие загрант паспорта";
             this.AbroadDoc.UseVisualStyleBackColor = true;
+            this.AbroadDoc.CheckedChanged += new System.EventHandler(this.AbroadDoc_CheckedChanged);
             // 
             // imageList1
             // 
@@ -497,6 +501,7 @@
             this.tbSeries.Size = new System.Drawing.Size(163, 27);
             this.tbSeries.TabIndex = 21;
             this.tbSeries.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbSeries.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSeries_KeyPress);
             // 
             // tbNumber
             // 
@@ -507,6 +512,7 @@
             this.tbNumber.Size = new System.Drawing.Size(163, 27);
             this.tbNumber.TabIndex = 21;
             this.tbNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNumber_KeyPress);
             // 
             // lbDocIssue
             // 
@@ -517,6 +523,7 @@
             this.lbDocIssue.Name = "lbDocIssue";
             this.lbDocIssue.Size = new System.Drawing.Size(593, 201);
             this.lbDocIssue.TabIndex = 22;
+            this.lbDocIssue.TextChanged += new System.EventHandler(this.lbDocIssue_TextChanged);
             // 
             // usClients
             // 

@@ -40,13 +40,8 @@ namespace Voyage
                 tbSurname.DataBindings.Add(new Binding("Text", bs, "sSurname"));
                 tbPatronymic.DataBindings.Clear();
                 tbPatronymic.DataBindings.Add(new Binding("Text", bs, "sPatronymic"));
-
-                //photoOfClient.DataBindings.Clear();
-                //photoOfClient.DataBindings.Add(new Binding("Text", bs, "sPatronymic"));
                 photoOfClient.Image = imageList1.Images[0];
                 if (bs.Count > 0) LoadPhoto();
-
-
                 dtpBithday.DataBindings.Clear();
                 dtpBithday.DataBindings.Add(new Binding("Text", bs, "Bithday"));
                 cbDoc.DataBindings.Clear();
@@ -54,7 +49,6 @@ namespace Voyage
                 tbSeries.DataBindings.Clear();
                 tbSeries.DataBindings.Add(new Binding("Text", bs, "Series"));
                 tbNumber.DataBindings.Clear();
-
                 tbNumber.DataBindings.Add(new Binding("Text", bs, "Number"));
                 lbDocIssue.DataBindings.Clear();
                 lbDocIssue.DataBindings.Add(new Binding("Text", bs, "sDocIssue"));
@@ -119,13 +113,34 @@ namespace Voyage
             dtpDateIssue.Text= DateTime.Now.ToString();
             AbroadDoc.Checked = false;
         }
-
+        void EnabledBtn(TextBox tb)
+        {
+            if (tb.Text == "")
+            {
+                saveBtn.Enabled = false;
+            }
+            else if(tbName.Text!="" && tbSurname.Text!=""  && tbSeries.Text!="" && tbNumber.Text!="")
+            {
+                saveBtn.Enabled = true;
+            }
+        }
+        void EnabledBtnForMask(MaskedTextBox tb)
+        {
+            if (tb.Text == "")
+            {
+                saveBtn.Enabled = false;
+            }
+            else if (tbName.Text != "" && tbSurname.Text != "" && tbSeries.Text != "" && tbNumber.Text != "")
+            {
+                saveBtn.Enabled = true;
+            }
+        }
         public usClients()
         {
             InitializeComponent();
             LoadDataFromTable();
             forBtn = false;
-            //saveBtn.Enabled = false;
+            saveBtn.Enabled = false;
             this.ForeColor=Color.FromArgb(0, 71, 160);
             pBorderLeft.BackColor= Color.FromArgb(0, 71, 160);
             pBorderRight.BackColor=Color.FromArgb(0, 71, 160);
@@ -154,11 +169,11 @@ namespace Voyage
 
         private void delBtn_Click(object sender, EventArgs e)
         {
+            saveBtn.Enabled = false;
             if (forBtn)
             {
                 //отмена
                 forBtn = false;
-                //saveBtn.Enabled = true;
                 LoadDataFromTable();
 
             }
@@ -227,6 +242,7 @@ namespace Voyage
                         {
                             photoOfClient.Image = Image.FromFile(Dialog.FileName);
                             nameOfPhoto.Text = Dialog.SafeFileName.ToString();
+                            if(tbName.Text != "" && tbSurname.Text != "" && tbSeries.Text != "" && tbNumber.Text != "") saveBtn.Enabled = true;
                         }
                     }
                 }
@@ -245,19 +261,14 @@ namespace Voyage
             {
                 e.Handled = true;
             }
+            EnabledBtn(tbName);
         }
 
         private void addBtn_Click(object sender, EventArgs e)
         {
             ClearText();
             forBtn = true;
-            //saveBtn.Enabled = false;
-        }
-
-        private void tbName_TextChanged(object sender, EventArgs e)
-        {
-            if (this.Text == "") saveBtn.Enabled = false;
-            else saveBtn.Enabled = true;
+            saveBtn.Enabled = false;
         }
 
         private void dgvClients_SelectionChanged(object sender, EventArgs e)
@@ -267,12 +278,11 @@ namespace Voyage
                 photoOfClient.Image = imageList1.Images[0];
                 LoadPhoto();
             }
+            saveBtn.Enabled = false;
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-
-           // string lastString = "";
             if (forBtn)
             {
                 try
@@ -280,12 +290,12 @@ namespace Voyage
                     connection.Close();
                     connection.Open();
                     SqlCommand MaxID = new SqlCommand("Select Max(ID_Client) from tClients", connection);
-                    int max = 0;
-                    if (MaxID.ExecuteScalar() != null) max = Convert.ToInt32(MaxID.ExecuteScalar());
+                    int max = int.Parse(dgvClients.RowCount.ToString());
+                    //int max = 0;
+                    // if (MaxID.ExecuteScalar() != null) max = Convert.ToInt32(MaxID.ExecuteScalar());
                     SqlCommand commandInsert = new SqlCommand("INSERT INTO [tClients]" +
                         " VALUES(@Name, @Surname, @Patronymic, @Photo, @Bithday, @Doc, @Series, @Number,"+
                         " @DocIssue, @DateIssue, @AbroadDoc)", connection);
-                    //commandInsert.Parameters.AddWithValue("@ID", max + 1);
                     commandInsert.Parameters.AddWithValue("@Name", tbName.Text);
                     commandInsert.Parameters.AddWithValue("@Surname", tbSurname.Text);
                     commandInsert.Parameters.AddWithValue("@Patronymic", tbPatronymic.Text);
@@ -304,8 +314,6 @@ namespace Voyage
                     commandInsert.ExecuteNonQuery();
                     MessageBox.Show("Запись добавлена");
                     forBtn = false;
-                    //saveBtn.Enabled = true;
-                    //lastString = tbNumber.Text;
                 }
                 catch (SqlException ex)
                 {
@@ -315,8 +323,6 @@ namespace Voyage
                 {
                     connection.Close();
                     LoadDataFromTable();
-                    //int i = bs.Find("Number", lastString);
-                   // bs.Position = i;
                 }
 
             } else if (bs.Count > 0)
@@ -358,6 +364,7 @@ namespace Voyage
                 }
 
             }
+            saveBtn.Enabled = false;
         }
 
         private void excelBtn_Click(object sender, EventArgs e)
@@ -427,6 +434,51 @@ namespace Voyage
         private void tbSearchClient_TextChanged(object sender, EventArgs e)
         {
             bs.Filter = "sName LIKE '%" + tbSearchClient.Text + "%' OR sSurname LIKE '%" + tbSearchClient.Text + "%'";
+        }
+
+        private void tbSurname_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char word = e.KeyChar;
+            if ((word < 'А' || word > 'Я') && (word < 'A' || word > 'Z') && word != '\b' && (word < 'a' || word > 'z') && (word < 'а' || word > 'я'))
+            {
+                e.Handled = true;
+            }
+            EnabledBtn(tbSurname);
+        }
+
+        private void tbSeries_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            EnabledBtnForMask(tbSeries);
+        }
+
+        private void tbNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            EnabledBtnForMask(tbNumber);
+        }
+
+        private void cbDoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            EnabledBtn(tbSurname);
+        }
+
+        private void lbDocIssue_TextChanged(object sender, EventArgs e)
+        {
+            EnabledBtn(tbSurname);
+        }
+
+        private void dtpBithday_ValueChanged(object sender, EventArgs e)
+        {
+            EnabledBtn(tbSurname);
+        }
+
+        private void dtpDateIssue_ValueChanged(object sender, EventArgs e)
+        {
+            EnabledBtn(tbSurname);
+        }
+
+        private void AbroadDoc_CheckedChanged(object sender, EventArgs e)
+        {
+            EnabledBtn(tbSurname);
         }
     }
 }
