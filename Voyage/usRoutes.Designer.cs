@@ -32,9 +32,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.dateOfFly = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
-            this.tbDays = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.tbMoney = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -61,10 +59,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbCountries = new System.Windows.Forms.ComboBox();
             this.cbWorker = new System.Windows.Forms.ComboBox();
-            this.tbSale = new System.Windows.Forms.TextBox();
-            this.tbReturn = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.pbPlaneLogo = new System.Windows.Forms.PictureBox();
+            this.mtbDays = new System.Windows.Forms.MaskedTextBox();
+            this.mtbMoney = new System.Windows.Forms.MaskedTextBox();
+            this.mtbSale = new System.Windows.Forms.MaskedTextBox();
+            this.mtbReturn = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pForBtn.SuspendLayout();
@@ -101,14 +101,6 @@
             this.label8.TabIndex = 35;
             this.label8.Text = "Дата вылета";
             // 
-            // tbDays
-            // 
-            this.tbDays.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbDays.Location = new System.Drawing.Point(469, 185);
-            this.tbDays.Name = "tbDays";
-            this.tbDays.Size = new System.Drawing.Size(163, 27);
-            this.tbDays.TabIndex = 34;
-            // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -118,14 +110,6 @@
             this.label7.Size = new System.Drawing.Size(69, 21);
             this.label7.TabIndex = 33;
             this.label7.Text = "Скидка";
-            // 
-            // tbMoney
-            // 
-            this.tbMoney.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbMoney.Location = new System.Drawing.Point(469, 322);
-            this.tbMoney.Name = "tbMoney";
-            this.tbMoney.Size = new System.Drawing.Size(163, 27);
-            this.tbMoney.TabIndex = 30;
             // 
             // label6
             // 
@@ -435,22 +419,6 @@
             this.cbWorker.Size = new System.Drawing.Size(163, 29);
             this.cbWorker.TabIndex = 41;
             // 
-            // tbSale
-            // 
-            this.tbSale.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbSale.Location = new System.Drawing.Point(469, 366);
-            this.tbSale.Name = "tbSale";
-            this.tbSale.Size = new System.Drawing.Size(163, 27);
-            this.tbSale.TabIndex = 30;
-            // 
-            // tbReturn
-            // 
-            this.tbReturn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbReturn.Location = new System.Drawing.Point(469, 409);
-            this.tbReturn.Name = "tbReturn";
-            this.tbReturn.Size = new System.Drawing.Size(163, 27);
-            this.tbReturn.TabIndex = 30;
-            // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -472,23 +440,63 @@
             this.pbPlaneLogo.TabIndex = 42;
             this.pbPlaneLogo.TabStop = false;
             // 
+            // mtbDays
+            // 
+            this.mtbDays.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mtbDays.Location = new System.Drawing.Point(469, 185);
+            this.mtbDays.Mask = "00";
+            this.mtbDays.Name = "mtbDays";
+            this.mtbDays.Size = new System.Drawing.Size(163, 27);
+            this.mtbDays.TabIndex = 43;
+            this.mtbDays.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // mtbMoney
+            // 
+            this.mtbMoney.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mtbMoney.Location = new System.Drawing.Point(469, 322);
+            this.mtbMoney.Mask = "000000 руб.";
+            this.mtbMoney.Name = "mtbMoney";
+            this.mtbMoney.Size = new System.Drawing.Size(163, 27);
+            this.mtbMoney.TabIndex = 43;
+            this.mtbMoney.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // mtbSale
+            // 
+            this.mtbSale.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mtbSale.Location = new System.Drawing.Point(469, 366);
+            this.mtbSale.Mask = "00%";
+            this.mtbSale.Name = "mtbSale";
+            this.mtbSale.Size = new System.Drawing.Size(163, 27);
+            this.mtbSale.TabIndex = 43;
+            this.mtbSale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // mtbReturn
+            // 
+            this.mtbReturn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mtbReturn.Location = new System.Drawing.Point(469, 409);
+            this.mtbReturn.Mask = "_%";
+            this.mtbReturn.Name = "mtbReturn";
+            this.mtbReturn.Size = new System.Drawing.Size(163, 27);
+            this.mtbReturn.TabIndex = 43;
+            this.mtbReturn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // usRoutes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.mtbReturn);
+            this.Controls.Add(this.mtbSale);
+            this.Controls.Add(this.mtbMoney);
+            this.Controls.Add(this.mtbDays);
             this.Controls.Add(this.pbPlaneLogo);
             this.Controls.Add(this.cbWorker);
             this.Controls.Add(this.cbCountries);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dateOfFly);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.tbDays);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.tbReturn);
-            this.Controls.Add(this.tbSale);
-            this.Controls.Add(this.tbMoney);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -516,9 +524,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dateOfFly;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox tbDays;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox tbMoney;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -545,9 +551,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbCountries;
         private System.Windows.Forms.ComboBox cbWorker;
-        private System.Windows.Forms.TextBox tbSale;
-        private System.Windows.Forms.TextBox tbReturn;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pbPlaneLogo;
+        private System.Windows.Forms.MaskedTextBox mtbDays;
+        private System.Windows.Forms.MaskedTextBox mtbMoney;
+        private System.Windows.Forms.MaskedTextBox mtbSale;
+        private System.Windows.Forms.MaskedTextBox mtbReturn;
     }
 }
