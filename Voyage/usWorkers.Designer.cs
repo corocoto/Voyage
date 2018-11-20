@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(usWorkers));
             this.AbroadDoc = new System.Windows.Forms.CheckBox();
             this.dtpBithday = new System.Windows.Forms.DateTimePicker();
@@ -41,6 +42,7 @@
             this.addBtn = new System.Windows.Forms.Button();
             this.tbName = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.saveBtn = new System.Windows.Forms.Button();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -58,7 +60,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.nameOfPhoto = new System.Windows.Forms.Label();
-            this.saveBtn = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pForBtn.SuspendLayout();
@@ -78,6 +80,7 @@
             this.AbroadDoc.TabIndex = 42;
             this.AbroadDoc.Text = "Наличие загрант паспорта";
             this.AbroadDoc.UseVisualStyleBackColor = true;
+            this.AbroadDoc.CheckedChanged += new System.EventHandler(this.AbroadDoc_CheckedChanged);
             // 
             // dtpBithday
             // 
@@ -87,6 +90,7 @@
             this.dtpBithday.Name = "dtpBithday";
             this.dtpBithday.Size = new System.Drawing.Size(566, 27);
             this.dtpBithday.TabIndex = 39;
+            this.dtpBithday.ValueChanged += new System.EventHandler(this.dtpBithday_ValueChanged);
             // 
             // label9
             // 
@@ -105,6 +109,7 @@
             this.tbPatronymic.Name = "tbPatronymic";
             this.tbPatronymic.Size = new System.Drawing.Size(163, 27);
             this.tbPatronymic.TabIndex = 30;
+            this.tbPatronymic.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
             // 
             // label4
             // 
@@ -123,6 +128,7 @@
             this.tbSurname.Name = "tbSurname";
             this.tbSurname.Size = new System.Drawing.Size(163, 27);
             this.tbSurname.TabIndex = 29;
+            this.tbSurname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSurname_KeyPress);
             // 
             // label3
             // 
@@ -175,6 +181,7 @@
             this.addBtn.TabIndex = 1;
             this.addBtn.Text = "+";
             this.addBtn.UseVisualStyleBackColor = false;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // tbName
             // 
@@ -183,6 +190,7 @@
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(163, 27);
             this.tbName.TabIndex = 22;
+            this.tbName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
             // 
             // panel1
             // 
@@ -199,6 +207,22 @@
             this.panel1.Size = new System.Drawing.Size(278, 300);
             this.panel1.TabIndex = 4;
             // 
+            // saveBtn
+            // 
+            this.saveBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.saveBtn.FlatAppearance.BorderSize = 0;
+            this.saveBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.saveBtn.Image = ((System.Drawing.Image)(resources.GetObject("saveBtn.Image")));
+            this.saveBtn.Location = new System.Drawing.Point(167, 214);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Size = new System.Drawing.Size(87, 60);
+            this.saveBtn.TabIndex = 36;
+            this.saveBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
+            // 
             // tbSearch
             // 
             this.tbSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -207,6 +231,7 @@
             this.tbSearch.Size = new System.Drawing.Size(163, 27);
             this.tbSearch.TabIndex = 34;
             this.tbSearch.Visible = false;
+            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
             // label11
             // 
@@ -254,6 +279,7 @@
             this.excelBtn.TabIndex = 1;
             this.excelBtn.Text = "Excel";
             this.excelBtn.UseVisualStyleBackColor = false;
+            this.excelBtn.Click += new System.EventHandler(this.excelBtn_Click);
             // 
             // searchBtn
             // 
@@ -286,6 +312,7 @@
             this.delBtn.TabIndex = 1;
             this.delBtn.Text = "-";
             this.delBtn.UseVisualStyleBackColor = false;
+            this.delBtn.Click += new System.EventHandler(this.delBtn_Click);
             // 
             // panel2
             // 
@@ -340,14 +367,18 @@
             // 
             // dgvWorkers
             // 
+            this.dgvWorkers.AllowUserToAddRows = false;
+            this.dgvWorkers.AllowUserToDeleteRows = false;
             this.dgvWorkers.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvWorkers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvWorkers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvWorkers.Location = new System.Drawing.Point(7, 0);
             this.dgvWorkers.Name = "dgvWorkers";
+            this.dgvWorkers.ReadOnly = true;
             this.dgvWorkers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvWorkers.Size = new System.Drawing.Size(278, 586);
             this.dgvWorkers.TabIndex = 5;
+            this.dgvWorkers.SelectionChanged += new System.EventHandler(this.dgvWorkers_SelectionChanged);
             // 
             // photoOfWorker
             // 
@@ -358,6 +389,7 @@
             this.photoOfWorker.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.photoOfWorker.TabIndex = 43;
             this.photoOfWorker.TabStop = false;
+            this.photoOfWorker.DoubleClick += new System.EventHandler(this.photoOfWorker_DoubleClick);
             // 
             // pictureBox2
             // 
@@ -390,21 +422,13 @@
             this.nameOfPhoto.Size = new System.Drawing.Size(57, 21);
             this.nameOfPhoto.TabIndex = 44;
             this.nameOfPhoto.Text = "label5";
+            this.nameOfPhoto.Visible = false;
             // 
-            // saveBtn
+            // imageList1
             // 
-            this.saveBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.saveBtn.FlatAppearance.BorderSize = 0;
-            this.saveBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.saveBtn.Image = ((System.Drawing.Image)(resources.GetObject("saveBtn.Image")));
-            this.saveBtn.Location = new System.Drawing.Point(167, 214);
-            this.saveBtn.Name = "saveBtn";
-            this.saveBtn.Size = new System.Drawing.Size(87, 60);
-            this.saveBtn.TabIndex = 36;
-            this.saveBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.saveBtn.UseVisualStyleBackColor = true;
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "client_default_photo.png");
             // 
             // usWorkers
             // 
@@ -475,5 +499,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label nameOfPhoto;
         private System.Windows.Forms.Button saveBtn;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
