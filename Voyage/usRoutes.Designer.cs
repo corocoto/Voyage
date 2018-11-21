@@ -37,11 +37,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.saveBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
             this.nameOfRoute = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.refreshBtn = new System.Windows.Forms.Button();
             this.lCount = new System.Windows.Forms.Label();
             this.lCountOfRoutes = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -50,7 +48,7 @@
             this.searchBtn = new System.Windows.Forms.Button();
             this.delBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.tbSearchRoutes = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.pBorderRight = new System.Windows.Forms.Panel();
             this.pBorderLeft = new System.Windows.Forms.Panel();
@@ -65,6 +63,7 @@
             this.mtbMoney = new System.Windows.Forms.MaskedTextBox();
             this.mtbSale = new System.Windows.Forms.MaskedTextBox();
             this.mtbReturn = new System.Windows.Forms.MaskedTextBox();
+            this.saveBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pForBtn.SuspendLayout();
@@ -107,9 +106,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(35, 369);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 21);
+            this.label7.Size = new System.Drawing.Size(97, 21);
             this.label7.TabIndex = 33;
-            this.label7.Text = "Скидка";
+            this.label7.Text = "Скидка (%)";
             // 
             // label6
             // 
@@ -117,9 +116,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(35, 325);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(160, 21);
+            this.label6.Size = new System.Drawing.Size(210, 21);
             this.label6.TabIndex = 27;
-            this.label6.Text = "Стоимость путевки";
+            this.label6.Text = "Стоимость путевки (руб.)";
             // 
             // label4
             // 
@@ -151,23 +150,6 @@
             this.label2.TabIndex = 24;
             this.label2.Text = "Название маршрута";
             // 
-            // saveBtn
-            // 
-            this.saveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.saveBtn.BackColor = System.Drawing.Color.Transparent;
-            this.saveBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("saveBtn.BackgroundImage")));
-            this.saveBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.saveBtn.FlatAppearance.BorderSize = 0;
-            this.saveBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.saveBtn.ForeColor = System.Drawing.Color.White;
-            this.saveBtn.Location = new System.Drawing.Point(573, 807);
-            this.saveBtn.Name = "saveBtn";
-            this.saveBtn.Size = new System.Drawing.Size(68, 52);
-            this.saveBtn.TabIndex = 20;
-            this.saveBtn.UseVisualStyleBackColor = false;
-            // 
             // addBtn
             // 
             this.addBtn.BackColor = System.Drawing.Color.DodgerBlue;
@@ -182,6 +164,7 @@
             this.addBtn.TabIndex = 1;
             this.addBtn.Text = "+";
             this.addBtn.UseVisualStyleBackColor = false;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // nameOfRoute
             // 
@@ -193,34 +176,19 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.refreshBtn);
+            this.panel1.Controls.Add(this.saveBtn);
             this.panel1.Controls.Add(this.lCount);
             this.panel1.Controls.Add(this.lCountOfRoutes);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.textBox6);
+            this.panel1.Controls.Add(this.tbSearchRoutes);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(7, 586);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(278, 300);
             this.panel1.TabIndex = 4;
-            // 
-            // refreshBtn
-            // 
-            this.refreshBtn.BackColor = System.Drawing.Color.SeaGreen;
-            this.refreshBtn.FlatAppearance.BorderSize = 0;
-            this.refreshBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.refreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.refreshBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.refreshBtn.ForeColor = System.Drawing.Color.White;
-            this.refreshBtn.Location = new System.Drawing.Point(82, 231);
-            this.refreshBtn.Name = "refreshBtn";
-            this.refreshBtn.Size = new System.Drawing.Size(123, 42);
-            this.refreshBtn.TabIndex = 1;
-            this.refreshBtn.Text = "Обновить";
-            this.refreshBtn.UseVisualStyleBackColor = false;
             // 
             // lCount
             // 
@@ -277,6 +245,7 @@
             this.excelBtn.TabIndex = 1;
             this.excelBtn.Text = "Excel";
             this.excelBtn.UseVisualStyleBackColor = false;
+            this.excelBtn.Click += new System.EventHandler(this.excelBtn_Click);
             // 
             // searchBtn
             // 
@@ -293,6 +262,7 @@
             this.searchBtn.Size = new System.Drawing.Size(50, 42);
             this.searchBtn.TabIndex = 1;
             this.searchBtn.UseVisualStyleBackColor = false;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
             // 
             // delBtn
             // 
@@ -308,6 +278,7 @@
             this.delBtn.TabIndex = 1;
             this.delBtn.Text = "-";
             this.delBtn.UseVisualStyleBackColor = false;
+            this.delBtn.Click += new System.EventHandler(this.delBtn_Click);
             // 
             // panel2
             // 
@@ -318,14 +289,15 @@
             this.panel2.Size = new System.Drawing.Size(278, 7);
             this.panel2.TabIndex = 0;
             // 
-            // textBox6
+            // tbSearchRoutes
             // 
-            this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox6.Location = new System.Drawing.Point(103, 82);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(163, 27);
-            this.textBox6.TabIndex = 30;
-            this.textBox6.Visible = false;
+            this.tbSearchRoutes.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbSearchRoutes.Location = new System.Drawing.Point(103, 82);
+            this.tbSearchRoutes.Name = "tbSearchRoutes";
+            this.tbSearchRoutes.Size = new System.Drawing.Size(163, 27);
+            this.tbSearchRoutes.TabIndex = 30;
+            this.tbSearchRoutes.Visible = false;
+            this.tbSearchRoutes.TextChanged += new System.EventHandler(this.tbSearchRoutes_TextChanged);
             // 
             // label11
             // 
@@ -371,11 +343,15 @@
             // 
             // dgvRoutes
             // 
+            this.dgvRoutes.AllowUserToAddRows = false;
+            this.dgvRoutes.AllowUserToDeleteRows = false;
             this.dgvRoutes.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvRoutes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRoutes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRoutes.Location = new System.Drawing.Point(7, 0);
             this.dgvRoutes.Name = "dgvRoutes";
+            this.dgvRoutes.ReadOnly = true;
+            this.dgvRoutes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRoutes.Size = new System.Drawing.Size(278, 586);
             this.dgvRoutes.TabIndex = 5;
             // 
@@ -425,17 +401,17 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(35, 412);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 21);
+            this.label5.Size = new System.Drawing.Size(122, 21);
             this.label5.TabIndex = 33;
-            this.label5.Text = "Неустойка";
+            this.label5.Text = "Неустойка (%)";
             // 
             // pbPlaneLogo
             // 
             this.pbPlaneLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbPlaneLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaneLogo.Image")));
-            this.pbPlaneLogo.Location = new System.Drawing.Point(39, 635);
+            this.pbPlaneLogo.Location = new System.Drawing.Point(39, 577);
             this.pbPlaneLogo.Name = "pbPlaneLogo";
-            this.pbPlaneLogo.Size = new System.Drawing.Size(515, 224);
+            this.pbPlaneLogo.Size = new System.Drawing.Size(593, 282);
             this.pbPlaneLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPlaneLogo.TabIndex = 42;
             this.pbPlaneLogo.TabStop = false;
@@ -454,7 +430,7 @@
             // 
             this.mtbMoney.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.mtbMoney.Location = new System.Drawing.Point(469, 322);
-            this.mtbMoney.Mask = "000000 руб.";
+            this.mtbMoney.Mask = "000000";
             this.mtbMoney.Name = "mtbMoney";
             this.mtbMoney.Size = new System.Drawing.Size(163, 27);
             this.mtbMoney.TabIndex = 43;
@@ -464,7 +440,7 @@
             // 
             this.mtbSale.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.mtbSale.Location = new System.Drawing.Point(469, 366);
-            this.mtbSale.Mask = "00%";
+            this.mtbSale.Mask = "00";
             this.mtbSale.Name = "mtbSale";
             this.mtbSale.Size = new System.Drawing.Size(163, 27);
             this.mtbSale.TabIndex = 43;
@@ -474,11 +450,27 @@
             // 
             this.mtbReturn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.mtbReturn.Location = new System.Drawing.Point(469, 409);
-            this.mtbReturn.Mask = "_%";
+            this.mtbReturn.Mask = "0";
             this.mtbReturn.Name = "mtbReturn";
             this.mtbReturn.Size = new System.Drawing.Size(163, 27);
             this.mtbReturn.TabIndex = 43;
             this.mtbReturn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // saveBtn
+            // 
+            this.saveBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.saveBtn.FlatAppearance.BorderSize = 0;
+            this.saveBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.saveBtn.Image = ((System.Drawing.Image)(resources.GetObject("saveBtn.Image")));
+            this.saveBtn.Location = new System.Drawing.Point(103, 225);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Size = new System.Drawing.Size(87, 60);
+            this.saveBtn.TabIndex = 34;
+            this.saveBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // usRoutes
             // 
@@ -501,7 +493,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.nameOfRoute);
             this.Controls.Add(this.pForBtn);
             this.Controls.Add(this.label1);
@@ -529,11 +520,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.TextBox nameOfRoute;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button refreshBtn;
         private System.Windows.Forms.Label lCount;
         private System.Windows.Forms.Label lCountOfRoutes;
         private System.Windows.Forms.Panel panel4;
@@ -542,7 +531,7 @@
         private System.Windows.Forms.Button searchBtn;
         private System.Windows.Forms.Button delBtn;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox tbSearchRoutes;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel pBorderRight;
         private System.Windows.Forms.Panel pBorderLeft;
@@ -557,5 +546,6 @@
         private System.Windows.Forms.MaskedTextBox mtbMoney;
         private System.Windows.Forms.MaskedTextBox mtbSale;
         private System.Windows.Forms.MaskedTextBox mtbReturn;
+        private System.Windows.Forms.Button saveBtn;
     }
 }
