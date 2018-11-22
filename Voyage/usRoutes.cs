@@ -28,12 +28,13 @@ namespace Voyage
 
         void loadWorkersWithAbroadDoc()
         {
-            adapter = new SqlDataAdapter("SELECT ID_Worker, sName, sSurname from tWorkers Order by sName, sSurname WHERE AbroadDoc=1", connection);
+            adapter = new SqlDataAdapter("SELECT ID_Worker, sName, sSurname from tWorkers WHERE AbroadDoc=1 Order by sName, sSurname", connection);
         }
 
-        void LoadDataFromWorkers()
+        void LoadDataFromWorkers(string country)
         {
-            loadWorkersWithoutAbroadDoc();
+            if (country == "Россия") loadWorkersWithoutAbroadDoc();
+            else loadWorkersWithAbroadDoc();
             dtForWorkers = new DataTable();
             adapter.Fill(dtForWorkers);
             bsForWorkers = new BindingSource();
@@ -80,7 +81,8 @@ namespace Voyage
             dgvRoutes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvRoutes.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvRoutes.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True;
-
+            cbCountries.SelectedIndex = 0;
+            LoadDataFromWorkers(cbCountries.SelectedItem.ToString());
             lCount.Text = bsForRoutes.Count.ToString();
         }
 
@@ -100,6 +102,7 @@ namespace Voyage
 
         private void delBtn_Click(object sender, EventArgs e)
         {
+            saveBtn.Enabled = false;
             if (forBtn)
             {
                 forBtn = false;
@@ -157,7 +160,7 @@ namespace Voyage
         {
             ClearText();
             forBtn = true;
-            //saveBtn.Enabled = false;
+            saveBtn.Enabled = false;
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
@@ -230,7 +233,7 @@ namespace Voyage
                 }
 
             }
-            //saveBtn.Enabled = false;
+            saveBtn.Enabled = false;
         }
 
         private void excelBtn_Click(object sender, EventArgs e)
@@ -306,7 +309,18 @@ namespace Voyage
 
         private void tbSearchRoutes_TextChanged(object sender, EventArgs e)
         {
-            bsForRoutes.Filter = "sNameOfRoute LIKE '%" + tbSearchRoutes.Text + "%'";
+            bsForRoutes.Filter = "sNameOfRoute LIKE '%" + tbSearchRoutes.Text + "%' OR sCountry LIKE '%" + tbSearchRoutes.Text + "%'";
+        }
+
+        private void cbCountries_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadDataFromWorkers(cbCountries.SelectedItem.ToString());
+            EnabledBtnForMask(mtbDays);
+        }
+
+        private void dgvRoutes_SelectionChanged(object sender, EventArgs e)
+        {
+            saveBtn.Enabled = false;
         }
 
         private void ClearText()
@@ -321,14 +335,53 @@ namespace Voyage
             dateOfFly.Text = DateTime.Now.ToString();
         }
 
+        private void nameOfRoute_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            EnabledBtn(nameOfRoute);
+        }
+
+        void EnabledBtn(TextBox tb)
+        {
+            if (nameOfRoute.Text != "")
+            {
+                saveBtn.Enabled = true;
+            }
+        }
+
+        private void mtbDays_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            EnabledBtnForMask(mtbDays);
+        }
+
+        private void cbWorker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            EnabledBtnForMask(mtbDays);
+        }
+
+        private void dateOfFly_ValueChanged(object sender, EventArgs e)
+        {
+            EnabledBtnForMask(mtbDays);
+        }
+
+        void EnabledBtnForMask(MaskedTextBox tb)
+        {
+            if (nameOfRoute.Text != "")
+            {
+                saveBtn.Enabled = true;
+            }
+        }
+
         public usRoutes()
         {
             InitializeComponent();
-            LoadDataFromWorkers();
             LoadDataFromTable();
             forBtn = false;
-           // saveBtn.Enabled = false;
+            saveBtn.Enabled = false;
             this.ForeColor=Color.FromArgb(0, 71, 160);
+            pBorderLeft.BackColor = Color.FromArgb(0, 71, 160);
+            pBorderRight.BackColor = Color.FromArgb(0, 71, 160);
+            panel2.BackColor = Color.FromArgb(0, 71, 160);
+            panel4.BackColor = Color.FromArgb(0, 71, 160);
         }
     }
 }
