@@ -17,5 +17,13 @@ namespace Voyage
             InitializeComponent();
             this.ForeColor = Color.FromArgb(0, 71, 160);
         }
+
+        private void addNewClientsWithSales_Click(object sender, EventArgs e)
+        {
+            using (ClientsWithSales cws = new ClientsWithSales())
+            {
+                cws.ShowDialog();
+            }
+        }
     }
 }

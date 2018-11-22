@@ -31,3 +31,4 @@ F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.usReturn.resources
 F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.usWorkers.resources
 F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.usPunct.resources
 F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.csproj.ResolveComReference.cache
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.ClientsWithSales.resources

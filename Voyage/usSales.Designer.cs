@@ -39,10 +39,13 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.nudCountOfPeople = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCountOfPeople)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -60,9 +63,9 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(552, 225);
+            this.pictureBox1.Location = new System.Drawing.Point(508, 165);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(442, 397);
+            this.pictureBox1.Size = new System.Drawing.Size(477, 484);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -71,7 +74,7 @@
             // 
             this.cbNameOfRoute.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbNameOfRoute.FormattingEnabled = true;
-            this.cbNameOfRoute.Location = new System.Drawing.Point(81, 276);
+            this.cbNameOfRoute.Location = new System.Drawing.Point(50, 210);
             this.cbNameOfRoute.Name = "cbNameOfRoute";
             this.cbNameOfRoute.Size = new System.Drawing.Size(275, 29);
             this.cbNameOfRoute.TabIndex = 2;
@@ -80,9 +83,10 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(77, 225);
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(46, 165);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(178, 21);
+            this.label2.Size = new System.Drawing.Size(211, 22);
             this.label2.TabIndex = 3;
             this.label2.Text = "Название маршрута";
             // 
@@ -91,7 +95,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(77, 371);
+            this.label3.Location = new System.Drawing.Point(46, 285);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(405, 88);
             this.label3.TabIndex = 3;
@@ -104,13 +108,14 @@
             this.addNewClientsWithSales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addNewClientsWithSales.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addNewClientsWithSales.Image = ((System.Drawing.Image)(resources.GetObject("addNewClientsWithSales.Image")));
-            this.addNewClientsWithSales.Location = new System.Drawing.Point(81, 545);
+            this.addNewClientsWithSales.Location = new System.Drawing.Point(50, 572);
             this.addNewClientsWithSales.Name = "addNewClientsWithSales";
             this.addNewClientsWithSales.Size = new System.Drawing.Size(275, 77);
             this.addNewClientsWithSales.TabIndex = 5;
             this.addNewClientsWithSales.Text = "     Оформит заказ";
             this.addNewClientsWithSales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addNewClientsWithSales.UseVisualStyleBackColor = true;
+            this.addNewClientsWithSales.Click += new System.EventHandler(this.addNewClientsWithSales_Click);
             // 
             // label4
             // 
@@ -157,17 +162,53 @@
             this.pictureBox4.TabIndex = 6;
             this.pictureBox4.TabStop = false;
             // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(46, 417);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(279, 22);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Количество человек в группе";
+            // 
+            // nudCountOfPeople
+            // 
+            this.nudCountOfPeople.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.nudCountOfPeople.Location = new System.Drawing.Point(50, 464);
+            this.nudCountOfPeople.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.nudCountOfPeople.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.nudCountOfPeople.Name = "nudCountOfPeople";
+            this.nudCountOfPeople.Size = new System.Drawing.Size(146, 27);
+            this.nudCountOfPeople.TabIndex = 7;
+            this.nudCountOfPeople.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            // 
             // usSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.nudCountOfPeople);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.addNewClientsWithSales);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbNameOfRoute);
             this.Controls.Add(this.pictureBox1);
@@ -180,6 +221,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCountOfPeople)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,5 +239,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown nudCountOfPeople;
     }
 }
