@@ -32,12 +32,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.saveBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.tbSearch = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.obnovBtn = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.excelBtn = new System.Windows.Forms.Button();
@@ -47,34 +45,35 @@
             this.pBorderRight = new System.Windows.Forms.Panel();
             this.pBorderLeft = new System.Windows.Forms.Panel();
             this.pForBtn = new System.Windows.Forms.Panel();
-            this.dgvClients = new System.Windows.Forms.DataGridView();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.dgvPuncts = new System.Windows.Forms.DataGridView();
+            this.cbCountry = new System.Windows.Forms.ComboBox();
+            this.tbPunct = new System.Windows.Forms.TextBox();
+            this.dateStart = new System.Windows.Forms.DateTimePicker();
+            this.dateEnd = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbHotel = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.oneStar = new System.Windows.Forms.PictureBox();
+            this.threeStars = new System.Windows.Forms.PictureBox();
+            this.twoStars = new System.Windows.Forms.PictureBox();
+            this.fiveStars = new System.Windows.Forms.PictureBox();
+            this.fourStars = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.tbExcurse = new System.Windows.Forms.TextBox();
+            this.saveBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pForBtn.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPuncts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oneStar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.threeStars)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.twoStars)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fiveStars)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fourStars)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -108,23 +107,6 @@
             this.label2.TabIndex = 27;
             this.label2.Text = "Пункт маршрута";
             // 
-            // saveBtn
-            // 
-            this.saveBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.saveBtn.BackColor = System.Drawing.Color.Transparent;
-            this.saveBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("saveBtn.BackgroundImage")));
-            this.saveBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.saveBtn.FlatAppearance.BorderSize = 0;
-            this.saveBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.saveBtn.ForeColor = System.Drawing.Color.White;
-            this.saveBtn.Location = new System.Drawing.Point(573, 807);
-            this.saveBtn.Name = "saveBtn";
-            this.saveBtn.Size = new System.Drawing.Size(68, 52);
-            this.saveBtn.TabIndex = 22;
-            this.saveBtn.UseVisualStyleBackColor = false;
-            // 
             // addBtn
             // 
             this.addBtn.BackColor = System.Drawing.Color.DodgerBlue;
@@ -142,9 +124,9 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox6);
+            this.panel1.Controls.Add(this.saveBtn);
+            this.panel1.Controls.Add(this.tbSearch);
             this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.obnovBtn);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
@@ -154,14 +136,14 @@
             this.panel1.Size = new System.Drawing.Size(278, 300);
             this.panel1.TabIndex = 4;
             // 
-            // textBox6
+            // tbSearch
             // 
-            this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox6.Location = new System.Drawing.Point(100, 86);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(163, 27);
-            this.textBox6.TabIndex = 34;
-            this.textBox6.Visible = false;
+            this.tbSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbSearch.Location = new System.Drawing.Point(100, 86);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(163, 27);
+            this.tbSearch.TabIndex = 34;
+            this.tbSearch.Visible = false;
             // 
             // label11
             // 
@@ -173,21 +155,6 @@
             this.label11.TabIndex = 35;
             this.label11.Text = "Поиск";
             this.label11.Visible = false;
-            // 
-            // obnovBtn
-            // 
-            this.obnovBtn.BackColor = System.Drawing.Color.SeaGreen;
-            this.obnovBtn.FlatAppearance.BorderSize = 0;
-            this.obnovBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.obnovBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.obnovBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.obnovBtn.ForeColor = System.Drawing.Color.White;
-            this.obnovBtn.Location = new System.Drawing.Point(70, 241);
-            this.obnovBtn.Name = "obnovBtn";
-            this.obnovBtn.Size = new System.Drawing.Size(123, 42);
-            this.obnovBtn.TabIndex = 1;
-            this.obnovBtn.Text = "Обновить";
-            this.obnovBtn.UseVisualStyleBackColor = false;
             // 
             // panel4
             // 
@@ -240,6 +207,7 @@
             this.searchBtn.Size = new System.Drawing.Size(50, 42);
             this.searchBtn.TabIndex = 1;
             this.searchBtn.UseVisualStyleBackColor = false;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
             // 
             // delBtn
             // 
@@ -286,7 +254,7 @@
             // pForBtn
             // 
             this.pForBtn.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pForBtn.Controls.Add(this.dgvClients);
+            this.pForBtn.Controls.Add(this.dgvPuncts);
             this.pForBtn.Controls.Add(this.panel1);
             this.pForBtn.Controls.Add(this.pBorderRight);
             this.pForBtn.Controls.Add(this.pBorderLeft);
@@ -296,50 +264,63 @@
             this.pForBtn.Size = new System.Drawing.Size(292, 886);
             this.pForBtn.TabIndex = 25;
             // 
-            // dgvClients
+            // dgvPuncts
             // 
-            this.dgvClients.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClients.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvClients.Location = new System.Drawing.Point(7, 0);
-            this.dgvClients.Name = "dgvClients";
-            this.dgvClients.Size = new System.Drawing.Size(278, 586);
-            this.dgvClients.TabIndex = 5;
+            this.dgvPuncts.AllowUserToAddRows = false;
+            this.dgvPuncts.AllowUserToDeleteRows = false;
+            this.dgvPuncts.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvPuncts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPuncts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPuncts.Location = new System.Drawing.Point(7, 0);
+            this.dgvPuncts.Name = "dgvPuncts";
+            this.dgvPuncts.ReadOnly = true;
+            this.dgvPuncts.Size = new System.Drawing.Size(278, 586);
+            this.dgvPuncts.TabIndex = 5;
             // 
-            // comboBox2
+            // cbCountry
             // 
-            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(193, 103);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(163, 29);
-            this.comboBox2.TabIndex = 45;
+            this.cbCountry.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCountry.FormattingEnabled = true;
+            this.cbCountry.Items.AddRange(new object[] {
+            "Россия",
+            "Германия",
+            "Чехия",
+            "Греция",
+            "Италия",
+            "Испания",
+            "Нидерланды",
+            "США"});
+            this.cbCountry.Location = new System.Drawing.Point(193, 103);
+            this.cbCountry.Name = "cbCountry";
+            this.cbCountry.Size = new System.Drawing.Size(163, 29);
+            this.cbCountry.TabIndex = 45;
             // 
-            // textBox1
+            // tbPunct
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.Location = new System.Drawing.Point(193, 147);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(163, 27);
-            this.textBox1.TabIndex = 46;
+            this.tbPunct.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbPunct.Location = new System.Drawing.Point(193, 147);
+            this.tbPunct.Name = "tbPunct";
+            this.tbPunct.Size = new System.Drawing.Size(163, 27);
+            this.tbPunct.TabIndex = 46;
             // 
-            // dateTimePicker2
+            // dateStart
             // 
-            this.dateTimePicker2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(193, 233);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(163, 27);
-            this.dateTimePicker2.TabIndex = 47;
+            this.dateStart.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dateStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateStart.Location = new System.Drawing.Point(193, 233);
+            this.dateStart.Name = "dateStart";
+            this.dateStart.Size = new System.Drawing.Size(163, 27);
+            this.dateStart.TabIndex = 47;
             // 
-            // dateTimePicker3
+            // dateEnd
             // 
-            this.dateTimePicker3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker3.Location = new System.Drawing.Point(193, 277);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(163, 27);
-            this.dateTimePicker3.TabIndex = 48;
+            this.dateEnd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dateEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateEnd.Location = new System.Drawing.Point(193, 276);
+            this.dateEnd.Name = "dateEnd";
+            this.dateEnd.Size = new System.Drawing.Size(163, 27);
+            this.dateEnd.TabIndex = 48;
             // 
             // label5
             // 
@@ -351,13 +332,13 @@
             this.label5.TabIndex = 27;
             this.label5.Text = "Название отеля";
             // 
-            // textBox3
+            // tbHotel
             // 
-            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox3.Location = new System.Drawing.Point(193, 193);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(163, 27);
-            this.textBox3.TabIndex = 46;
+            this.tbHotel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbHotel.Location = new System.Drawing.Point(193, 193);
+            this.tbHotel.Name = "tbHotel";
+            this.tbHotel.Size = new System.Drawing.Size(163, 27);
+            this.tbHotel.TabIndex = 46;
             // 
             // label6
             // 
@@ -368,16 +349,6 @@
             this.label6.Size = new System.Drawing.Size(130, 21);
             this.label6.TabIndex = 27;
             this.label6.Text = "Дата прибытия";
-            // 
-            // listBox1
-            // 
-            this.listBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 21;
-            this.listBox1.Location = new System.Drawing.Point(39, 527);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(593, 172);
-            this.listBox1.TabIndex = 43;
             // 
             // label7
             // 
@@ -404,94 +375,130 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(35, 348);
+            this.label4.Location = new System.Drawing.Point(35, 410);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(146, 21);
             this.label4.TabIndex = 27;
             this.label4.Text = "Класс гостиницы";
             // 
-            // pictureBox2
+            // oneStar
             // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(39, 389);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 50;
-            this.pictureBox2.TabStop = false;
+            this.oneStar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.oneStar.Image = ((System.Drawing.Image)(resources.GetObject("oneStar.Image")));
+            this.oneStar.Location = new System.Drawing.Point(39, 451);
+            this.oneStar.Name = "oneStar";
+            this.oneStar.Size = new System.Drawing.Size(50, 50);
+            this.oneStar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.oneStar.TabIndex = 50;
+            this.oneStar.TabStop = false;
+            this.oneStar.MouseEnter += new System.EventHandler(this.oneStar_MouseEnter);
+            this.oneStar.MouseLeave += new System.EventHandler(this.oneStar_MouseLeave);
             // 
-            // pictureBox3
+            // threeStars
             // 
-            this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(95, 389);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 50;
-            this.pictureBox3.TabStop = false;
+            this.threeStars.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.threeStars.Image = ((System.Drawing.Image)(resources.GetObject("threeStars.Image")));
+            this.threeStars.Location = new System.Drawing.Point(169, 451);
+            this.threeStars.Name = "threeStars";
+            this.threeStars.Size = new System.Drawing.Size(50, 50);
+            this.threeStars.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.threeStars.TabIndex = 50;
+            this.threeStars.TabStop = false;
+            this.threeStars.MouseEnter += new System.EventHandler(this.oneStar_MouseEnter);
+            this.threeStars.MouseLeave += new System.EventHandler(this.oneStar_MouseLeave);
             // 
-            // pictureBox4
+            // twoStars
             // 
-            this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(151, 389);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 50;
-            this.pictureBox4.TabStop = false;
+            this.twoStars.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.twoStars.Image = ((System.Drawing.Image)(resources.GetObject("twoStars.Image")));
+            this.twoStars.Location = new System.Drawing.Point(104, 451);
+            this.twoStars.Name = "twoStars";
+            this.twoStars.Size = new System.Drawing.Size(50, 50);
+            this.twoStars.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.twoStars.TabIndex = 50;
+            this.twoStars.TabStop = false;
+            this.twoStars.MouseEnter += new System.EventHandler(this.oneStar_MouseEnter);
+            this.twoStars.MouseLeave += new System.EventHandler(this.oneStar_MouseLeave);
             // 
-            // pictureBox5
+            // fiveStars
             // 
-            this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(207, 389);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 50;
-            this.pictureBox5.TabStop = false;
+            this.fiveStars.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.fiveStars.Image = ((System.Drawing.Image)(resources.GetObject("fiveStars.Image")));
+            this.fiveStars.Location = new System.Drawing.Point(300, 451);
+            this.fiveStars.Name = "fiveStars";
+            this.fiveStars.Size = new System.Drawing.Size(50, 50);
+            this.fiveStars.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.fiveStars.TabIndex = 50;
+            this.fiveStars.TabStop = false;
+            this.fiveStars.MouseEnter += new System.EventHandler(this.oneStar_MouseEnter);
+            this.fiveStars.MouseLeave += new System.EventHandler(this.oneStar_MouseLeave);
             // 
-            // pictureBox6
+            // fourStars
             // 
-            this.pictureBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(263, 389);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 50;
-            this.pictureBox6.TabStop = false;
+            this.fourStars.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.fourStars.Image = ((System.Drawing.Image)(resources.GetObject("fourStars.Image")));
+            this.fourStars.Location = new System.Drawing.Point(234, 451);
+            this.fourStars.Name = "fourStars";
+            this.fourStars.Size = new System.Drawing.Size(50, 50);
+            this.fourStars.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.fourStars.TabIndex = 50;
+            this.fourStars.TabStop = false;
+            this.fourStars.MouseEnter += new System.EventHandler(this.oneStar_MouseEnter);
+            this.fourStars.MouseLeave += new System.EventHandler(this.oneStar_MouseLeave);
             // 
             // label8
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(35, 476);
+            this.label8.Location = new System.Drawing.Point(35, 572);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(238, 21);
             this.label8.TabIndex = 27;
             this.label8.Text = "Экскурсионная программа";
+            // 
+            // tbExcurse
+            // 
+            this.tbExcurse.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbExcurse.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbExcurse.Location = new System.Drawing.Point(39, 629);
+            this.tbExcurse.Multiline = true;
+            this.tbExcurse.Name = "tbExcurse";
+            this.tbExcurse.Size = new System.Drawing.Size(602, 201);
+            this.tbExcurse.TabIndex = 51;
+            // 
+            // saveBtn
+            // 
+            this.saveBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.saveBtn.FlatAppearance.BorderSize = 0;
+            this.saveBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.saveBtn.Image = ((System.Drawing.Image)(resources.GetObject("saveBtn.Image")));
+            this.saveBtn.Location = new System.Drawing.Point(100, 194);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Size = new System.Drawing.Size(87, 60);
+            this.saveBtn.TabIndex = 36;
+            this.saveBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // usPunct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.tbExcurse);
+            this.Controls.Add(this.fourStars);
+            this.Controls.Add(this.fiveStars);
+            this.Controls.Add(this.twoStars);
+            this.Controls.Add(this.threeStars);
+            this.Controls.Add(this.oneStar);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.dateTimePicker3);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.dateEnd);
+            this.Controls.Add(this.dateStart);
+            this.Controls.Add(this.tbHotel);
+            this.Controls.Add(this.tbPunct);
+            this.Controls.Add(this.cbCountry);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label7);
@@ -499,7 +506,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.pForBtn);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -510,13 +516,13 @@
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.pForBtn.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPuncts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oneStar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.threeStars)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.twoStars)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fiveStars)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fourStars)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -526,12 +532,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button obnovBtn;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button excelBtn;
@@ -541,23 +545,24 @@
         private System.Windows.Forms.Panel pBorderRight;
         private System.Windows.Forms.Panel pBorderLeft;
         private System.Windows.Forms.Panel pForBtn;
-        private System.Windows.Forms.DataGridView dgvClients;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.DataGridView dgvPuncts;
+        private System.Windows.Forms.ComboBox cbCountry;
+        private System.Windows.Forms.TextBox tbPunct;
+        private System.Windows.Forms.DateTimePicker dateStart;
+        private System.Windows.Forms.DateTimePicker dateEnd;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbHotel;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox oneStar;
+        private System.Windows.Forms.PictureBox threeStars;
+        private System.Windows.Forms.PictureBox twoStars;
+        private System.Windows.Forms.PictureBox fiveStars;
+        private System.Windows.Forms.PictureBox fourStars;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tbExcurse;
+        private System.Windows.Forms.Button saveBtn;
     }
 }
