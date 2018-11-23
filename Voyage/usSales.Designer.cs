@@ -41,6 +41,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.nudCountOfPeople = new System.Windows.Forms.NumericUpDown();
+            this.tbCountry = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -73,6 +74,7 @@
             // cbNameOfRoute
             // 
             this.cbNameOfRoute.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbNameOfRoute.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbNameOfRoute.FormattingEnabled = true;
             this.cbNameOfRoute.Location = new System.Drawing.Point(50, 210);
             this.cbNameOfRoute.Name = "cbNameOfRoute";
@@ -112,7 +114,7 @@
             this.addNewClientsWithSales.Name = "addNewClientsWithSales";
             this.addNewClientsWithSales.Size = new System.Drawing.Size(275, 77);
             this.addNewClientsWithSales.TabIndex = 5;
-            this.addNewClientsWithSales.Text = "     Оформит заказ";
+            this.addNewClientsWithSales.Text = "     Оформить заказ";
             this.addNewClientsWithSales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addNewClientsWithSales.UseVisualStyleBackColor = true;
             this.addNewClientsWithSales.Click += new System.EventHandler(this.addNewClientsWithSales_Click);
@@ -196,11 +198,20 @@
             0,
             0});
             // 
+            // tbCountry
+            // 
+            this.tbCountry.Location = new System.Drawing.Point(351, 210);
+            this.tbCountry.Name = "tbCountry";
+            this.tbCountry.Size = new System.Drawing.Size(151, 27);
+            this.tbCountry.TabIndex = 8;
+            this.tbCountry.Visible = false;
+            // 
             // usSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.tbCountry);
             this.Controls.Add(this.nudCountOfPeople);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
@@ -241,5 +252,6 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown nudCountOfPeople;
+        private System.Windows.Forms.TextBox tbCountry;
     }
 }
