@@ -35,7 +35,6 @@
             this.addBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.saveBtn = new System.Windows.Forms.Button();
-            this.tbSearch = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -64,6 +63,8 @@
             this.fourStars = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tbExcurse = new System.Windows.Forms.TextBox();
+            this.lRaiting = new System.Windows.Forms.Label();
+            this.tbSearchPuncts = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pForBtn.SuspendLayout();
@@ -121,11 +122,12 @@
             this.addBtn.TabIndex = 1;
             this.addBtn.Text = "+";
             this.addBtn.UseVisualStyleBackColor = false;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.tbSearchPuncts);
             this.panel1.Controls.Add(this.saveBtn);
-            this.panel1.Controls.Add(this.tbSearch);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
@@ -133,7 +135,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(7, 586);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(278, 300);
+            this.panel1.Size = new System.Drawing.Size(311, 300);
             this.panel1.TabIndex = 4;
             // 
             // saveBtn
@@ -144,7 +146,7 @@
             this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.saveBtn.Image = ((System.Drawing.Image)(resources.GetObject("saveBtn.Image")));
-            this.saveBtn.Location = new System.Drawing.Point(100, 194);
+            this.saveBtn.Location = new System.Drawing.Point(116, 194);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(87, 60);
             this.saveBtn.TabIndex = 36;
@@ -152,20 +154,11 @@
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
-            // tbSearch
-            // 
-            this.tbSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbSearch.Location = new System.Drawing.Point(100, 86);
-            this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(163, 27);
-            this.tbSearch.TabIndex = 34;
-            this.tbSearch.Visible = false;
-            // 
             // label11
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(16, 92);
+            this.label11.Location = new System.Drawing.Point(32, 92);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(59, 21);
             this.label11.TabIndex = 35;
@@ -178,7 +171,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 56);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(278, 7);
+            this.panel4.Size = new System.Drawing.Size(311, 7);
             this.panel4.TabIndex = 2;
             // 
             // panel3
@@ -190,7 +183,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 7);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(278, 49);
+            this.panel3.Size = new System.Drawing.Size(311, 49);
             this.panel3.TabIndex = 1;
             // 
             // excelBtn
@@ -203,10 +196,11 @@
             this.excelBtn.ForeColor = System.Drawing.Color.White;
             this.excelBtn.Location = new System.Drawing.Point(115, 4);
             this.excelBtn.Name = "excelBtn";
-            this.excelBtn.Size = new System.Drawing.Size(103, 42);
+            this.excelBtn.Size = new System.Drawing.Size(134, 42);
             this.excelBtn.TabIndex = 1;
             this.excelBtn.Text = "Excel";
             this.excelBtn.UseVisualStyleBackColor = false;
+            this.excelBtn.Click += new System.EventHandler(this.excelBtn_Click);
             // 
             // searchBtn
             // 
@@ -218,7 +212,7 @@
             this.searchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.searchBtn.ForeColor = System.Drawing.Color.White;
-            this.searchBtn.Location = new System.Drawing.Point(224, 4);
+            this.searchBtn.Location = new System.Drawing.Point(255, 4);
             this.searchBtn.Name = "searchBtn";
             this.searchBtn.Size = new System.Drawing.Size(50, 42);
             this.searchBtn.TabIndex = 1;
@@ -239,6 +233,7 @@
             this.delBtn.TabIndex = 1;
             this.delBtn.Text = "-";
             this.delBtn.UseVisualStyleBackColor = false;
+            this.delBtn.Click += new System.EventHandler(this.delBtn_Click);
             // 
             // panel2
             // 
@@ -246,14 +241,14 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(278, 7);
+            this.panel2.Size = new System.Drawing.Size(311, 7);
             this.panel2.TabIndex = 0;
             // 
             // pBorderRight
             // 
             this.pBorderRight.BackColor = System.Drawing.Color.Blue;
             this.pBorderRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pBorderRight.Location = new System.Drawing.Point(285, 0);
+            this.pBorderRight.Location = new System.Drawing.Point(318, 0);
             this.pBorderRight.Name = "pBorderRight";
             this.pBorderRight.Size = new System.Drawing.Size(7, 886);
             this.pBorderRight.TabIndex = 4;
@@ -275,9 +270,9 @@
             this.pForBtn.Controls.Add(this.pBorderRight);
             this.pForBtn.Controls.Add(this.pBorderLeft);
             this.pForBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pForBtn.Location = new System.Drawing.Point(705, 0);
+            this.pForBtn.Location = new System.Drawing.Point(672, 0);
             this.pForBtn.Name = "pForBtn";
-            this.pForBtn.Size = new System.Drawing.Size(292, 886);
+            this.pForBtn.Size = new System.Drawing.Size(325, 886);
             this.pForBtn.TabIndex = 25;
             // 
             // dgvPuncts
@@ -290,8 +285,10 @@
             this.dgvPuncts.Location = new System.Drawing.Point(7, 0);
             this.dgvPuncts.Name = "dgvPuncts";
             this.dgvPuncts.ReadOnly = true;
-            this.dgvPuncts.Size = new System.Drawing.Size(278, 586);
+            this.dgvPuncts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPuncts.Size = new System.Drawing.Size(311, 586);
             this.dgvPuncts.TabIndex = 5;
+            this.dgvPuncts.SelectionChanged += new System.EventHandler(this.dgvPuncts_SelectionChanged);
             // 
             // cbCountry
             // 
@@ -311,6 +308,7 @@
             this.cbCountry.Name = "cbCountry";
             this.cbCountry.Size = new System.Drawing.Size(163, 29);
             this.cbCountry.TabIndex = 45;
+            this.cbCountry.SelectedIndexChanged += new System.EventHandler(this.cbCountry_SelectedIndexChanged);
             // 
             // tbPunct
             // 
@@ -319,6 +317,7 @@
             this.tbPunct.Name = "tbPunct";
             this.tbPunct.Size = new System.Drawing.Size(163, 27);
             this.tbPunct.TabIndex = 46;
+            this.tbPunct.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPunct_KeyPress);
             // 
             // dateStart
             // 
@@ -328,6 +327,7 @@
             this.dateStart.Name = "dateStart";
             this.dateStart.Size = new System.Drawing.Size(163, 27);
             this.dateStart.TabIndex = 47;
+            this.dateStart.ValueChanged += new System.EventHandler(this.dateStart_ValueChanged);
             // 
             // dateEnd
             // 
@@ -337,6 +337,7 @@
             this.dateEnd.Name = "dateEnd";
             this.dateEnd.Size = new System.Drawing.Size(163, 27);
             this.dateEnd.TabIndex = 48;
+            this.dateEnd.ValueChanged += new System.EventHandler(this.dateEnd_ValueChanged);
             // 
             // label5
             // 
@@ -355,6 +356,7 @@
             this.tbHotel.Name = "tbHotel";
             this.tbHotel.Size = new System.Drawing.Size(163, 27);
             this.tbHotel.TabIndex = 46;
+            this.tbHotel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbHotel_KeyPress);
             // 
             // label6
             // 
@@ -486,6 +488,27 @@
             this.tbExcurse.Name = "tbExcurse";
             this.tbExcurse.Size = new System.Drawing.Size(602, 201);
             this.tbExcurse.TabIndex = 51;
+            this.tbExcurse.TextChanged += new System.EventHandler(this.tbExcurse_TextChanged);
+            // 
+            // lRaiting
+            // 
+            this.lRaiting.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lRaiting.AutoSize = true;
+            this.lRaiting.Location = new System.Drawing.Point(398, 410);
+            this.lRaiting.Name = "lRaiting";
+            this.lRaiting.Size = new System.Drawing.Size(19, 21);
+            this.lRaiting.TabIndex = 27;
+            this.lRaiting.Text = "0";
+            this.lRaiting.TextChanged += new System.EventHandler(this.lRaiting_TextChanged);
+            // 
+            // tbSearchPuncts
+            // 
+            this.tbSearchPuncts.Location = new System.Drawing.Point(97, 89);
+            this.tbSearchPuncts.Name = "tbSearchPuncts";
+            this.tbSearchPuncts.Size = new System.Drawing.Size(197, 27);
+            this.tbSearchPuncts.TabIndex = 37;
+            this.tbSearchPuncts.Visible = false;
+            this.tbSearchPuncts.TextChanged += new System.EventHandler(this.tbSearchPuncts_TextChanged);
             // 
             // usPunct
             // 
@@ -505,6 +528,7 @@
             this.Controls.Add(this.tbPunct);
             this.Controls.Add(this.cbCountry);
             this.Controls.Add(this.label8);
+            this.Controls.Add(this.lRaiting);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -539,7 +563,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
@@ -569,5 +592,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tbExcurse;
         private System.Windows.Forms.Button saveBtn;
+        private System.Windows.Forms.Label lRaiting;
+        private System.Windows.Forms.TextBox tbSearchPuncts;
     }
 }
