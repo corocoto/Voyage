@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.addBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tbSearchPuncts = new System.Windows.Forms.TextBox();
             this.saveBtn = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -64,7 +65,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.tbExcurse = new System.Windows.Forms.TextBox();
             this.lRaiting = new System.Windows.Forms.Label();
-            this.tbSearchPuncts = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pForBtn.SuspendLayout();
@@ -137,6 +137,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(311, 300);
             this.panel1.TabIndex = 4;
+            // 
+            // tbSearchPuncts
+            // 
+            this.tbSearchPuncts.Location = new System.Drawing.Point(97, 89);
+            this.tbSearchPuncts.Name = "tbSearchPuncts";
+            this.tbSearchPuncts.Size = new System.Drawing.Size(197, 27);
+            this.tbSearchPuncts.TabIndex = 37;
+            this.tbSearchPuncts.Visible = false;
+            this.tbSearchPuncts.TextChanged += new System.EventHandler(this.tbSearchPuncts_TextChanged);
             // 
             // saveBtn
             // 
@@ -499,16 +508,8 @@
             this.lRaiting.Size = new System.Drawing.Size(19, 21);
             this.lRaiting.TabIndex = 27;
             this.lRaiting.Text = "0";
+            this.lRaiting.Visible = false;
             this.lRaiting.TextChanged += new System.EventHandler(this.lRaiting_TextChanged);
-            // 
-            // tbSearchPuncts
-            // 
-            this.tbSearchPuncts.Location = new System.Drawing.Point(97, 89);
-            this.tbSearchPuncts.Name = "tbSearchPuncts";
-            this.tbSearchPuncts.Size = new System.Drawing.Size(197, 27);
-            this.tbSearchPuncts.TabIndex = 37;
-            this.tbSearchPuncts.Visible = false;
-            this.tbSearchPuncts.TextChanged += new System.EventHandler(this.tbSearchPuncts_TextChanged);
             // 
             // usPunct
             // 

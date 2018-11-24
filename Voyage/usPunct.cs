@@ -24,7 +24,7 @@ namespace Voyage
         //переменные для корректной работы рейтинга
         bool clickImg;
         string click="";
-        int rating = 0;
+       // int rating = 0;
 
         void LoadDataFromTable()
         {
@@ -73,26 +73,26 @@ namespace Voyage
                 if (s != "" && s!=0.ToString())
                 {
                     clickImg = true;
-                    rating = int.Parse(s);
-                    switch (rating)
+                    lRaiting.Text = s;
+                    switch (lRaiting.Text)
                     {
-                        case 1:
+                        case "1":
                             click = "oneStar";
                             printStarsBack(oneStar, clickImg, click);
                             break;
-                        case 2:
+                        case "2":
                             click = "twoStars";
                             printStarsBack(twoStars, clickImg, click);
                             break;
-                        case 3:
+                        case "3":
                             click = "threeStars";
                             printStarsBack(threeStars, clickImg, click);
                             break;
-                        case 4:
+                        case "4":
                             click = "fourStars";
                             printStarsBack(fourStars, clickImg, click);
                             break;
-                        case 5:
+                        case "5":
                             click = "fiveStars";
                             printStarsBack(fiveStars, clickImg, click);
                             break;
@@ -152,7 +152,7 @@ namespace Voyage
                             threeStars.Load(@"img\btn\star_blue.png");
                             fourStars.Load(@"img\btn\star_blue.png");
                             fiveStars.Load(@"img\btn\star_blue.png");
-                            rating = 1;
+                            //rating = 1;
                             lRaiting.Text = "1";
                             break;
                         case "twoStars":
@@ -161,7 +161,7 @@ namespace Voyage
                             threeStars.Load(@"img\btn\star_blue.png");
                             fourStars.Load(@"img\btn\star_blue.png");
                             fiveStars.Load(@"img\btn\star_blue.png");
-                            rating = 2;
+                            //rating = 2;
                             lRaiting.Text = "2";
                             break;
                         case "threeStars":
@@ -170,7 +170,7 @@ namespace Voyage
                             nameOfPicture.Load(@"img\btn\star_orange.png");
                             fourStars.Load(@"img\btn\star_blue.png");
                             fiveStars.Load(@"img\btn\star_blue.png");
-                            rating = 3;
+                            //rating = 3;
                             lRaiting.Text = "3";
                             break;
                         case "fourStars":
@@ -179,7 +179,7 @@ namespace Voyage
                             threeStars.Load(@"img\btn\star_orange.png");
                             nameOfPicture.Load(@"img\btn\star_orange.png");
                             fiveStars.Load(@"img\btn\star_blue.png");
-                            rating = 4;
+                          //  rating = 4;
                             lRaiting.Text = "4";
                             break;
                         case "fiveStars":
@@ -188,7 +188,7 @@ namespace Voyage
                             threeStars.Load(@"img\btn\star_orange.png");
                             fourStars.Load(@"img\btn\star_orange.png");
                             nameOfPicture.Load(@"img\btn\star_orange.png");
-                            rating = 5;
+                            //rating = 5;
                             lRaiting.Text = "5";
                             break;
                     }
@@ -204,12 +204,11 @@ namespace Voyage
             }
         }
 
-
-        void ClearText()
+        private void ClearText()
         {
             cbCountry.SelectedIndex = 0;
             clickImg = false;
-            rating = 0;
+           // rating = 0;
             lRaiting.Text = "0";
             click = "";
             tbPunct.Text = "";
@@ -497,6 +496,7 @@ namespace Voyage
 
         private void tbSearchPuncts_TextChanged(object sender, EventArgs e)
         {
+            //НЕ ИЩЕТ
             //bs.Filter = "sCountry LIKE '%" + cbCountry.Text + "%'";
         }
     }
