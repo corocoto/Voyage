@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.addBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.saveBtn = new System.Windows.Forms.Button();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -63,7 +64,6 @@
             this.fourStars = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tbExcurse = new System.Windows.Forms.TextBox();
-            this.saveBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pForBtn.SuspendLayout();
@@ -135,6 +135,22 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(278, 300);
             this.panel1.TabIndex = 4;
+            // 
+            // saveBtn
+            // 
+            this.saveBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.saveBtn.FlatAppearance.BorderSize = 0;
+            this.saveBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.saveBtn.Image = ((System.Drawing.Image)(resources.GetObject("saveBtn.Image")));
+            this.saveBtn.Location = new System.Drawing.Point(100, 194);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Size = new System.Drawing.Size(87, 60);
+            this.saveBtn.TabIndex = 36;
+            this.saveBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // tbSearch
             // 
@@ -391,6 +407,7 @@
             this.oneStar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.oneStar.TabIndex = 50;
             this.oneStar.TabStop = false;
+            this.oneStar.Click += new System.EventHandler(this.oneStar_Click);
             this.oneStar.MouseEnter += new System.EventHandler(this.oneStar_MouseEnter);
             this.oneStar.MouseLeave += new System.EventHandler(this.oneStar_MouseLeave);
             // 
@@ -404,6 +421,7 @@
             this.threeStars.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.threeStars.TabIndex = 50;
             this.threeStars.TabStop = false;
+            this.threeStars.Click += new System.EventHandler(this.oneStar_Click);
             this.threeStars.MouseEnter += new System.EventHandler(this.oneStar_MouseEnter);
             this.threeStars.MouseLeave += new System.EventHandler(this.oneStar_MouseLeave);
             // 
@@ -417,6 +435,7 @@
             this.twoStars.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.twoStars.TabIndex = 50;
             this.twoStars.TabStop = false;
+            this.twoStars.Click += new System.EventHandler(this.oneStar_Click);
             this.twoStars.MouseEnter += new System.EventHandler(this.oneStar_MouseEnter);
             this.twoStars.MouseLeave += new System.EventHandler(this.oneStar_MouseLeave);
             // 
@@ -430,6 +449,7 @@
             this.fiveStars.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.fiveStars.TabIndex = 50;
             this.fiveStars.TabStop = false;
+            this.fiveStars.Click += new System.EventHandler(this.oneStar_Click);
             this.fiveStars.MouseEnter += new System.EventHandler(this.oneStar_MouseEnter);
             this.fiveStars.MouseLeave += new System.EventHandler(this.oneStar_MouseLeave);
             // 
@@ -443,6 +463,7 @@
             this.fourStars.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.fourStars.TabIndex = 50;
             this.fourStars.TabStop = false;
+            this.fourStars.Click += new System.EventHandler(this.oneStar_Click);
             this.fourStars.MouseEnter += new System.EventHandler(this.oneStar_MouseEnter);
             this.fourStars.MouseLeave += new System.EventHandler(this.oneStar_MouseLeave);
             // 
@@ -465,22 +486,6 @@
             this.tbExcurse.Name = "tbExcurse";
             this.tbExcurse.Size = new System.Drawing.Size(602, 201);
             this.tbExcurse.TabIndex = 51;
-            // 
-            // saveBtn
-            // 
-            this.saveBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.saveBtn.FlatAppearance.BorderSize = 0;
-            this.saveBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.saveBtn.Image = ((System.Drawing.Image)(resources.GetObject("saveBtn.Image")));
-            this.saveBtn.Location = new System.Drawing.Point(100, 194);
-            this.saveBtn.Name = "saveBtn";
-            this.saveBtn.Size = new System.Drawing.Size(87, 60);
-            this.saveBtn.TabIndex = 36;
-            this.saveBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.saveBtn.UseVisualStyleBackColor = true;
-            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // usPunct
             // 
