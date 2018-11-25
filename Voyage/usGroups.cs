@@ -17,5 +17,17 @@ namespace Voyage
             InitializeComponent();
             headerPanel.BackColor = Color.FromArgb(0, 71, 160);
         }
+
+        private void createNewGroupBtn_Click(object sender, EventArgs e)
+        {
+            createNewGroup cng = new createNewGroup();
+            cng.Show();
+        }
+
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+            changeGroup cg = new changeGroup();
+            cg.Show();
+        }
     }
 }

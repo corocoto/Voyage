@@ -47,11 +47,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="changeGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="changeGroup.Designer.cs">
+      <DependentUpon>changeGroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClientsWithSales.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ClientsWithSales.Designer.cs">
       <DependentUpon>ClientsWithSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="createNewGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="createNewGroup.Designer.cs">
+      <DependentUpon>createNewGroup.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -115,8 +127,14 @@
     <Compile Include="usWorkers.Designer.cs">
       <DependentUpon>usWorkers.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="changeGroup.resx">
+      <DependentUpon>changeGroup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClientsWithSales.resx">
       <DependentUpon>ClientsWithSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="createNewGroup.resx">
+      <DependentUpon>createNewGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

@@ -34,11 +34,11 @@
             this.borderRight = new System.Windows.Forms.Panel();
             this.borderBottom = new System.Windows.Forms.Panel();
             this.headerPanel = new System.Windows.Forms.Panel();
-            this.createNewGroupBtn = new System.Windows.Forms.Button();
-            this.editBtn = new System.Windows.Forms.Button();
-            this.workWithClientsBtn = new System.Windows.Forms.Button();
-            this.excelBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
+            this.excelBtn = new System.Windows.Forms.Button();
+            this.workWithClientsBtn = new System.Windows.Forms.Button();
+            this.editBtn = new System.Windows.Forms.Button();
+            this.createNewGroupBtn = new System.Windows.Forms.Button();
             this.dgvGroups = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.headerPanel.SuspendLayout();
@@ -92,50 +92,20 @@
             this.headerPanel.Size = new System.Drawing.Size(983, 89);
             this.headerPanel.TabIndex = 1;
             // 
-            // createNewGroupBtn
+            // deleteBtn
             // 
-            this.createNewGroupBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.createNewGroupBtn.FlatAppearance.BorderSize = 0;
-            this.createNewGroupBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.createNewGroupBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.createNewGroupBtn.Image = ((System.Drawing.Image)(resources.GetObject("createNewGroupBtn.Image")));
-            this.createNewGroupBtn.Location = new System.Drawing.Point(0, 0);
-            this.createNewGroupBtn.Name = "createNewGroupBtn";
-            this.createNewGroupBtn.Size = new System.Drawing.Size(225, 89);
-            this.createNewGroupBtn.TabIndex = 0;
-            this.createNewGroupBtn.Text = "     Добавить новую группу";
-            this.createNewGroupBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.createNewGroupBtn.UseVisualStyleBackColor = true;
-            // 
-            // editBtn
-            // 
-            this.editBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.editBtn.FlatAppearance.BorderSize = 0;
-            this.editBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.editBtn.Image = ((System.Drawing.Image)(resources.GetObject("editBtn.Image")));
-            this.editBtn.Location = new System.Drawing.Point(225, 0);
-            this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(169, 89);
-            this.editBtn.TabIndex = 1;
-            this.editBtn.Text = "     Изменить";
-            this.editBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.editBtn.UseVisualStyleBackColor = true;
-            // 
-            // workWithClientsBtn
-            // 
-            this.workWithClientsBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.workWithClientsBtn.FlatAppearance.BorderSize = 0;
-            this.workWithClientsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.workWithClientsBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.workWithClientsBtn.Image = ((System.Drawing.Image)(resources.GetObject("workWithClientsBtn.Image")));
-            this.workWithClientsBtn.Location = new System.Drawing.Point(394, 0);
-            this.workWithClientsBtn.Name = "workWithClientsBtn";
-            this.workWithClientsBtn.Size = new System.Drawing.Size(260, 89);
-            this.workWithClientsBtn.TabIndex = 2;
-            this.workWithClientsBtn.Text = "     Работа с клиентами";
-            this.workWithClientsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.workWithClientsBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.deleteBtn.FlatAppearance.BorderSize = 0;
+            this.deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.deleteBtn.Image = ((System.Drawing.Image)(resources.GetObject("deleteBtn.Image")));
+            this.deleteBtn.Location = new System.Drawing.Point(823, 0);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(160, 89);
+            this.deleteBtn.TabIndex = 4;
+            this.deleteBtn.Text = "     Удалить";
+            this.deleteBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.deleteBtn.UseVisualStyleBackColor = true;
             // 
             // excelBtn
             // 
@@ -152,20 +122,52 @@
             this.excelBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.excelBtn.UseVisualStyleBackColor = true;
             // 
-            // deleteBtn
+            // workWithClientsBtn
             // 
-            this.deleteBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.deleteBtn.FlatAppearance.BorderSize = 0;
-            this.deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.deleteBtn.Image = ((System.Drawing.Image)(resources.GetObject("deleteBtn.Image")));
-            this.deleteBtn.Location = new System.Drawing.Point(823, 0);
-            this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(160, 89);
-            this.deleteBtn.TabIndex = 4;
-            this.deleteBtn.Text = "     Удалить";
-            this.deleteBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.deleteBtn.UseVisualStyleBackColor = true;
+            this.workWithClientsBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.workWithClientsBtn.FlatAppearance.BorderSize = 0;
+            this.workWithClientsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.workWithClientsBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.workWithClientsBtn.Image = ((System.Drawing.Image)(resources.GetObject("workWithClientsBtn.Image")));
+            this.workWithClientsBtn.Location = new System.Drawing.Point(394, 0);
+            this.workWithClientsBtn.Name = "workWithClientsBtn";
+            this.workWithClientsBtn.Size = new System.Drawing.Size(260, 89);
+            this.workWithClientsBtn.TabIndex = 2;
+            this.workWithClientsBtn.Text = "     Работа с клиентами";
+            this.workWithClientsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.workWithClientsBtn.UseVisualStyleBackColor = true;
+            // 
+            // editBtn
+            // 
+            this.editBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.editBtn.FlatAppearance.BorderSize = 0;
+            this.editBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.editBtn.Image = ((System.Drawing.Image)(resources.GetObject("editBtn.Image")));
+            this.editBtn.Location = new System.Drawing.Point(225, 0);
+            this.editBtn.Name = "editBtn";
+            this.editBtn.Size = new System.Drawing.Size(169, 89);
+            this.editBtn.TabIndex = 1;
+            this.editBtn.Text = "     Изменить";
+            this.editBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.editBtn.UseVisualStyleBackColor = true;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
+            // 
+            // createNewGroupBtn
+            // 
+            this.createNewGroupBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.createNewGroupBtn.FlatAppearance.BorderSize = 0;
+            this.createNewGroupBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.createNewGroupBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.createNewGroupBtn.Image = ((System.Drawing.Image)(resources.GetObject("createNewGroupBtn.Image")));
+            this.createNewGroupBtn.Location = new System.Drawing.Point(0, 0);
+            this.createNewGroupBtn.Name = "createNewGroupBtn";
+            this.createNewGroupBtn.Size = new System.Drawing.Size(225, 89);
+            this.createNewGroupBtn.TabIndex = 0;
+            this.createNewGroupBtn.Text = "     Добавить новую группу";
+            this.createNewGroupBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.createNewGroupBtn.UseVisualStyleBackColor = true;
+            this.createNewGroupBtn.Click += new System.EventHandler(this.createNewGroupBtn_Click);
             // 
             // dgvGroups
             // 
@@ -205,7 +207,7 @@
             this.Controls.Add(this.borderTop);
             this.Controls.Add(this.borderLeft);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "usGroups";
             this.Size = new System.Drawing.Size(997, 886);
             this.headerPanel.ResumeLayout(false);
