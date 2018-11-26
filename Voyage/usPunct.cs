@@ -496,8 +496,7 @@ namespace Voyage
 
         private void tbSearchPuncts_TextChanged(object sender, EventArgs e)
         {
-            //НЕ ИЩЕТ
-            //bs.Filter = "sCountry LIKE '%" + cbCountry.Text + "%'";
+            bs.Filter = "sPunct LIKE '%" + tbSearchPuncts.Text + "%' OR sHotel LIKE '%" + tbSearchPuncts.Text + "%'";
         }
     }
 }

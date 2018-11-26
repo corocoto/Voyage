@@ -15,10 +15,10 @@ namespace Voyage
     public partial class usRoutes : UserControl
     {
         SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString);
-        DataTable dtForRoutes, dtForWorkers;
+        DataTable dtForRoutes, dtForWorkers, dtForPuncts, dtForAddPuncts;
         DataSet ds;
         SqlDataAdapter adapter;
-        BindingSource bsForRoutes, bsForWorkers;
+        BindingSource bsForRoutes, bsForWorkers, bsForPuncts, bsForAddPuncts;
         bool forBtn;
 
         void loadWorkersWithoutAbroadDoc()
@@ -43,6 +43,32 @@ namespace Voyage
             cbWorker.ValueMember = "ID_Worker";
             cbWorker.DisplayMember = "sSurname";/*добавить sName*/
         }
+
+        void LoadDataFromPuncts(string country)
+        {
+            adapter = new SqlDataAdapter("SELECT ID_Punct, sPunct from tPuncts WHERE sCountry="+"'"+country+"'",connection);
+            dtForPuncts = new DataTable();
+            adapter.Fill(dtForPuncts);
+            bsForPuncts = new BindingSource();
+            bsForPuncts.DataSource = dtForPuncts;
+            cbAllPuncts.DataSource = bsForPuncts;
+            cbAllPuncts.ValueMember = "ID_Punct";
+            cbAllPuncts.DisplayMember = "sPunct";
+        }
+
+        void LoadDataFromRoutesPuncts(int id)
+        {
+            adapter = new SqlDataAdapter("SELECT  tRoutesPuncts.ID_Punct, tPuncts.sPunct FROM dbo.tRoutesPuncts INNER JOIN tRoutes ON dbo.tRoutesPuncts.ID_Route = dbo.tRoutes.ID_Route" +
+       " inner join tPuncts ON dbo.tRoutesPuncts.ID_Punct = dbo.tPuncts.ID_Punct WHERE tRoutesPuncts.ID_Route=" + id, connection);
+            dtForAddPuncts = new DataTable();
+            adapter.Fill(dtForAddPuncts);
+            bsForAddPuncts = new BindingSource();
+            bsForAddPuncts.DataSource = dtForAddPuncts;
+            cbAddPuncts.DataSource = bsForAddPuncts;
+            cbAddPuncts.ValueMember = "ID_Punct";
+            cbAddPuncts.DisplayMember = "sPunct";
+        }
+
         void LoadDataFromTable()
         {
             adapter = new SqlDataAdapter("SELECT tRoutes.ID_Route, tRoutes.sNameOfRoute, tRoutes.sCountry, tRoutes.sDays, tWorkers.ID_Worker, tWorkers.sName, tWorkers.sSurname," +
@@ -51,6 +77,9 @@ namespace Voyage
             adapter.Fill(dtForRoutes);
             bsForRoutes = new BindingSource();
             bsForRoutes.DataSource = dtForRoutes;
+            tbID.DataBindings.Clear();
+            tbID.DataBindings.Add(new Binding("Text", bsForRoutes, "ID_Route"));
+            
             nameOfRoute.DataBindings.Clear();
             nameOfRoute.DataBindings.Add(new Binding("Text", bsForRoutes, "sNameOfRoute"));
             cbCountries.DataBindings.Clear();
@@ -83,7 +112,10 @@ namespace Voyage
             dgvRoutes.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True;
             cbCountries.SelectedIndex = 0;
             LoadDataFromWorkers(cbCountries.SelectedItem.ToString());
+            LoadDataFromPuncts(cbCountries.SelectedItem.ToString());
+            LoadDataFromRoutesPuncts(Convert.ToInt32(((DataRowView)this.bsForRoutes.Current).Row["ID_Route"]));
             lCount.Text = bsForRoutes.Count.ToString();
+            
         }
 
         private void searchBtn_Click(object sender, EventArgs e)
@@ -315,12 +347,15 @@ namespace Voyage
         private void cbCountries_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadDataFromWorkers(cbCountries.SelectedItem.ToString());
+            LoadDataFromPuncts(cbCountries.SelectedItem.ToString());
             EnabledBtnForMask(mtbDays);
         }
 
         private void dgvRoutes_SelectionChanged(object sender, EventArgs e)
         {
             saveBtn.Enabled = false;
+            LoadDataFromRoutesPuncts(Convert.ToInt32(((DataRowView)this.bsForRoutes.Current).Row["ID_Route"]));
+
         }
 
         private void ClearText()

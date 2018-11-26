@@ -64,6 +64,12 @@
             this.mtbMoney = new System.Windows.Forms.MaskedTextBox();
             this.mtbSale = new System.Windows.Forms.MaskedTextBox();
             this.mtbReturn = new System.Windows.Forms.MaskedTextBox();
+            this.cbAllPuncts = new System.Windows.Forms.ComboBox();
+            this.cbAddPuncts = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.addPunct = new System.Windows.Forms.Button();
+            this.delPunct = new System.Windows.Forms.Button();
+            this.tbID = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pForBtn.SuspendLayout();
@@ -431,9 +437,9 @@
             // 
             this.pbPlaneLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbPlaneLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaneLogo.Image")));
-            this.pbPlaneLogo.Location = new System.Drawing.Point(39, 577);
+            this.pbPlaneLogo.Location = new System.Drawing.Point(39, 692);
             this.pbPlaneLogo.Name = "pbPlaneLogo";
-            this.pbPlaneLogo.Size = new System.Drawing.Size(593, 282);
+            this.pbPlaneLogo.Size = new System.Drawing.Size(593, 167);
             this.pbPlaneLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPlaneLogo.TabIndex = 42;
             this.pbPlaneLogo.TabStop = false;
@@ -482,6 +488,79 @@
             this.mtbReturn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mtbReturn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtbDays_KeyPress);
             // 
+            // cbAllPuncts
+            // 
+            this.cbAllPuncts.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbAllPuncts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbAllPuncts.FormattingEnabled = true;
+            this.cbAllPuncts.Location = new System.Drawing.Point(280, 586);
+            this.cbAllPuncts.Name = "cbAllPuncts";
+            this.cbAllPuncts.Size = new System.Drawing.Size(163, 29);
+            this.cbAllPuncts.TabIndex = 41;
+            this.cbAllPuncts.SelectedIndexChanged += new System.EventHandler(this.cbWorker_SelectedIndexChanged);
+            // 
+            // cbAddPuncts
+            // 
+            this.cbAddPuncts.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbAddPuncts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbAddPuncts.FormattingEnabled = true;
+            this.cbAddPuncts.Location = new System.Drawing.Point(468, 586);
+            this.cbAddPuncts.Name = "cbAddPuncts";
+            this.cbAddPuncts.Size = new System.Drawing.Size(163, 29);
+            this.cbAddPuncts.TabIndex = 41;
+            this.cbAddPuncts.SelectedIndexChanged += new System.EventHandler(this.cbWorker_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(35, 589);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(155, 21);
+            this.label10.TabIndex = 35;
+            this.label10.Text = "Пункты маршрута";
+            // 
+            // addPunct
+            // 
+            this.addPunct.BackColor = System.Drawing.Color.DodgerBlue;
+            this.addPunct.FlatAppearance.BorderSize = 0;
+            this.addPunct.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.addPunct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addPunct.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addPunct.ForeColor = System.Drawing.Color.White;
+            this.addPunct.Location = new System.Drawing.Point(525, 630);
+            this.addPunct.Name = "addPunct";
+            this.addPunct.Size = new System.Drawing.Size(50, 42);
+            this.addPunct.TabIndex = 1;
+            this.addPunct.Text = "+";
+            this.addPunct.UseVisualStyleBackColor = false;
+            this.addPunct.Click += new System.EventHandler(this.addBtn_Click);
+            // 
+            // delPunct
+            // 
+            this.delPunct.BackColor = System.Drawing.Color.Crimson;
+            this.delPunct.FlatAppearance.BorderSize = 0;
+            this.delPunct.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.delPunct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.delPunct.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.delPunct.ForeColor = System.Drawing.Color.White;
+            this.delPunct.Location = new System.Drawing.Point(581, 630);
+            this.delPunct.Name = "delPunct";
+            this.delPunct.Size = new System.Drawing.Size(50, 42);
+            this.delPunct.TabIndex = 1;
+            this.delPunct.Text = "-";
+            this.delPunct.UseVisualStyleBackColor = false;
+            this.delPunct.Click += new System.EventHandler(this.delBtn_Click);
+            // 
+            // tbID
+            // 
+            this.tbID.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbID.Location = new System.Drawing.Point(468, 64);
+            this.tbID.Name = "tbID";
+            this.tbID.Size = new System.Drawing.Size(163, 27);
+            this.tbID.TabIndex = 21;
+            this.tbID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameOfRoute_KeyPress);
+            // 
             // usRoutes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -489,13 +568,18 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.mtbReturn);
             this.Controls.Add(this.mtbSale);
+            this.Controls.Add(this.delPunct);
             this.Controls.Add(this.mtbMoney);
+            this.Controls.Add(this.addPunct);
             this.Controls.Add(this.mtbDays);
             this.Controls.Add(this.pbPlaneLogo);
+            this.Controls.Add(this.cbAddPuncts);
+            this.Controls.Add(this.cbAllPuncts);
             this.Controls.Add(this.cbWorker);
             this.Controls.Add(this.cbCountries);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dateOfFly);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label7);
@@ -503,6 +587,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.tbID);
             this.Controls.Add(this.nameOfRoute);
             this.Controls.Add(this.pForBtn);
             this.Controls.Add(this.label1);
@@ -557,5 +642,11 @@
         private System.Windows.Forms.MaskedTextBox mtbSale;
         private System.Windows.Forms.MaskedTextBox mtbReturn;
         private System.Windows.Forms.Button saveBtn;
+        private System.Windows.Forms.ComboBox cbAllPuncts;
+        private System.Windows.Forms.ComboBox cbAddPuncts;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button addPunct;
+        private System.Windows.Forms.Button delPunct;
+        private System.Windows.Forms.TextBox tbID;
     }
 }
