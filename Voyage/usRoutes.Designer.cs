@@ -69,7 +69,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.addPunct = new System.Windows.Forms.Button();
             this.delPunct = new System.Windows.Forms.Button();
-            this.tbID = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pForBtn.SuspendLayout();
@@ -497,7 +496,6 @@
             this.cbAllPuncts.Name = "cbAllPuncts";
             this.cbAllPuncts.Size = new System.Drawing.Size(163, 29);
             this.cbAllPuncts.TabIndex = 41;
-            this.cbAllPuncts.SelectedIndexChanged += new System.EventHandler(this.cbWorker_SelectedIndexChanged);
             // 
             // cbAddPuncts
             // 
@@ -508,7 +506,6 @@
             this.cbAddPuncts.Name = "cbAddPuncts";
             this.cbAddPuncts.Size = new System.Drawing.Size(163, 29);
             this.cbAddPuncts.TabIndex = 41;
-            this.cbAddPuncts.SelectedIndexChanged += new System.EventHandler(this.cbWorker_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -534,7 +531,7 @@
             this.addPunct.TabIndex = 1;
             this.addPunct.Text = "+";
             this.addPunct.UseVisualStyleBackColor = false;
-            this.addPunct.Click += new System.EventHandler(this.addBtn_Click);
+            this.addPunct.Click += new System.EventHandler(this.addPunct_Click);
             // 
             // delPunct
             // 
@@ -550,16 +547,7 @@
             this.delPunct.TabIndex = 1;
             this.delPunct.Text = "-";
             this.delPunct.UseVisualStyleBackColor = false;
-            this.delPunct.Click += new System.EventHandler(this.delBtn_Click);
-            // 
-            // tbID
-            // 
-            this.tbID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbID.Location = new System.Drawing.Point(468, 64);
-            this.tbID.Name = "tbID";
-            this.tbID.Size = new System.Drawing.Size(163, 27);
-            this.tbID.TabIndex = 21;
-            this.tbID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameOfRoute_KeyPress);
+            this.delPunct.Click += new System.EventHandler(this.delPunct_Click);
             // 
             // usRoutes
             // 
@@ -587,7 +575,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.tbID);
             this.Controls.Add(this.nameOfRoute);
             this.Controls.Add(this.pForBtn);
             this.Controls.Add(this.label1);
@@ -647,6 +634,5 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button addPunct;
         private System.Windows.Forms.Button delPunct;
-        private System.Windows.Forms.TextBox tbID;
     }
 }

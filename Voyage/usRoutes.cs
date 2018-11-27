@@ -31,8 +31,10 @@ namespace Voyage
             adapter = new SqlDataAdapter("SELECT ID_Worker, sName, sSurname from tWorkers WHERE AbroadDoc=1 Order by sName, sSurname", connection);
         }
 
+        //загрузка представителей компании
         void LoadDataFromWorkers(string country)
         {
+            //ОШИБКА!!!!отображается один и тот же представитель           
             if (country == "Россия") loadWorkersWithoutAbroadDoc();
             else loadWorkersWithAbroadDoc();
             dtForWorkers = new DataTable();
@@ -44,6 +46,7 @@ namespace Voyage
             cbWorker.DisplayMember = "sSurname";/*добавить sName*/
         }
 
+        //загрузка всевозможных пунктов
         void LoadDataFromPuncts(string country)
         {
             adapter = new SqlDataAdapter("SELECT ID_Punct, sPunct from tPuncts WHERE sCountry="+"'"+country+"'",connection);
@@ -56,9 +59,10 @@ namespace Voyage
             cbAllPuncts.DisplayMember = "sPunct";
         }
 
+        //загрузка добавленных пунктов
         void LoadDataFromRoutesPuncts(int id)
         {
-            adapter = new SqlDataAdapter("SELECT  tRoutesPuncts.ID_Punct, tPuncts.sPunct FROM dbo.tRoutesPuncts INNER JOIN tRoutes ON dbo.tRoutesPuncts.ID_Route = dbo.tRoutes.ID_Route" +
+            adapter = new SqlDataAdapter("SELECT  tRoutesPuncts.ID_RoutesPuncts, tRoutesPuncts.ID_Punct, tPuncts.sPunct FROM dbo.tRoutesPuncts INNER JOIN tRoutes ON dbo.tRoutesPuncts.ID_Route = dbo.tRoutes.ID_Route" +
        " inner join tPuncts ON dbo.tRoutesPuncts.ID_Punct = dbo.tPuncts.ID_Punct WHERE tRoutesPuncts.ID_Route=" + id, connection);
             dtForAddPuncts = new DataTable();
             adapter.Fill(dtForAddPuncts);
@@ -77,9 +81,7 @@ namespace Voyage
             adapter.Fill(dtForRoutes);
             bsForRoutes = new BindingSource();
             bsForRoutes.DataSource = dtForRoutes;
-            tbID.DataBindings.Clear();
-            tbID.DataBindings.Add(new Binding("Text", bsForRoutes, "ID_Route"));
-            
+
             nameOfRoute.DataBindings.Clear();
             nameOfRoute.DataBindings.Add(new Binding("Text", bsForRoutes, "sNameOfRoute"));
             cbCountries.DataBindings.Clear();
@@ -115,7 +117,8 @@ namespace Voyage
             LoadDataFromPuncts(cbCountries.SelectedItem.ToString());
             LoadDataFromRoutesPuncts(Convert.ToInt32(((DataRowView)this.bsForRoutes.Current).Row["ID_Route"]));
             lCount.Text = bsForRoutes.Count.ToString();
-            
+            if (cbAddPuncts.Items.Count > 0) cbCountries.Enabled = false;
+            else cbCountries.Enabled = true;
         }
 
         private void searchBtn_Click(object sender, EventArgs e)
@@ -373,6 +376,99 @@ namespace Voyage
         private void nameOfRoute_KeyPress(object sender, KeyPressEventArgs e)
         {
             EnabledBtn(nameOfRoute);
+        }
+
+        //добавление пунктов маршрута
+        private void addPunct_Click(object sender, EventArgs e)
+        {
+            //ДОБАВИТЬ УДАЛЕНИЕ ПОВТОРЯЮЩИХСЯ ЗАПИСЕЙ
+            //bool add = false;
+            try
+            {
+               // int id = Convert.ToInt32(cbAllPuncts.SelectedValue);
+                connection.Close();
+                connection.Open();
+               // for (int i=0; i < cbAddPuncts.Items.Count; i++)
+                //{
+                    //cbAddPuncts.SelectedIndex = i;
+                   // MessageBox.Show(cbAddPuncts.SelectedItem.ToString());
+                  //  if (id == Convert.ToInt32(cbAddPuncts.SelectedValue))
+                    //{
+                      //  add = true;
+                    //}
+
+                //}
+                //if (add = false)
+                //{
+                    SqlCommand commandInsert = new SqlCommand("INSERT INTO [tRoutesPuncts]" +
+                        " VALUES (@ID_Route, @ID_Punct)", connection);
+                    commandInsert.Parameters.AddWithValue("@ID_Route", Convert.ToString(((DataRowView)this.bsForRoutes.Current).Row["ID_Route"]));
+                    commandInsert.Parameters.AddWithValue("@ID_Punct", Convert.ToInt32(cbAllPuncts.SelectedValue));
+                    commandInsert.ExecuteNonQuery();
+                    MessageBox.Show("Маршрут добавлен");
+                //}
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+            finally
+            {
+                connection.Close();
+                LoadDataFromTable();
+                saveBtn.Enabled = false;
+            }
+        }
+
+        //удаление добавленных пунктов маршрута
+        private void delPunct_Click(object sender, EventArgs e)
+        {
+            if (bsForAddPuncts.Count > 0)
+            {
+                try
+                {
+                    DialogResult result = MessageBox.Show(
+                    "Вы действительно хотите удалить данный маршрут",
+                    "Удаление",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly);
+                    if (result == DialogResult.No)
+                    {
+                        LoadDataFromTable();
+                        return;
+                    }
+                    if (result == DialogResult.Yes)
+                    {
+                        connection.Open();
+                        SqlCommand Delete = new SqlCommand("Delete From tRoutesPuncts where ID_Punct = @ID_Punct AND ID_Route=@ID_Route", connection);
+                        Delete.Parameters.AddWithValue("@ID_Punct", Convert.ToInt32(cbAddPuncts.SelectedValue));
+                        Delete.Parameters.AddWithValue("@ID_Route", Convert.ToInt32(((DataRowView)this.bsForRoutes.Current).Row["ID_Route"]));
+                        Delete.ExecuteNonQuery();
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    if ((uint)ex.ErrorCode == 0x80004005)
+                        MessageBox.Show(
+                        "В таблицах есть связанные записи",
+                        "Ошибка",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error,
+                        MessageBoxDefaultButton.Button1,
+                        MessageBoxOptions.DefaultDesktopOnly);
+                    else
+                        MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    connection.Close();
+                    LoadDataFromTable();
+                }
+            }
+            saveBtn.Enabled = false;
         }
 
         void EnabledBtn(TextBox tb)
