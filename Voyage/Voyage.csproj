@@ -127,6 +127,12 @@
     <Compile Include="usWorkers.Designer.cs">
       <DependentUpon>usWorkers.cs</DependentUpon>
     </Compile>
+    <Compile Include="workWithClients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="workWithClients.Designer.cs">
+      <DependentUpon>workWithClients.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="changeGroup.resx">
       <DependentUpon>changeGroup.cs</DependentUpon>
     </EmbeddedResource>
@@ -174,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="usWorkers.resx">
       <DependentUpon>usWorkers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="workWithClients.resx">
+      <DependentUpon>workWithClients.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

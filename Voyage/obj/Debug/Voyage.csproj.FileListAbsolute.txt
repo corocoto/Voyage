@@ -34,3 +34,4 @@ F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.csproj.ResolveComReference.cac
 F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.ClientsWithSales.resources
 F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.createNewGroup.resources
 F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.changeGroup.resources
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.workWithClients.resources

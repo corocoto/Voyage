@@ -33,8 +33,7 @@ namespace Voyage
 
         //загрузка представителей компании
         void LoadDataFromWorkers(string country)
-        {
-            //ОШИБКА!!!!отображается один и тот же представитель           
+        {        
             if (country == "Россия") loadWorkersWithoutAbroadDoc();
             else loadWorkersWithAbroadDoc();
             dtForWorkers = new DataTable();
@@ -44,6 +43,7 @@ namespace Voyage
             cbWorker.DataSource = bsForWorkers;
             cbWorker.ValueMember = "ID_Worker";
             cbWorker.DisplayMember = "sSurname";/*добавить sName*/
+            cbWorker.SelectedValue = Convert.ToInt32(((DataRowView)this.bsForRoutes.Current).Row["ID_Worker"]);/*отмечает выбранный эл-т*/
         }
 
         //загрузка всевозможных пунктов
@@ -71,6 +71,8 @@ namespace Voyage
             cbAddPuncts.DataSource = bsForAddPuncts;
             cbAddPuncts.ValueMember = "ID_Punct";
             cbAddPuncts.DisplayMember = "sPunct";
+            if (cbAddPuncts.Items.Count > 0) cbCountries.Enabled = false;
+            else cbCountries.Enabled = true;
         }
 
         void LoadDataFromTable()
@@ -112,9 +114,10 @@ namespace Voyage
             dgvRoutes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvRoutes.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvRoutes.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            cbCountries.SelectedIndex = 0;
-            LoadDataFromWorkers(cbCountries.SelectedItem.ToString());
-            LoadDataFromPuncts(cbCountries.SelectedItem.ToString());
+            //cbCountries.SelectedIndex = 0;
+            //MessageBox.Show(Convert.ToString(((DataRowView)this.bsForRoutes.Current).Row["sCountry"]));
+            LoadDataFromWorkers(Convert.ToString(((DataRowView)this.bsForRoutes.Current).Row["sCountry"]));
+            LoadDataFromPuncts(Convert.ToString(((DataRowView)this.bsForRoutes.Current).Row["sCountry"]));
             LoadDataFromRoutesPuncts(Convert.ToInt32(((DataRowView)this.bsForRoutes.Current).Row["ID_Route"]));
             lCount.Text = bsForRoutes.Count.ToString();
             if (cbAddPuncts.Items.Count > 0) cbCountries.Enabled = false;
@@ -142,6 +145,11 @@ namespace Voyage
             {
                 forBtn = false;
                 LoadDataFromTable();
+                cbAddPuncts.Visible = true;
+                cbAllPuncts.Visible = true;
+                label10.Visible = true;
+                addPunct.Visible = true;
+                delPunct.Visible = true;
 
             }
             else if (bsForRoutes.Count > 0)
@@ -160,6 +168,11 @@ namespace Voyage
                     if (result == DialogResult.No)
                     {
                         LoadDataFromTable();
+                        cbAddPuncts.Visible = true;
+                        cbAllPuncts.Visible = true;
+                        label10.Visible = true;
+                        addPunct.Visible = true;
+                        delPunct.Visible = true;
                         return;
                     }
                     if (result == DialogResult.Yes)
@@ -221,6 +234,11 @@ namespace Voyage
                     commandInsert.ExecuteNonQuery();
                     MessageBox.Show("Запись добавлена");
                     forBtn = false;
+                    cbAddPuncts.Visible = true;
+                    cbAllPuncts.Visible = true;
+                    label10.Visible = true;
+                    addPunct.Visible = true;
+                    delPunct.Visible = true;
                 }
                 catch (SqlException ex)
                 {
@@ -358,7 +376,10 @@ namespace Voyage
         {
             saveBtn.Enabled = false;
             LoadDataFromRoutesPuncts(Convert.ToInt32(((DataRowView)this.bsForRoutes.Current).Row["ID_Route"]));
-
+            if (bsForRoutes.Count > 0)
+            {
+                cbWorker.SelectedValue = Convert.ToInt32(((DataRowView)this.bsForRoutes.Current).Row["ID_Worker"]);
+            }
         }
 
         private void ClearText()
@@ -371,6 +392,12 @@ namespace Voyage
             mtbSale.Text = "";
             mtbReturn.Text = "";
             dateOfFly.Text = DateTime.Now.ToString();
+            cbCountries.Enabled = true;
+            label10.Visible = false;
+            cbAddPuncts.Visible = false;
+            cbAllPuncts.Visible = false;
+            addPunct.Visible = false;
+            delPunct.Visible = false;
         }
 
         private void nameOfRoute_KeyPress(object sender, KeyPressEventArgs e)
@@ -381,32 +408,26 @@ namespace Voyage
         //добавление пунктов маршрута
         private void addPunct_Click(object sender, EventArgs e)
         {
-            //ДОБАВИТЬ УДАЛЕНИЕ ПОВТОРЯЮЩИХСЯ ЗАПИСЕЙ
-            //bool add = false;
+            bool add = false;
             try
             {
-               // int id = Convert.ToInt32(cbAllPuncts.SelectedValue);
+                int id = Convert.ToInt32(cbAllPuncts.SelectedValue);
                 connection.Close();
                 connection.Open();
-               // for (int i=0; i < cbAddPuncts.Items.Count; i++)
-                //{
-                    //cbAddPuncts.SelectedIndex = i;
-                   // MessageBox.Show(cbAddPuncts.SelectedItem.ToString());
-                  //  if (id == Convert.ToInt32(cbAddPuncts.SelectedValue))
-                    //{
-                      //  add = true;
-                    //}
-
-                //}
-                //if (add = false)
-                //{
+                for (int i=0; i < cbAddPuncts.Items.Count; i++)
+                {
+                  cbAddPuncts.SelectedIndex = i;
+                  if (id == Convert.ToInt32(cbAddPuncts.SelectedValue)) add = true;
+                }
+                if (add == false)
+                {
                     SqlCommand commandInsert = new SqlCommand("INSERT INTO [tRoutesPuncts]" +
                         " VALUES (@ID_Route, @ID_Punct)", connection);
                     commandInsert.Parameters.AddWithValue("@ID_Route", Convert.ToString(((DataRowView)this.bsForRoutes.Current).Row["ID_Route"]));
                     commandInsert.Parameters.AddWithValue("@ID_Punct", Convert.ToInt32(cbAllPuncts.SelectedValue));
                     commandInsert.ExecuteNonQuery();
                     MessageBox.Show("Маршрут добавлен");
-                //}
+                }
             }
             catch (SqlException ex)
             {
