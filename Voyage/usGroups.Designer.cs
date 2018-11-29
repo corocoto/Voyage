@@ -109,6 +109,7 @@
             this.deleteBtn.Text = "     Удалить";
             this.deleteBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // excelBtn
             // 
@@ -124,6 +125,7 @@
             this.excelBtn.Text = "     Вывод";
             this.excelBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.excelBtn.UseVisualStyleBackColor = true;
+            this.excelBtn.Click += new System.EventHandler(this.excelBtn_Click);
             // 
             // workWithClientsBtn
             // 

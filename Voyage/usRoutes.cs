@@ -178,6 +178,11 @@ namespace Voyage
                     if (result == DialogResult.Yes)
                     {
                         connection.Open();
+                        SqlCommand del = new SqlCommand("Delete From tRoutesPuncts where ID_Route=@ID", connection);
+                        del.Parameters.AddWithValue("@ID", delId);
+                        del.ExecuteNonQuery();
+                        connection.Close();
+                        connection.Open();
                         SqlCommand Delete = new SqlCommand("Delete From tRoutes where ID_Route = @ID", connection);
                         Delete.Parameters.AddWithValue("@ID", delId);
                         Delete.ExecuteNonQuery();
