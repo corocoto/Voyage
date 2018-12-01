@@ -25,6 +25,20 @@ namespace Voyage
             LoadDataFromTables();
             headerPanel.BackColor = Color.FromArgb(0, 71, 160);
         }
+
+        /*для редактирования необходимой записи*/
+        private void EditApplic()
+        {
+            if ((bs.Count > 0) && (dgvGroups.SelectedRows.Count > 0))
+            {
+                int ID_SS = Convert.ToInt32(((DataRowView)this.bs.Current).Row["ID_Group"]);
+                changeGroup cg = new changeGroup(ID_SS);
+                cg.ShowDialog();
+                LoadDataFromTables();
+                bs.Position = bs.Find("ID_Group", ID_SS);
+            }
+        }
+        /*загрузка данных в DataGridView*/
         void LoadDataFromTables()
         {
             adapter = new SqlDataAdapter("select tGroups.ID_Group, tGroups.sName, tRoutes.sNameOfRoute, tRoutes.sCountry, tWorkers.sName, tWorkers.sSurname, tRoutes.DayStart, tGroups.sCount " +
@@ -59,8 +73,7 @@ namespace Voyage
 
         private void editBtn_Click(object sender, EventArgs e)
         {
-            changeGroup cg = new changeGroup();
-            cg.ShowDialog();
+            EditApplic();
         }
 
         private void workWithClientsBtn_Click(object sender, EventArgs e)

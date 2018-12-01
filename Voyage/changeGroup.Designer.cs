@@ -58,6 +58,7 @@
             this.saveBtn.TabIndex = 149;
             this.saveBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // shutdownBtn
             // 
