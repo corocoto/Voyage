@@ -39,8 +39,9 @@ namespace Voyage
                 }
                 else
                 {
+                    string thisCountry=Convert.ToString(((DataRowView)this.bs.Current).Row["sCountry"]);
                     int PlacesCount = Convert.ToInt32(((DataRowView)this.bs.Current).Row["sCount"]);
-                    workWithClients wwc = new workWithClients(ID_SS, PlacesCount);
+                    workWithClients wwc = new workWithClients(ID_SS, PlacesCount, thisCountry);
                     wwc.ShowDialog();
                 }
                 LoadDataFromTables();

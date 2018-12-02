@@ -25,7 +25,7 @@ namespace Voyage
         public workWithClients()
         {
             InitializeComponent();
-            loadAllClients();
+
             LoadDataFromGroupsClients();
             workWithFreePlaces();
             this.ForeColor = Color.FromArgb(0, 71, 160);
@@ -35,12 +35,12 @@ namespace Voyage
             panel4.BackColor = Color.FromArgb(0, 71, 160);
         }
 
-        public workWithClients(int ID, int pCount)
+        public workWithClients(int ID, int pCount, string country)
         {
             InitializeComponent();
             ID_group = ID;
             PlacesCount = pCount;
-            loadAllClients();
+            loadAllClients(country);
             LoadDataFromGroupsClients();
             workWithFreePlaces();
             this.ForeColor = Color.FromArgb(0, 71, 160);
@@ -51,11 +51,19 @@ namespace Voyage
         }
 
         /*отображение всего имеющегося списка клиентов*/
-        void loadAllClients()
+        void loadAllClients(string country)
         {
-            SqlDataAdapter allCleintsAdapter = new SqlDataAdapter("Select ID_Client, sName, sSurname from tClients Order By sSurname", connection);
+            SqlDataAdapter allClientsAdapter;
+            if (country == "Россия")
+            {
+                allClientsAdapter = new SqlDataAdapter("Select ID_Client, sName, sSurname from tClients Order By sSurname", connection);
+            }
+            else
+            {
+                allClientsAdapter = new SqlDataAdapter("Select ID_Client, sName, sSurname from tClients where AbroadDoc=1 Order By sSurname ", connection);
+            }
             dt = new DataTable();
-            allCleintsAdapter.Fill(dt);
+            allClientsAdapter.Fill(dt);
             bs = new BindingSource();
             bs.DataSource = dt;
             cbAllClients.DataSource = dt;
