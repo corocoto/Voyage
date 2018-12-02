@@ -27,13 +27,22 @@ namespace Voyage
         }
 
         /*для редактирования необходимой записи*/
-        private void EditApplic()
+        private void EditApplic(string command)
         {
             if ((bs.Count > 0) && (dgvGroups.SelectedRows.Count > 0))
             {
                 int ID_SS = Convert.ToInt32(((DataRowView)this.bs.Current).Row["ID_Group"]);
-                changeGroup cg = new changeGroup(ID_SS);
-                cg.ShowDialog();
+                if (command == "editGroup")
+                {
+                    changeGroup cg = new changeGroup(ID_SS);
+                    cg.ShowDialog();
+                }
+                else
+                {
+                    int PlacesCount = Convert.ToInt32(((DataRowView)this.bs.Current).Row["sCount"]);
+                    workWithClients wwc = new workWithClients(ID_SS, PlacesCount);
+                    wwc.ShowDialog();
+                }
                 LoadDataFromTables();
                 bs.Position = bs.Find("ID_Group", ID_SS);
             }
@@ -73,13 +82,12 @@ namespace Voyage
 
         private void editBtn_Click(object sender, EventArgs e)
         {
-            EditApplic();
+            EditApplic("editGroup");
         }
 
         private void workWithClientsBtn_Click(object sender, EventArgs e)
         {
-            workWithClients wwc = new workWithClients();
-            wwc.ShowDialog();
+            EditApplic("workWithClients");
         }
 
         private void deleteBtn_Click(object sender, EventArgs e)
@@ -112,7 +120,15 @@ namespace Voyage
                         forGroupsPuncts = new SqlCommand("Delete From tGroupsRoutes where ID_Group is NULL", connection);
                         forGroupsPuncts.ExecuteNonQuery();
                         connection.Close();
-                    
+
+                        connection.Open();
+                        SqlCommand forGroupsClients = new SqlCommand("UPDATE tGroupsClients SET " +
+                            "ID_Group=NULL, ID_Client=NULL WHERE ID_Group='" + delId + "'", connection);
+                        forGroupsClients.ExecuteNonQuery();
+                        forGroupsClients = new SqlCommand("Delete From tGroupsClients where ID_Group is NULL", connection);
+                        forGroupsClients.ExecuteNonQuery();
+                        connection.Close();
+
                         connection.Open();
                         SqlCommand del = new SqlCommand("Delete From tGroups where ID_Group=@ID", connection);
                         del.Parameters.AddWithValue("@ID", delId);
@@ -156,7 +172,7 @@ namespace Voyage
             workSheet.Cells[1, 5] = "Дата вылета";
             workSheet.Cells[1, 6] = "Общ. кол-во мест";
             //workSheet.Cells[1, 7] = "Кол-во свободных мест";
-            Excel.Range title = workSheet.Range["A1:G1"];
+            Excel.Range title = workSheet.Range["A1:F1"];
             title.Cells.Font.Name = "Tahoma";
             title.Font.Size = "16";
             title.Cells.Font.Color = ColorTranslator.ToOle(Color.Green);
@@ -178,8 +194,6 @@ namespace Voyage
                     {
                         if (i==4)
                             workSheet.Cells[j + 2, i] = workSheet.Cells[j + 2, i].Value+" " + dgvGroups.Rows[j].Cells[i + 1].Value.ToString();
-                       /* else if(i==6)
-                            workSheet.Cells[j + 2, i] = workSheet.Cells[j + 2, i-1].Value-*/
                         else
                             workSheet.Cells[j + 2, i].Value = dgvGroups.Rows[j].Cells[i + 1].Value.ToString();
                             workSheet.Cells[j + 2, i].Font.Name = "Tahoma";

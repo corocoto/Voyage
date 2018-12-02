@@ -38,11 +38,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.cbRoutes = new System.Windows.Forms.ComboBox();
+            this.lFreePlacesCount = new System.Windows.Forms.Label();
+            this.cbClientsInThisGroup = new System.Windows.Forms.ComboBox();
+            this.cbAllClients = new System.Windows.Forms.ComboBox();
             this.shutdownBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -91,12 +89,13 @@
             this.delPunct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.delPunct.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.delPunct.ForeColor = System.Drawing.Color.White;
-            this.delPunct.Location = new System.Drawing.Point(296, 513);
+            this.delPunct.Location = new System.Drawing.Point(295, 359);
             this.delPunct.Name = "delPunct";
             this.delPunct.Size = new System.Drawing.Size(50, 42);
             this.delPunct.TabIndex = 212;
             this.delPunct.Text = "-";
             this.delPunct.UseVisualStyleBackColor = false;
+            this.delPunct.Click += new System.EventHandler(this.delPunct_Click);
             // 
             // addPunct
             // 
@@ -106,30 +105,31 @@
             this.addPunct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addPunct.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addPunct.ForeColor = System.Drawing.Color.White;
-            this.addPunct.Location = new System.Drawing.Point(240, 513);
+            this.addPunct.Location = new System.Drawing.Point(239, 359);
             this.addPunct.Name = "addPunct";
             this.addPunct.Size = new System.Drawing.Size(50, 42);
             this.addPunct.TabIndex = 213;
             this.addPunct.Text = "+";
             this.addPunct.UseVisualStyleBackColor = false;
+            this.addPunct.Click += new System.EventHandler(this.addPunct_Click);
             // 
             // label6
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(255, 404);
+            this.label6.Location = new System.Drawing.Point(98, 252);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 21);
+            this.label6.Size = new System.Drawing.Size(404, 21);
             this.label6.TabIndex = 205;
-            this.label6.Text = "Клиенты";
+            this.label6.Text = "Клиенты, которые находятся в списке этой группы";
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(204, 291);
+            this.label3.Location = new System.Drawing.Point(203, 137);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(184, 21);
             this.label3.TabIndex = 206;
@@ -140,63 +140,43 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(192, 207);
+            this.label5.Location = new System.Drawing.Point(171, 479);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(236, 21);
             this.label5.TabIndex = 207;
             this.label5.Text = "Количество свободных мест:";
             // 
-            // label2
+            // lFreePlacesCount
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(278, 238);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 24);
-            this.label2.TabIndex = 208;
-            this.label2.Text = "15";
+            this.lFreePlacesCount.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lFreePlacesCount.AutoSize = true;
+            this.lFreePlacesCount.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lFreePlacesCount.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lFreePlacesCount.Location = new System.Drawing.Point(265, 517);
+            this.lFreePlacesCount.Name = "lFreePlacesCount";
+            this.lFreePlacesCount.Size = new System.Drawing.Size(34, 24);
+            this.lFreePlacesCount.TabIndex = 208;
+            this.lFreePlacesCount.Text = "15";
             // 
-            // label4
+            // cbClientsInThisGroup
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(225, 100);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(147, 21);
-            this.label4.TabIndex = 204;
-            this.label4.Text = "Название группы";
+            this.cbClientsInThisGroup.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbClientsInThisGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbClientsInThisGroup.FormattingEnabled = true;
+            this.cbClientsInThisGroup.Location = new System.Drawing.Point(194, 287);
+            this.cbClientsInThisGroup.Name = "cbClientsInThisGroup";
+            this.cbClientsInThisGroup.Size = new System.Drawing.Size(201, 29);
+            this.cbClientsInThisGroup.TabIndex = 209;
             // 
-            // comboBox2
+            // cbAllClients
             // 
-            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(195, 441);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(201, 29);
-            this.comboBox2.TabIndex = 209;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(196, 329);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(201, 29);
-            this.comboBox1.TabIndex = 210;
-            // 
-            // cbRoutes
-            // 
-            this.cbRoutes.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbRoutes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbRoutes.FormattingEnabled = true;
-            this.cbRoutes.Location = new System.Drawing.Point(196, 137);
-            this.cbRoutes.Name = "cbRoutes";
-            this.cbRoutes.Size = new System.Drawing.Size(201, 29);
-            this.cbRoutes.TabIndex = 211;
+            this.cbAllClients.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbAllClients.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbAllClients.FormattingEnabled = true;
+            this.cbAllClients.Location = new System.Drawing.Point(195, 175);
+            this.cbAllClients.Name = "cbAllClients";
+            this.cbAllClients.Size = new System.Drawing.Size(201, 29);
+            this.cbAllClients.TabIndex = 210;
             // 
             // shutdownBtn
             // 
@@ -234,11 +214,9 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.cbRoutes);
+            this.Controls.Add(this.lFreePlacesCount);
+            this.Controls.Add(this.cbClientsInThisGroup);
+            this.Controls.Add(this.cbAllClients);
             this.Controls.Add(this.shutdownBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel3);
@@ -247,7 +225,7 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "workWithClients";
             this.Text = "workWithClients";
             this.ResumeLayout(false);
@@ -265,11 +243,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox cbRoutes;
+        private System.Windows.Forms.Label lFreePlacesCount;
+        private System.Windows.Forms.ComboBox cbClientsInThisGroup;
+        private System.Windows.Forms.ComboBox cbAllClients;
         private System.Windows.Forms.Button shutdownBtn;
         private System.Windows.Forms.Label label1;
     }
