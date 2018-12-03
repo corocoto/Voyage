@@ -519,6 +519,7 @@
             // 
             // addPunct
             // 
+            this.addPunct.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.addPunct.BackColor = System.Drawing.Color.DodgerBlue;
             this.addPunct.FlatAppearance.BorderSize = 0;
             this.addPunct.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
@@ -535,6 +536,7 @@
             // 
             // delPunct
             // 
+            this.delPunct.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.delPunct.BackColor = System.Drawing.Color.Crimson;
             this.delPunct.FlatAppearance.BorderSize = 0;
             this.delPunct.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
