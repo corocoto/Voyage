@@ -71,7 +71,6 @@ namespace Voyage
                 dgvClients.Columns[9].Visible = false;
                 dgvClients.Columns[10].Visible = false;
                 dgvClients.Columns[11].Visible = false;
-                dgvClients.Columns[12].Visible = false;
                 dgvClients.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dgvClients.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
                 dgvClients.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True;
@@ -296,7 +295,7 @@ namespace Voyage
                     // if (MaxID.ExecuteScalar() != null) max = Convert.ToInt32(MaxID.ExecuteScalar());
                     SqlCommand commandInsert = new SqlCommand("INSERT INTO [tClients]" +
                         " VALUES(@Name, @Surname, @Patronymic, @Photo, @Bithday, @Doc, @Series, @Number,"+
-                        " @DocIssue, @DateIssue, @AbroadDoc, @Sale)", connection);
+                        " @DocIssue, @DateIssue, @AbroadDoc)", connection);
                     commandInsert.Parameters.AddWithValue("@Name", tbName.Text);
                     commandInsert.Parameters.AddWithValue("@Surname", tbSurname.Text);
                     commandInsert.Parameters.AddWithValue("@Patronymic", tbPatronymic.Text);
@@ -307,7 +306,6 @@ namespace Voyage
                     commandInsert.Parameters.AddWithValue("@DocIssue", lbDocIssue.Text);
                     commandInsert.Parameters.AddWithValue("@DateIssue", dtpDateIssue.Text);
                     commandInsert.Parameters.AddWithValue("@AbroadDoc", AbroadDoc.Checked);
-                    commandInsert.Parameters.AddWithValue("@Sale", 0);
                     if ((photoOfClient.Image != null) && (!(System.IO.File.Exists(@"img\clients\" + nameOfPhoto.Text)))) {
                         if(nameOfPhoto.Text!="")
                         photoOfClient.Image.Save(@"img\clients\" + nameOfPhoto.Text);

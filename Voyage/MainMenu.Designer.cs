@@ -95,7 +95,7 @@
             this.punctBtn.ForeColor = System.Drawing.Color.White;
             this.punctBtn.Image = ((System.Drawing.Image)(resources.GetObject("punctBtn.Image")));
             this.punctBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.punctBtn.Location = new System.Drawing.Point(7, 562);
+            this.punctBtn.Location = new System.Drawing.Point(7, 440);
             this.punctBtn.Name = "punctBtn";
             this.punctBtn.Size = new System.Drawing.Size(276, 55);
             this.punctBtn.TabIndex = 2;
@@ -112,7 +112,7 @@
             this.workersBtn.ForeColor = System.Drawing.Color.White;
             this.workersBtn.Image = ((System.Drawing.Image)(resources.GetObject("workersBtn.Image")));
             this.workersBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.workersBtn.Location = new System.Drawing.Point(7, 501);
+            this.workersBtn.Location = new System.Drawing.Point(7, 379);
             this.workersBtn.Name = "workersBtn";
             this.workersBtn.Size = new System.Drawing.Size(276, 55);
             this.workersBtn.TabIndex = 2;
@@ -129,13 +129,14 @@
             this.returnBtn.ForeColor = System.Drawing.Color.White;
             this.returnBtn.Image = ((System.Drawing.Image)(resources.GetObject("returnBtn.Image")));
             this.returnBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.returnBtn.Location = new System.Drawing.Point(7, 440);
+            this.returnBtn.Location = new System.Drawing.Point(7, 562);
             this.returnBtn.Name = "returnBtn";
             this.returnBtn.Size = new System.Drawing.Size(276, 55);
             this.returnBtn.TabIndex = 2;
             this.returnBtn.Text = "     Возвраты";
             this.returnBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.returnBtn.UseVisualStyleBackColor = true;
+            this.returnBtn.Visible = false;
             this.returnBtn.Click += new System.EventHandler(this.returnBtn_Click);
             // 
             // salesBtn
@@ -146,13 +147,14 @@
             this.salesBtn.ForeColor = System.Drawing.Color.White;
             this.salesBtn.Image = ((System.Drawing.Image)(resources.GetObject("salesBtn.Image")));
             this.salesBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.salesBtn.Location = new System.Drawing.Point(7, 379);
+            this.salesBtn.Location = new System.Drawing.Point(10, 501);
             this.salesBtn.Name = "salesBtn";
             this.salesBtn.Size = new System.Drawing.Size(276, 55);
             this.salesBtn.TabIndex = 2;
             this.salesBtn.Text = "     Скидки";
             this.salesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.salesBtn.UseVisualStyleBackColor = true;
+            this.salesBtn.Visible = false;
             this.salesBtn.Click += new System.EventHandler(this.salesBtn_Click);
             // 
             // groupsBtn
