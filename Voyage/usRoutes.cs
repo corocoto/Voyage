@@ -43,6 +43,7 @@ namespace Voyage
             cbWorker.DataSource = bsForWorkers;
             cbWorker.ValueMember = "ID_Worker";
             cbWorker.DisplayMember = "sSurname";/*добавить sName*/
+            if (bsForRoutes.Count>0)
             cbWorker.SelectedValue = Convert.ToInt32(((DataRowView)this.bsForRoutes.Current).Row["ID_Worker"]);/*отмечает выбранный эл-т*/
         }
 
@@ -114,11 +115,18 @@ namespace Voyage
             dgvRoutes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvRoutes.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvRoutes.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            //cbCountries.SelectedIndex = 0;
-            //MessageBox.Show(Convert.ToString(((DataRowView)this.bsForRoutes.Current).Row["sCountry"]));
-            LoadDataFromWorkers(Convert.ToString(((DataRowView)this.bsForRoutes.Current).Row["sCountry"]));
-            LoadDataFromPuncts(Convert.ToString(((DataRowView)this.bsForRoutes.Current).Row["sCountry"]));
-            LoadDataFromRoutesPuncts(Convert.ToInt32(((DataRowView)this.bsForRoutes.Current).Row["ID_Route"]));
+            if (bsForRoutes.Count > 0)
+            {
+                LoadDataFromWorkers(Convert.ToString(((DataRowView)this.bsForRoutes.Current).Row["sCountry"]));
+                LoadDataFromPuncts(Convert.ToString(((DataRowView)this.bsForRoutes.Current).Row["sCountry"]));
+                LoadDataFromRoutesPuncts(Convert.ToInt32(((DataRowView)this.bsForRoutes.Current).Row["ID_Route"]));
+            }
+            else
+            {
+                cbCountries.SelectedIndex = 0;
+                LoadDataFromWorkers("Россия");
+                LoadDataFromPuncts("Россия");
+            }
             lCount.Text = bsForRoutes.Count.ToString();
             if (cbAddPuncts.Items.Count > 0) cbCountries.Enabled = false;
             else cbCountries.Enabled = true;

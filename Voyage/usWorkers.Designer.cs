@@ -161,11 +161,12 @@
             this.groupBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBtn.ForeColor = System.Drawing.Color.White;
-            this.groupBtn.Location = new System.Drawing.Point(30, 193);
+            this.groupBtn.Location = new System.Drawing.Point(588, 782);
             this.groupBtn.Name = "groupBtn";
             this.groupBtn.Size = new System.Drawing.Size(118, 104);
             this.groupBtn.TabIndex = 21;
             this.groupBtn.UseVisualStyleBackColor = false;
+            this.groupBtn.Visible = false;
             // 
             // addBtn
             // 
@@ -200,7 +201,6 @@
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.groupBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(7, 586);
             this.panel1.Name = "panel1";
@@ -215,7 +215,7 @@
             this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.saveBtn.Image = ((System.Drawing.Image)(resources.GetObject("saveBtn.Image")));
-            this.saveBtn.Location = new System.Drawing.Point(167, 214);
+            this.saveBtn.Location = new System.Drawing.Point(106, 214);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(87, 60);
             this.saveBtn.TabIndex = 36;
@@ -441,6 +441,7 @@
             this.Controls.Add(this.photoOfWorker);
             this.Controls.Add(this.AbroadDoc);
             this.Controls.Add(this.dtpBithday);
+            this.Controls.Add(this.groupBtn);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.tbPatronymic);
             this.Controls.Add(this.label4);
