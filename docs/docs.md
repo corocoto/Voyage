@@ -307,7 +307,7 @@
 	<tr>
 		<td>Выход
 			<br>
-			<img src=""https://user-images.githubusercontent.com/37180024/50397172-9abf9a80-077f-11e9-993f-7adbe829583d.png>
+			<img src="https://user-images.githubusercontent.com/37180024/50397172-9abf9a80-077f-11e9-993f-7adbe829583d.png">
 		</td>
 		<td>«Выход» позволяет закрыть необходимую форму.</td>
 	</tr>
