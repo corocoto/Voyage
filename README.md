@@ -1,4 +1,11 @@
 <h1>Туристическая компания "Вояж"</h1>
+<p>
+  <img src="https://img.shields.io/github/repo-size/CreativeRusBear/Voyage.svg">
+  <img src="https://img.shields.io/badge/license-MIT-green.svg">
+  <img src="https://img.shields.io/badge/release-v1.0.0-blue.svg">
+  <img src="https://img.shields.io/github/tag/CreativeRusBear/Voyage.svg">
+  <img src="https://img.shields.io/badge/platform-win--32%20%7C%20win--64-lightgrey.svg">
+<p>
 <nav>
   <ul>
     <li>
