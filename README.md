@@ -2,8 +2,7 @@
 <p>
   <img src="https://img.shields.io/github/repo-size/CreativeRusBear/Voyage.svg">
   <a href="https://github.com/CreativeRusBear/Voyage/blob/master/LICENSE">
-    <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT">
-  </a>
+    <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT"></a>
   <img src="https://img.shields.io/badge/release-v1.0.0-blue.svg">
   <img src="https://img.shields.io/github/tag/CreativeRusBear/Voyage.svg">
   <img src="https://img.shields.io/badge/platform-win--32%20%7C%20win--64-lightgrey.svg">
