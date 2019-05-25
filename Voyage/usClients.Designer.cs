@@ -454,9 +454,9 @@
             this.AbroadDoc.AutoSize = true;
             this.AbroadDoc.Location = new System.Drawing.Point(422, 707);
             this.AbroadDoc.Name = "AbroadDoc";
-            this.AbroadDoc.Size = new System.Drawing.Size(246, 25);
+            this.AbroadDoc.Size = new System.Drawing.Size(236, 25);
             this.AbroadDoc.TabIndex = 18;
-            this.AbroadDoc.Text = "Наличие загрант паспорта";
+            this.AbroadDoc.Text = "Наличие загранпаспорта";
             this.AbroadDoc.UseVisualStyleBackColor = true;
             this.AbroadDoc.CheckedChanged += new System.EventHandler(this.AbroadDoc_CheckedChanged);
             // 
