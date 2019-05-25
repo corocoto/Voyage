@@ -337,7 +337,7 @@ namespace Voyage
             workSheet.Cells[1, 2] = "Фамилия";
             workSheet.Cells[1, 3] = "Отчество";
             workSheet.Cells[1, 4] = "День рождения";
-            workSheet.Cells[1, 5] = "Наличие загрант паспорта";
+            workSheet.Cells[1, 5] = "Наличие загранпаспорта";
             Excel.Range title = workSheet.Range["A1:E1"];
             title.Cells.Font.Name = "Tahoma";
             title.Font.Size = "16";

@@ -384,7 +384,7 @@ namespace Voyage
             workSheet.Cells[1, 7] = "Номер";
             workSheet.Cells[1, 8] = "Документ выдан...";
             workSheet.Cells[1, 9] = "Дата выдачи";
-            workSheet.Cells[1, 10] = "Наличие загрант паспорта";
+            workSheet.Cells[1, 10] = "Наличие загранпаспорта";
             Excel.Range title = workSheet.Range["A1:J1"];
             title.Cells.Font.Name = "Tahoma";
             title.Font.Size = "16";

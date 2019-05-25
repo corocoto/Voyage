@@ -370,7 +370,7 @@
             this.cbDoc.FormattingEnabled = true;
             this.cbDoc.Items.AddRange(new object[] {
             "паспорт",
-            "загрант паспорт",
+            "загранпаспорт",
             "свидетельство о рождении"});
             this.cbDoc.Location = new System.Drawing.Point(505, 282);
             this.cbDoc.Name = "cbDoc";
